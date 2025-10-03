@@ -1,0 +1,320 @@
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <img src="imgs/logo principal.png" alt="AllVale Logo" class="footer-logo">
+      <p class="footer-desc">Esquadrias para residências de alto padrão em alumínio e com texturas de madeira.</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h3>Páginas</h3>
+      <ul>
+        <li><a href="sobre nos/index.html">Sobre Nós</a></li>
+        <li><a href="portfólio/index.html">Portfólio</a></li>
+        <li><a href="produtos/index.html">Produtos</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="contato/index.html">Contato</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Contato</h3>
+      <p>Av. Amador Bueno da Veiga, 399<br>Jardim Jaragua, Taubaté - SP<br>12062-400</p>
+      <p><a href="mailto:contato@allvalealuminio.com.br">contato@allvalealuminio.com.br</a></p>
+      <p>(12) 99764-3142</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="copy">Copyright © AllVale Esquadrias de Alumínio | Todos os Direitos Reservados</p>
+    <p class="feito"><i class="fas fa-bolt"></i> Feito por <a href="https://www.platinumcreativehub.com.br" target="_blank">Platinum Creative Hub</a></p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: #f8f8f8;
+    color: #ecf0f1;
+    padding: 50px 0 20px 0;
+    margin-top: 50px;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-logo {
+    width: 250px;
+    height: auto;
+    margin-bottom: -50px;
+    margin-top: -75px;
+  }
+
+  .footer-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #000;
+    margin-bottom: 25px;
+    max-width: 300px;
+    text-align: left;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 15px;
+    margin-left: 60px;
+  }
+
+  .footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #000;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s ease;
+  }
+
+  .footer-social a:hover {
+    background: #000080;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .footer-col h3 {
+    color: #000080;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: left;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+  }
+
+  .footer-col ul li {
+    margin-bottom: 12px;
+  }
+
+  .footer-col ul li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 2px 0;
+  }
+
+  .footer-col ul li a:hover {
+    color: #000080;
+    padding-left: 5px;
+  }
+
+  .footer-col p {
+    color: #000;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+
+  .footer-col p a {
+    color: #000080;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-col p a:hover {
+    color: #25D366;
+    text-decoration: underline;
+  }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 30px auto 0 auto;
+    padding: 20px 20px 0 20px;
+    border-top: 1px solid #34495e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 12px;
+    color: #95a5a6;
+  }
+
+  .copy {
+    margin: 0;
+  }
+
+  .feito {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .feito i {
+    color: #000080;
+  }
+
+  .feito a {
+    color: #000080;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .feito a:hover {
+    color: #25D366;
+  }
+
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .footer {
+      padding: 40px 0 15px 0;
+      margin-top: 30px;
+    }
+
+    .footer-container {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      text-align: center;
+      padding: 0 15px;
+    }
+
+    .footer-col {
+      align-items: center;
+    }
+
+    .footer-logo {
+      width: 180px;
+      margin-bottom: -30px;
+    }
+
+    .footer-desc {
+      max-width: 100%;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .footer-social {
+      margin-left: 0;
+      justify-content: center;
+    }
+
+    .footer-social a {
+      width: 35px;
+      height: 35px;
+      font-size: 16px;
+    }
+
+    .footer-col h3 {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .footer-col ul li a,
+    .footer-col p {
+      font-size: 13px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+      padding: 15px 15px 0 15px;
+    }
+
+    .copy,
+    .feito {
+      font-size: 11px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer {
+      padding: 30px 0 15px 0;
+    }
+
+    .footer-container {
+      padding: 0 15px;
+      gap: 25px;
+    }
+
+    .footer-logo {
+      width: 120px;
+    }
+
+    .footer-col h3 {
+      font-size: 16px;
+    }
+
+    .footer-col ul li a,
+    .footer-col p {
+      font-size: 13px;
+    }
+
+    .footer-social a {
+      width: 35px;
+      height: 35px;
+      font-size: 16px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Adicionar efeitos de hover suaves
+    const socialLinks = document.querySelectorAll('.footer-social a');
+    
+    socialLinks.forEach(link => {
+      link.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-2px) scale(1.1)';
+      });
+      
+      link.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+
+    // Adicionar animação de entrada
+    const footerCols = document.querySelectorAll('.footer-col');
+    footerCols.forEach((col, index) => {
+      col.style.opacity = '0';
+      col.style.transform = 'translateY(20px)';
+      
+      setTimeout(() => {
+        col.style.transition = 'all 0.6s ease';
+        col.style.opacity = '1';
+        col.style.transform = 'translateY(0)';
+      }, index * 100);
+    });
+  });
+</script>

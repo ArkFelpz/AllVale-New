@@ -1,0 +1,501 @@
+<header id="header">
+  <div class="header-container">
+    <div class="logo-container">
+      <img src="imgs/logo principal.png" alt="Logo AllVale" class="logo">
+    </div>
+    
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+    
+    <nav id="navbar">
+      <ul>
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="sobre nos/index.html">Sobre Nós</a></li>
+        <li><a href="Portfolio/index.html">Portfólio</a></li>
+        <li><a href="produtos/index.html">Produtos</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="contato/index.html">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    position: relative;
+    background: #f8f8f8;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 85px;
+  }
+  .logo-container {
+    flex-shrink: 0;
+  }
+  .logo {
+    height: 200px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    margin-top: 10px;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li {
+    position: relative;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: normal;
+    font-stretch: normal;
+    transition: color 0.3s ease;
+    padding: 10px 0;
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #000059, #223E70);
+    transition: width 0.4s ease;
+  }
+
+  nav ul li a:hover {
+    color: #000080;
+  }
+
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+
+  nav ul li a.active {
+    color: #000080;
+    font-weight: 700;
+    letter-spacing: normal;
+    font-stretch: normal;
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #000;
+    padding: 10px;
+    transition: color 0.3s ease;
+  }
+
+  .menu-toggle:hover {
+    color: #000080;
+  }
+
+  /* Header Sticky para Mobile */
+  @media (max-width: 768px) {
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      background: rgba(248, 248, 248, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    header.scrolled {
+      background: rgba(248, 248, 248, 0.98);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+    }
+
+    .header-container {
+      padding: 0 15px;
+      height: 60px;
+    }
+
+    .logo {
+      height: 35px;
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled .logo {
+      height: 30px;
+    }
+
+    nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    /* Overlay escuro quando menu está aberto */
+    nav::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: -1;
+    }
+
+    nav.active::before {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    nav.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    nav ul {
+      flex-direction: column;
+      gap: 0;
+      padding: 20px 0;
+    }
+
+    nav ul li {
+      width: 100%;
+      text-align: center;
+    }
+
+    nav ul li a {
+      padding: 15px 20px;
+      border-bottom: 1px solid rgba(240, 240, 240, 0.5);
+      font-size: 16px;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.3s ease;
+    }
+
+    nav.active ul li a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    nav.active ul li:nth-child(1) a { transition-delay: 0.1s; }
+    nav.active ul li:nth-child(2) a { transition-delay: 0.2s; }
+    nav.active ul li:nth-child(3) a { transition-delay: 0.3s; }
+    nav.active ul li:nth-child(4) a { transition-delay: 0.4s; }
+    nav.active ul li:nth-child(5) a { transition-delay: 0.5s; }
+    nav.active ul li:nth-child(6) a { transition-delay: 0.6s; }
+
+    nav ul li:last-child a {
+      border-bottom: none;
+    }
+
+  .menu-toggle {
+    display: block;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1001;
+  }
+
+  .menu-toggle:hover {
+    transform: scale(1.1);
+  }
+
+  .menu-toggle i {
+    transition: all 0.3s ease;
+    font-size: 20px;
+  }
+
+  .menu-toggle.active i {
+    transform: rotate(180deg);
+  }
+
+  /* Animação do menu hambúrguer */
+  .menu-toggle .hamburger {
+    display: flex;
+    flex-direction: column;
+    width: 25px;
+    height: 20px;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .menu-toggle .hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .menu-toggle.active .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-toggle.active .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+  }
+
+  @media (max-width: 480px) {
+    .header-container {
+      padding: 0 10px;
+    }
+
+    .logo {
+      height: 45px;
+    }
+
+    nav ul li a {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: normal;
+      font-stretch: normal;
+      padding: 12px 15px;
+    }
+  }
+</style>
+
+<script>
+  // Função para alternar o menu mobile
+  function toggleMenu() {
+    const navbar = document.getElementById("navbar");
+    const menuToggle = document.getElementById("menuToggle");
+    
+    navbar.classList.toggle("active");
+    menuToggle.classList.toggle("active");
+    
+    // Prevenir scroll do body quando menu está aberto
+    if (navbar.classList.contains("active")) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }
+
+  // Fechar menu ao clicar em um link
+  function closeMenu() {
+    const navbar = document.getElementById("navbar");
+    const menuToggle = document.getElementById("menuToggle");
+    
+    navbar.classList.remove("active");
+    menuToggle.classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+
+  // Destacar link ativo
+  function setActiveLink() {
+    const currentPath = window.location.pathname;
+    const links = document.querySelectorAll("#navbar a");
+
+    links.forEach(link => {
+      link.classList.remove("active");
+      const href = link.getAttribute("href");
+      
+      // Verificar se é a página atual
+      if (href === currentPath || 
+          (currentPath.endsWith('/') && href === 'index.html' && currentPath.includes('index.html')) ||
+          (href === 'index.html' && currentPath === '/')) {
+        link.classList.add("active");
+      }
+    });
+  }
+
+  // Função para header sticky em mobile
+  function handleScroll() {
+    const header = document.querySelector("header");
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    }
+  }
+
+  // Função para detectar dispositivo móvel
+  function isMobileDevice() {
+    return window.innerWidth <= 768;
+  }
+
+  // Função para ajustar padding do body quando header é fixo
+  function adjustBodyPadding() {
+    const header = document.querySelector("header");
+    const isMobile = isMobileDevice();
+    
+    if (isMobile) {
+      document.body.style.paddingTop = "60px";
+    } else {
+      document.body.style.paddingTop = "0";
+    }
+  }
+
+  // Função para adicionar efeitos de hover nos links do menu
+  function addMenuHoverEffects() {
+    const navLinks = document.querySelectorAll("#navbar a");
+    
+    navLinks.forEach(link => {
+      link.addEventListener("mouseenter", function() {
+        this.style.backgroundColor = "rgba(243, 156, 18, 0.1)";
+        this.style.transform = "translateX(10px)";
+      });
+      
+      link.addEventListener("mouseleave", function() {
+        this.style.backgroundColor = "transparent";
+        this.style.transform = "translateX(0)";
+      });
+    });
+  }
+
+  // Função para adicionar feedback tátil em dispositivos móveis
+  function addTouchFeedback() {
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.querySelectorAll("#navbar a");
+    
+    // Feedback no botão do menu
+    menuToggle.addEventListener("touchstart", function() {
+      this.style.transform = "scale(0.95)";
+    });
+    
+    menuToggle.addEventListener("touchend", function() {
+      this.style.transform = "scale(1)";
+    });
+    
+    // Feedback nos links do menu
+    navLinks.forEach(link => {
+      link.addEventListener("touchstart", function() {
+        this.style.backgroundColor = "rgba(243, 156, 18, 0.2)";
+      });
+      
+      link.addEventListener("touchend", function() {
+        setTimeout(() => {
+          this.style.backgroundColor = "transparent";
+        }, 150);
+      });
+    });
+  }
+
+  // Função para adicionar animação de entrada do menu
+  function animateMenuItems() {
+    const navLinks = document.querySelectorAll("#navbar a");
+    
+    navLinks.forEach((link, index) => {
+      link.style.animationDelay = `${index * 0.1}s`;
+    });
+  }
+
+  // Event listeners
+  document.addEventListener("DOMContentLoaded", function() {
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.querySelectorAll("#navbar a");
+    const header = document.querySelector("header");
+    
+    // Ajustar padding inicial
+    adjustBodyPadding();
+    
+    // Toggle menu
+    menuToggle.addEventListener("click", function(e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+    
+    // Fechar menu ao clicar em links
+    navLinks.forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.stopPropagation();
+        closeMenu();
+      });
+    });
+    
+    // Fechar menu ao clicar fora
+    document.addEventListener("click", function(e) {
+      const navbar = document.getElementById("navbar");
+      const menuToggle = document.getElementById("menuToggle");
+      
+      if (!navbar.contains(e.target) && !menuToggle.contains(e.target)) {
+        closeMenu();
+      }
+    });
+    
+    // Fechar menu com tecla ESC
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        closeMenu();
+      }
+    });
+    
+    // Definir link ativo
+    setActiveLink();
+    
+    // Scroll listener para header sticky
+    window.addEventListener("scroll", handleScroll);
+    
+    // Resize listener para ajustar responsividade
+    window.addEventListener("resize", function() {
+      adjustBodyPadding();
+      if (window.innerWidth > 768) {
+        closeMenu();
+        header.classList.remove("scrolled");
+      }
+    });
+    
+    // Adicionar efeitos extras
+    addMenuHoverEffects();
+    addTouchFeedback();
+    animateMenuItems();
+  });
+
+</script>
