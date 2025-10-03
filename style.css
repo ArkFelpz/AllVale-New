@@ -1,0 +1,2193 @@
+/* Reset e Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background-color: #F8F8F8;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============================================
+   SISTEMA DE ANIMAÇÕES AVANÇADO
+   ============================================ */
+
+/* Animações de Entrada */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes flipInX {
+  0% {
+    opacity: 0;
+    transform: perspective(400px) rotateX(90deg);
+  }
+  40% {
+    transform: perspective(400px) rotateX(-20deg);
+  }
+  60% {
+    opacity: 1;
+    transform: perspective(400px) rotateX(10deg);
+  }
+  80% {
+    transform: perspective(400px) rotateX(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(400px) rotateX(0deg);
+  }
+}
+
+@keyframes flipInY {
+  0% {
+    opacity: 0;
+    transform: perspective(400px) rotateY(90deg);
+  }
+  40% {
+    transform: perspective(400px) rotateY(-20deg);
+  }
+  60% {
+    opacity: 1;
+    transform: perspective(400px) rotateY(10deg);
+  }
+  80% {
+    transform: perspective(400px) rotateY(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(400px) rotateY(0deg);
+  }
+}
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animações de Rotação */
+@keyframes rotateIn {
+  0% {
+    opacity: 0;
+    transform: rotate(-200deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rotateInDownLeft {
+  0% {
+    opacity: 0;
+    transform: rotate(-45deg);
+    transform-origin: left bottom;
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg);
+    transform-origin: left bottom;
+  }
+}
+
+@keyframes rotateInDownRight {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg);
+    transform-origin: right bottom;
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg);
+    transform-origin: right bottom;
+  }
+}
+
+/* Animações de Pulsação e Efeitos */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.1);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes wobble {
+  0% {
+    transform: translateX(0%);
+  }
+  15% {
+    transform: translateX(-25%) rotate(-5deg);
+  }
+  30% {
+    transform: translateX(20%) rotate(3deg);
+  }
+  45% {
+    transform: translateX(-15%) rotate(-3deg);
+  }
+  60% {
+    transform: translateX(10%) rotate(2deg);
+  }
+  75% {
+    transform: translateX(-5%) rotate(-1deg);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes swing {
+  20% {
+    transform: rotate(15deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  80% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Animações de Brilho e Gradiente */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(0, 0, 128, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 0, 128, 0.8), 0 0 30px rgba(0, 0, 128, 0.4);
+  }
+}
+
+/* Animações de Fade */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Animações de Zoom */
+@keyframes zoomInUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.1) translateY(250px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05) translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes zoomInDown {
+  0% {
+    opacity: 0;
+    transform: scale(0.1) translateY(-250px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Animações de Deslize */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animações de Elástico */
+@keyframes elasticIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ============================================
+   CLASSES DE ANIMAÇÃO - FÁCEIS DE USAR
+   ============================================ */
+
+.animate {
+  opacity: 0;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
+}
+
+/* Animações de Entrada */
+.fadeIn { animation-name: fadeIn; }
+.fadeInDown { animation-name: fadeInDown; }
+.fadeInUp { animation-name: fadeInUp; }
+.fadeInLeft { animation-name: fadeInLeft; }
+.fadeInRight { animation-name: fadeInRight; }
+.fadeOut { animation-name: fadeOut; }
+
+/* Animações de Zoom */
+.zoomIn { animation-name: zoomIn; }
+.zoomOut { animation-name: zoomOut; }
+.zoomInUp { animation-name: zoomInUp; }
+.zoomInDown { animation-name: zoomInDown; }
+
+/* Animações de Deslize */
+.slideInLeft { animation-name: slideInLeft; }
+.slideInRight { animation-name: slideInRight; }
+.slideInUp { animation-name: slideInUp; }
+.slideInDown { animation-name: slideInDown; }
+
+/* Animações de Rotação */
+.rotateIn { animation-name: rotateIn; }
+.rotateInDownLeft { animation-name: rotateInDownLeft; }
+.rotateInDownRight { animation-name: rotateInDownRight; }
+
+/* Animações de Efeito */
+.bounceIn { animation-name: bounceIn; }
+.flipInX { animation-name: flipInX; }
+.flipInY { animation-name: flipInY; }
+.elasticIn { animation-name: elasticIn; }
+
+/* ============================================
+   ANIMAÇÕES DE HOVER E INTERAÇÃO
+   ============================================ */
+
+/* Hover Effects */
+.hover-pulse:hover {
+  animation: pulse 1s infinite;
+}
+
+.hover-bounce:hover {
+  animation: bounceIn 0.6s ease;
+}
+
+.hover-shake:hover {
+  animation: shake 0.5s ease-in-out;
+}
+
+.hover-wobble:hover {
+  animation: wobble 1s ease-in-out;
+}
+
+.hover-swing:hover {
+  animation: swing 1s ease-in-out;
+}
+
+.hover-glow:hover {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Hover Effects específicos para botões (sem conflitar com estilos existentes) */
+.btn-hover-pulse {
+  transition: all 0.3s ease;
+}
+
+.btn-hover-pulse:hover {
+  animation: pulse 1s infinite;
+  transform: translateY(-2px) !important;
+}
+
+.btn-hover-pulse:not(:hover) {
+  animation: none;
+  transform: translateY(0) !important;
+}
+
+.btn-hover-bounce {
+  transition: all 0.3s ease;
+}
+
+.btn-hover-bounce:hover {
+  animation: bounceIn 0.6s ease;
+  transform: translateY(-2px) !important;
+}
+
+.btn-hover-bounce:not(:hover) {
+  animation: none;
+  transform: translateY(0) !important;
+}
+
+.btn-hover-shake {
+  transition: all 0.3s ease;
+}
+
+.btn-hover-shake:hover {
+  animation: shake 0.5s ease-in-out;
+}
+
+.btn-hover-glow {
+  transition: all 0.3s ease;
+}
+
+.btn-hover-glow:hover {
+  animation: glow 2s ease-in-out infinite alternate;
+  transform: translateY(-2px) !important;
+}
+
+.btn-hover-glow:not(:hover) {
+  animation: none;
+  transform: translateY(0) !important;
+}
+
+/* Garantir que as animações dos botões funcionem corretamente */
+.btn-whatsapp.btn-hover-pulse {
+  transition: all 0.3s ease;
+}
+
+.btn-whatsapp.btn-hover-pulse:hover {
+  animation: pulse 1s infinite;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4) !important;
+}
+
+.btn-whatsapp.btn-hover-pulse:not(:hover) {
+  animation: none;
+  transform: translateY(0) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+
+/* Shimmer Effect */
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* ============================================
+   DELAYS E DURAÇÕES PERSONALIZÁVEIS
+   ============================================ */
+
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
+.animate-delay-4 { animation-delay: 0.4s; }
+.animate-delay-5 { animation-delay: 0.5s; }
+
+.animate-fast { animation-duration: 0.5s; }
+.animate-slow { animation-duration: 2s; }
+.animate-slower { animation-duration: 3s; }
+
+/* ============================================
+   ANIMAÇÕES INFINITAS
+   ============================================ */
+
+.animate-infinite {
+  animation-iteration-count: infinite;
+}
+
+.pulse-infinite {
+  animation: pulse 2s infinite;
+}
+
+.heartbeat-infinite {
+  animation: heartbeat 1.5s infinite;
+}
+
+.glow-infinite {
+  animation: glow 2s infinite;
+}
+
+/* ============================================
+   ANIMAÇÕES DE SCROLL (REVEAL)
+   ============================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease;
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s ease;
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.8s ease;
+}
+
+.reveal-scale.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hero Section - Baseado no #b1827d1 */
+.hero-section {
+  display: flex;
+  min-height: 750px;
+  flex-direction: row;
+  align-items: center;
+  gap: 0px;
+  padding: 50px;
+  position: relative;
+  overflow: hidden;
+  background-image: url("imgs/banner.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+  border-radius: 0 0 0 247px;
+  margin-top: -60px;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding-left: 110px;
+}
+
+/* Ajuste para mobile - centralizar conteúdo */
+@media (max-width: 768px) {
+  .hero-container {
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 600px;
+  left: 300px;
+}
+
+/* Ajuste para mobile - remover posicionamento absoluto */
+@media (max-width: 768px) {
+  .hero-content {
+    left: 0;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Título Principal - Baseado no #bffbc59 */
+.hero-title {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 53px;
+  font-weight: 700;
+  left: 100px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  text-shadow: 2px -3px 10px rgba(0, 0, 0, 0.36);
+  text-align: left;
+  line-height: 1.2;
+}
+
+/* Subtítulo - Baseado no #a6c8731 */
+.hero-subtitle {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 22px;
+  font-weight: 100;
+  text-shadow: 0 -2px 0 rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  text-align: left;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  line-height: 1.4;
+}
+
+/* Botão WhatsApp - Baseado no #362dd75 */
+.hero-button {
+  margin: 30px 0px 0px 0px;
+  padding: 0px;
+  align-self: flex-start;
+}
+
+.btn-whatsapp {
+  background-color: transparent;
+  font-family: "Montserrat", Sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-image: linear-gradient(139deg, #000059 0%, #223E70 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
+  padding: 15px 30px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.btn-whatsapp::before,
+.btn-whatsapp::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background-color: #25D366;
+  transition: width 0.5s ease;
+  z-index: -1;
+}
+
+.btn-whatsapp::before { 
+  left: 0; 
+  border-radius: 50px 0 0 50px;
+}
+.btn-whatsapp::after { 
+  right: 0; 
+  border-radius: 0 50px 50px 0;
+}
+
+.btn-whatsapp:hover::before,
+.btn-whatsapp:hover::after {
+  width: 50%;
+}
+
+.btn-whatsapp:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp:active,
+.btn-whatsapp:focus {
+  outline: none;
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-content {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-icon {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.btn-text {
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* About Section */
+.about-section {
+  padding: 120px 0;
+  background: #f8f8f8;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 20px;
+  background: #f8f8f8;
+}
+
+.about-text .section-description {
+  line-height: 1.6 !important;
+  font-size: 20px !important;
+}
+
+.about-text:first-child {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.about-image:first-of-type {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.about-image:last-of-type {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.about-text:last-child {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.section-title {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #000080;
+  margin-bottom: 40px;
+  line-height: 0.9;
+  text-align: right;
+}
+
+.section-title1 {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #000080;
+  margin-bottom: 40px;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.section-title2 {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 40px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.product-title1 {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  text-align: right;
+
+}
+.product-title2 {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  text-align: center;
+
+}
+
+.section-description {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 20px;
+  color: #4D7279;
+  line-height: 1.6;
+  text-align: left;
+  font-weight: 400;
+  text-align: right;
+}
+.section-description1 {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 20px;
+  color: #4D7279;
+  line-height: 1.6;
+  text-align: left;
+  font-weight: 400;
+  text-align: left;
+}
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  width: 450px;
+  height: 600px;
+  object-fit: cover;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.about-image-right img {
+  border-radius: 20px 80px 80px 20px !important;
+}
+
+.about-image-left img {
+  border-radius: 80px 20px 20px 80px !important;
+}
+
+.about-image img:hover {
+  transform: scale(1.02);
+}
+
+/* Process Section */
+.process-section {
+  padding: 120px 0;
+  background: #f8f8f8;
+}
+
+.process-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.process-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 60px;
+}
+
+.process-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.process-image img {
+  width: 100%;
+  max-width: 500px;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 100px 20px 20px 100px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.process-image img:hover {
+  transform: scale(1.02);
+}
+
+/* Projects Section */
+.projects-section {
+  padding: 100px 0;
+  background: #f8f8f8;
+  text-align: center;
+}
+
+.projects-header {
+  margin-bottom: 60px;
+}
+
+.projects-header .section-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #000080;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.projects-header .section-description {
+  font-size: 20px;
+  color: #4D7279;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-content {
+  padding: 30px;
+}
+
+.project-title {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.project-link {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000080;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: #25D366;
+}
+
+/* Quality Section */
+.quality-section {
+  padding: 100px 0;
+  background: #f8f8f8;
+  text-align: center;
+}
+
+.quality-section .section-title {
+  font-size: 25px;              /* texto menor */
+  max-width: 1200px;             /* largura da caixa */
+  margin: 0 auto;
+  background: #e6e6e6;          /* cinza mais próximo do da imagem */
+  padding: 40px 80px;           /* menos espaçamento interno */
+  border-radius: 8px;           /* cantos menos arredondados */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* sombra mais sutil */
+  color: #2f4f4f;               /* cinza azulado do texto */
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: center;
+}
+/* Products Section */
+.products-section {
+  padding: 100px 0;
+  background: #f8f8f8;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 40px;
+}
+
+.product-card {
+  background: #f8f8f8;
+  padding: 50px 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.product-title {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.product-description {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 18px;
+  color: #666;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Exclusive Section */
+.exclusive-section {
+  padding: 80px 0;
+  background: #f8f8f8;
+  text-align: center;
+}
+
+.exclusive-content {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.exclusive-badge {
+  background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+  padding: 40px 60px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); 
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  max-width: 400px;
+  width: 100%;
+}
+
+.exclusive-badge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  z-index: 1;
+}
+
+.exclusive-title {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+  line-height: 1.2;
+  position: relative;
+  z-index: 2;
+}
+
+.exclusive-tag {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 100px 0;
+  background: #f8f8f8;
+  text-align: center;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.testimonials-title {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #000080;
+  margin: 0;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin: 40px 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+.testimonial-card {
+  background: #f8f8f8;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.testimonial-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  flex: 1;
+}
+
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.testimonial-card:nth-child(1) .testimonial-avatar {
+  background: #ff6b35;
+}
+
+.testimonial-card:nth-child(2) .testimonial-avatar {
+  background: #8e44ad;
+}
+
+.testimonial-card:nth-child(3) .testimonial-avatar {
+  background: #27ae60;
+}
+
+.testimonial-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+}
+
+.testimonial-name {
+  font-weight: 700;
+  color: #000;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+.testimonial-date {
+  font-size: 14px;
+  color: #000;
+  font-weight: 400;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+  background: #4285f4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.testimonial-stars {
+  color: #f39c12;
+  margin-bottom: 15px;
+}
+
+.testimonial-stars i {
+  margin-right: 2px;
+}
+
+.testimonial-text {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.testimonials-summary {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.summary-text {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.summary-stars {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: 15px;
+  color: #f39c12;
+}
+
+.google-logo {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  width: 60px;
+  height: 20px;
+}
+
+.testimonial-summary {
+  margin-top: 40px;
+  padding: 30px;
+  background: #f8f8f8;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonial-summary h3 {
+  font-size: 24px;
+  color: #2c3e50;
+}
+
+.rating-stars {
+  color: #f39c12;
+  font-size: 24px;
+}
+
+.rating-stars i {
+  margin-right: 5px;
+}
+
+.google-logo {
+  font-size: 24px;
+  color: #4285f4;
+}
+
+/* Gallery Section */
+.gallery-section {
+  padding: 100px 0;
+  background: #f8f8f8;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* Talentus Box Section */
+.talentus-box-section {
+  padding: 100px 0;
+  background: #f8f8f8;
+  text-align: center;
+}
+
+.talentus-box {
+  background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+  padding: 60px 80px;
+  margin: 0 auto;
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 89, 0.3);
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.talentus-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  z-index: 1;
+}
+
+.talentus-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 89, 0.4);
+}
+
+.talentus-title {
+  font-family: "Montserrat", Sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 40px;
+  line-height: 1.2;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.talentus-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: #ffffff;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: "Montserrat", Sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.talentus-button:hover {
+  background: #20b85a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  color: #ffffff;
+}
+
+.talentus-button i {
+  font-size: 14px;
+}
+
+
+/* Floating WhatsApp Button */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+}
+
+.floating-whatsapp a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 24px;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+}
+
+.floating-whatsapp a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+}
+
+/* ============================================
+   RESPONSIVIDADE MOBILE AVANÇADA
+   ============================================ */
+
+/* Melhorias gerais para mobile */
+@media (max-width: 768px) {
+  /* Melhorar performance de scroll */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Ajustar viewport para evitar zoom horizontal */
+  html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+  
+  /* Melhorar legibilidade do texto */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Ajustar botões para touch */
+  .btn-whatsapp,
+  .floating-whatsapp a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Melhorar espaçamento entre seções */
+  section {
+    scroll-margin-top: 70px;
+  }
+}
+
+/* Tablet Landscape */
+@media (max-width: 1024px) {
+  .hero-section {
+    min-height: 516px;
+  }
+  
+  .hero-title {
+    font-size: 45px;
+  }
+  
+  .hero-subtitle {
+    font-size: 18px;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .about-content {
+    gap: 30px;
+    padding: 0 30px;
+  }
+  
+  .about-image img {
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+  }
+}
+
+/* Tablet Portrait */
+@media (max-width: 900px) {
+  .hidden-tablet {
+    display: none;
+  }
+  
+  .hero-content {
+    left: 200px;
+    max-width: 500px;
+  }
+  
+  .hero-title {
+    font-size: 40px;
+  }
+  
+  .hero-subtitle {
+    font-size: 17px;
+  }
+  
+  .section-title {
+    font-size: 42px;
+  }
+  
+  .section-title1 {
+    font-size: 42px;
+  }
+  
+  .section-title2 {
+    font-size: 42px;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 25px;
+    padding: 0 25px;
+  }
+  
+  .about-text:first-child,
+  .about-text:last-child,
+  .about-image:first-of-type,
+  .about-image:last-of-type {
+    grid-row: auto;
+    grid-column: auto;
+  }
+  
+  .about-text {
+    text-align: center;
+    padding: 20px 15px;
+  }
+  
+  .section-title {
+    text-align: center;
+  }
+  
+  .section-description {
+    text-align: center;
+  }
+  
+  .section-description1 {
+    text-align: center;
+  }
+}
+
+/* Mobile Landscape */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .hero-section {
+    min-height: 600px;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 20px;
+    border-radius: 0;
+    margin-top: 0;
+    background-position: center center;
+  }
+  
+  .hero-container {
+    padding-left: 20px;
+    justify-content: center;
+  }
+  
+  .hero-content {
+    left: 0;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 35px;
+    margin-top: 0;
+    margin-left: 0;
+    text-align: center;
+    line-height: 1.1;
+  }
+  
+  .hero-subtitle {
+    font-size: 16px;
+    margin-left: 0;
+    text-align: center;
+    line-height: 1.3;
+  }
+  
+  .hero-button {
+    margin: 25px auto 0 auto;
+    padding: 0;
+    align-self: center;
+  }
+  
+  .about-section {
+    padding: 80px 0;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 30px;
+    padding: 0 20px;
+  }
+  
+  .about-text {
+    padding: 20px 15px;
+    text-align: center;
+  }
+  
+  .about-text:first-child,
+  .about-text:last-child,
+  .about-image:first-of-type,
+  .about-image:last-of-type {
+    grid-row: auto;
+    grid-column: auto;
+  }
+  
+  .about-image img {
+    width: 100%;
+    max-width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+  
+  .about-image-right img {
+    border-radius: 20px !important;
+  }
+  
+  .about-image-left img {
+    border-radius: 20px !important;
+  }
+  
+  .section-title {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .section-title1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .section-title2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .quality-section .section-title {
+    font-size: 22px;
+    padding: 30px 40px;
+    margin-bottom: 0;
+  }
+  
+  .section-description {
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  
+  .section-description1 {
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  
+  .products-section {
+    padding: 80px 0;
+  }
+  
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 20px;
+  }
+  
+  .product-card {
+    padding: 40px 30px;
+    text-align: center;
+  }
+  
+  .product-card-allvale {
+    padding: 40px 30px;
+    max-width: 100%;
+  }
+  
+  .product-title {
+    font-size: 24px;
+  }
+  
+  .product-description {
+    font-size: 16px;
+  }
+  
+  .testimonials-section {
+    padding: 80px 0;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 0 20px;
+  }
+  
+  .testimonial-card {
+    padding: 25px 20px;
+  }
+  
+  .gallery-section {
+    padding: 80px 0;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 20px;
+  }
+  
+  .project-image {
+    height: 250px;
+  }
+  
+  .gallery-item img {
+    height: 300px;
+  }
+  
+  
+  .floating-whatsapp {
+    bottom: 25px;
+    right: 25px;
+  }
+  
+  .floating-whatsapp a {
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+  }
+  
+  .hidden-mobile {
+    display: none;
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  .hero-section {
+    min-height: 500px;
+    padding: 15px;
+  }
+  
+  .hero-container {
+    padding-left: 15px;
+  }
+  
+  .hero-content {
+    left: 0;
+    max-width: 100%;
+  }
+  
+  .hero-title {
+    font-size: 28px;
+    text-align: center;
+    line-height: 1.1;
+    margin-bottom: 15px;
+  }
+  
+  .hero-subtitle {
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+  
+  .hero-button {
+    margin: 20px auto 0 auto;
+  }
+  
+  .btn-whatsapp {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+  
+  .about-section {
+    padding: 60px 0;
+  }
+  
+  .about-content {
+    padding: 0 15px;
+    gap: 25px;
+  }
+  
+  .about-text {
+    padding: 15px 10px;
+  }
+  
+  .about-image img {
+    height: 300px;
+    border-radius: 15px !important;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+  
+  .section-title1 {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+  
+  .section-title2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+  
+  .quality-section .section-title {
+    font-size: 18px;
+    padding: 25px 20px;
+    line-height: 1.3;
+  }
+  
+  .section-description {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  
+  .section-description1 {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  
+  .products-section {
+    padding: 60px 0;
+  }
+  
+  .products-grid {
+    padding: 0 15px;
+    gap: 25px;
+  }
+  
+  .product-card {
+    padding: 30px 20px;
+  }
+  
+  .product-card-allvale {
+    padding: 30px 20px;
+  }
+  
+  .product-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  
+  .product-description {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  
+  .testimonials-section {
+    padding: 60px 0;
+  }
+  
+  .testimonials-grid {
+    padding: 0 15px;
+    gap: 20px;
+  }
+  
+  .testimonial-card {
+    padding: 20px 15px;
+  }
+  
+  .testimonial-text {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  
+  .gallery-section {
+    padding: 60px 0;
+  }
+  
+  .gallery-grid {
+    padding: 0 15px;
+    gap: 15px;
+  }
+  
+  .gallery-item img {
+    height: 250px;
+  }
+  
+  
+  .floating-whatsapp {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .floating-whatsapp a {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+/* Responsividade para Talentus Box */
+@media (max-width: 768px) {
+  .talentus-box-section {
+    padding: 80px 0;
+  }
+  
+  .talentus-box {
+    padding: 40px 50px;
+    margin: 0 20px;
+    max-width: 90%;
+  }
+  
+  .talentus-title {
+    font-size: 30px;
+  }
+  
+  .talentus-button {
+    padding: 12px 25px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .talentus-box {
+    padding: 30px 40px;
+    margin: 0 15px;
+  }
+  
+  .talentus-title {
+    font-size: 26px;
+  }
+  
+  .talentus-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 24px;
+  }
+  
+  .hero-subtitle {
+    font-size: 13px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .section-title1 {
+    font-size: 24px;
+  }
+  
+  .section-title2 {
+    font-size: 24px;
+  }
+  
+  .quality-section .section-title {
+    font-size: 16px;
+    padding: 20px 15px;
+  }
+  
+  .product-title {
+    font-size: 20px;
+  }
+  
+  .product-description {
+    font-size: 14px;
+  }
+  
+  .btn-whatsapp {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+  
+  
+  .talentus-box {
+    padding: 25px 30px;
+    margin: 0 10px;
+  }
+  
+  .talentus-title {
+    font-size: 22px;
+  }
+  
+  .talentus-button {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+}
