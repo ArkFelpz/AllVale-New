@@ -587,13 +587,15 @@ body {
 }
 
 /* ============================================
-   ANIMAÇÕES DE SCROLL (REVEAL)
+   ANIMAÇÕES DE SCROLL (REVEAL) - MELHORADAS
    ============================================ */
 
+/* Estado inicial - elementos invisíveis */
 .reveal {
   opacity: 0;
   transform: translateY(50px);
-  transition: all 0.8s ease;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
 }
 
 .reveal.active {
@@ -604,7 +606,8 @@ body {
 .reveal-left {
   opacity: 0;
   transform: translateX(-50px);
-  transition: all 0.8s ease;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
 }
 
 .reveal-left.active {
@@ -615,7 +618,8 @@ body {
 .reveal-right {
   opacity: 0;
   transform: translateX(50px);
-  transition: all 0.8s ease;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
 }
 
 .reveal-right.active {
@@ -626,12 +630,249 @@ body {
 .reveal-scale {
   opacity: 0;
   transform: scale(0.8);
-  transition: all 0.8s ease;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
 }
 
 .reveal-scale.active {
   opacity: 1;
   transform: scale(1);
+}
+
+/* Novas animações com efeito 0 → -50px → 0 */
+.reveal-bounce {
+  opacity: 0;
+  transform: translateY(0);
+  transition: all 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  will-change: opacity, transform;
+}
+
+.reveal-bounce.active {
+  opacity: 1;
+  animation: bounceInFromZero 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes bounceInFromZero {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-slide-bounce {
+  opacity: 0;
+  transform: translateX(0);
+  transition: all 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  will-change: opacity, transform;
+}
+
+.reveal-slide-bounce.active {
+  opacity: 1;
+  animation: slideBounceIn 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes slideBounceIn {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.reveal-scale-bounce {
+  opacity: 0;
+  transform: scale(1);
+  transition: all 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  will-change: opacity, transform;
+}
+
+.reveal-scale-bounce.active {
+  opacity: 1;
+  animation: scaleBounceIn 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes scaleBounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animação de fade com movimento suave */
+.reveal-fade-slide {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+
+.reveal-fade-slide.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animação de rotação suave */
+.reveal-rotate {
+  opacity: 0;
+  transform: rotate(-10deg) scale(0.9);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+
+.reveal-rotate.active {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* Animação de flip */
+.reveal-flip {
+  opacity: 0;
+  transform: perspective(400px) rotateY(90deg);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+
+.reveal-flip.active {
+  opacity: 1;
+  transform: perspective(400px) rotateY(0deg);
+}
+
+/* Delays escalonados para animações em sequência */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* Otimizações para mobile */
+@media (max-width: 768px) {
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .reveal-bounce,
+  .reveal-slide-bounce,
+  .reveal-scale-bounce,
+  .reveal-fade-slide,
+  .reveal-rotate,
+  .reveal-flip {
+    transition-duration: 0.6s;
+    /* Reduzir movimento para melhor performance */
+    transform: translateY(20px) !important;
+  }
+  
+  .reveal-left {
+    transform: translateX(-20px) !important;
+  }
+  
+  .reveal-right {
+    transform: translateX(20px) !important;
+  }
+  
+  .reveal-bounce.active,
+  .reveal-slide-bounce.active,
+  .reveal-scale-bounce.active {
+    animation-duration: 0.8s;
+  }
+  
+  /* Ajustar keyframes para mobile */
+  @keyframes bounceInFromZero {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideBounceIn {
+    0% {
+      opacity: 0;
+      transform: translateX(0);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes scaleBounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(0.85);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Reduzir delays para mobile */
+  .reveal-delay-1 { transition-delay: 0.05s; }
+  .reveal-delay-2 { transition-delay: 0.1s; }
+  .reveal-delay-3 { transition-delay: 0.15s; }
+  .reveal-delay-4 { transition-delay: 0.2s; }
+  .reveal-delay-5 { transition-delay: 0.25s; }
+}
+
+/* Reduzir animações para usuários que preferem movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .reveal-bounce,
+  .reveal-slide-bounce,
+  .reveal-scale-bounce,
+  .reveal-fade-slide,
+  .reveal-rotate,
+  .reveal-flip {
+    transition: opacity 0.3s ease;
+    transform: none !important;
+  }
+  
+  .reveal-bounce.active,
+  .reveal-slide-bounce.active,
+  .reveal-scale-bounce.active {
+    animation: none;
+  }
 }
 
 /* Hero Section - Baseado no #b1827d1 */

@@ -204,14 +204,13 @@ body {
   transform-style: preserve-3d;
   overflow: hidden;
   cursor: pointer;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: fadeInUp 0.8s ease forwards;
 }
 
-.card:nth-child(1) { animation-delay: 0.2s; }
-.card:nth-child(2) { animation-delay: 0.4s; }
-.card:nth-child(3) { animation-delay: 0.6s; }
+/* Remover animação automática dos cards para usar o sistema reveal */
+.card:not(.reveal-bounce):not(.reveal-scale-bounce):not(.reveal-flip) {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 @keyframes fadeInUp {
   to {
@@ -219,6 +218,104 @@ body {
     transform: translateY(0);
   }
 }
+
+/* Novas animações com efeito 0 → -50px → 0 */
+.reveal-bounce {
+  opacity: 0;
+  transform: translateY(0);
+  transition: all 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  will-change: opacity, transform;
+}
+
+.reveal-bounce.active {
+  opacity: 1;
+  animation: bounceInFromZero 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes bounceInFromZero {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-scale-bounce {
+  opacity: 0;
+  transform: scale(1);
+  transition: all 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  will-change: opacity, transform;
+}
+
+.reveal-scale-bounce.active {
+  opacity: 1;
+  animation: scaleBounceIn 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes scaleBounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.reveal-flip {
+  opacity: 0;
+  transform: perspective(400px) rotateY(90deg);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+
+.reveal-flip.active {
+  opacity: 1;
+  transform: perspective(400px) rotateY(0deg);
+}
+
+.reveal-rotate {
+  opacity: 0;
+  transform: rotate(-10deg) scale(0.9);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+
+.reveal-rotate.active {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.reveal-fade-slide {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+
+.reveal-fade-slide.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delays escalonados */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
 
 .card::before {
   content: '';
@@ -380,8 +477,6 @@ body {
   height: 480px;
   border: none;
   display: block;
-  border-radius: 12px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
 }
 
 .mapa-container .mapa-overlay {
@@ -389,10 +484,9 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 50px;
+  height: 80px;
   background: #f8f8f8;
   pointer-events: none;
-  border-radius: 12px 12px 0 0;
 }
 
 @media (max-width: 1024px) {

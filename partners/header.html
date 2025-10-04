@@ -1,10 +1,22 @@
 <header id="header">
   <div class="header-container">
     <div class="logo-container">
-      <img src="imgs/logo principal.png" alt="Logo AllVale" class="logo">
+      <img src="../imgs/logo principal.png" alt="Logo AllVale" class="logo">
     </div>
     
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" onclick="
+      var nav = document.getElementById('navbar');
+      var button = document.getElementById('menuToggle');
+      if (nav.style.display === 'block') {
+        nav.style.display = 'none';
+        button.classList.remove('active');
+        console.log('Menu fechado');
+      } else {
+        nav.style.display = 'block';
+        button.classList.add('active');
+        console.log('Menu aberto');
+      }
+    ">
       <div class="hamburger">
         <span></span>
         <span></span>
@@ -12,14 +24,15 @@
       </div>
     </button>
     
+    
     <nav id="navbar">
       <ul>
-        <li><a href="../index.html">Início</a></li>
-        <li><a href="sobre nos/index.html">Sobre Nós</a></li>
-        <li><a href="Portfolio/index.html">Portfólio</a></li>
-        <li><a href="produtos/index.html">Produtos</a></li>
-        <li><a href="blog/index.html">Blog</a></li>
-        <li><a href="contato/index.html">Contato</a></li>
+        <li><a href="../index.html" onclick="document.getElementById('navbar').style.display='none'; document.getElementById('menuToggle').classList.remove('active')">Início</a></li>
+        <li><a href="../sobre nos/index.html" onclick="document.getElementById('navbar').style.display='none'; document.getElementById('menuToggle').classList.remove('active')">Sobre Nós</a></li>
+        <li><a href="../Portfolio/index.html" onclick="document.getElementById('navbar').style.display='none'; document.getElementById('menuToggle').classList.remove('active')">Portfólio</a></li>
+        <li><a href="../Produtos/index.html" onclick="document.getElementById('navbar').style.display='none'; document.getElementById('menuToggle').classList.remove('active')">Produtos</a></li>
+        <li><a href="../Blog/index.html" onclick="document.getElementById('navbar').style.display='none'; document.getElementById('menuToggle').classList.remove('active')">Blog</a></li>
+        <li><a href="../contato/index.html" onclick="document.getElementById('navbar').style.display='none'; document.getElementById('menuToggle').classList.remove('active')">Contato</a></li>
       </ul>
     </nav>
   </div>
@@ -111,7 +124,7 @@
   }
 
   .menu-toggle {
-    display: none;
+    display: none; /* Oculto por padrão no desktop */
     background: none;
     border: none;
     font-size: 24px;
@@ -119,6 +132,11 @@
     color: #000;
     padding: 10px;
     transition: color 0.3s ease;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
   }
 
   .menu-toggle:hover {
@@ -132,7 +150,7 @@
       top: 0;
       left: 0;
       right: 0;
-      z-index: 1000;
+      z-index: 10002;
       transition: all 0.3s ease;
       background: rgba(248, 248, 248, 0.95);
       backdrop-filter: blur(10px);
@@ -147,57 +165,109 @@
     .header-container {
       padding: 0 15px;
       height: 60px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-container {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10003;
     }
 
     .logo {
-      height: 35px;
+      height: 150px; /* Tamanho adequado para mobile */
+      width: auto;
+      max-width: 200px;
+      object-fit: contain;
       transition: all 0.3s ease;
     }
 
     header.scrolled .logo {
-      height: 30px;
+      height: 100px; /* Mantém o mesmo tamanho quando scrollado */
+    }
+
+    .menu-toggle {
+      display: block !important;
+      position: fixed;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10002;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #000;
+      padding: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .menu-toggle:hover {
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    /* Animação do menu hambúrguer */
+    .menu-toggle .hamburger {
+      display: flex;
+      flex-direction: column;
+      width: 25px;
+      height: 20px;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .menu-toggle .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: #333;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-toggle.active .hamburger span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active .hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active .hamburger span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    /* CSS de teste para debug */
+    nav.test {
+      display: block !important;
+      position: fixed !important;
+      top: 60px !important;
+      left: 0 !important;
+      right: 0 !important;
+      background: red !important;
+      color: white !important;
+      padding: 20px !important;
+      z-index: 99999 !important;
     }
 
     nav {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-      transform: translateY(-100%);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 999;
-    }
-
-    /* Overlay escuro quando menu está aberto */
-    nav::before {
-      content: '';
+      display: none;
       position: fixed;
-      top: 0;
+      top: 60px;
       left: 0;
       width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: -1;
-    }
-
-    nav.active::before {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    nav.active {
-      transform: translateY(0);
-      opacity: 1;
-      visibility: visible;
+      height: calc(100vh - 60px);
+      background: white;
+      z-index: 10001;
+      overflow-y: auto;
+      padding-top: 20px;
     }
 
     nav ul {
@@ -215,77 +285,42 @@
       padding: 15px 20px;
       border-bottom: 1px solid rgba(240, 240, 240, 0.5);
       font-size: 16px;
-      opacity: 0;
-      transform: translateY(-20px);
-      transition: all 0.3s ease;
+      font-weight: 600;
+      letter-spacing: normal;
+      font-stretch: normal;
+      text-decoration: none;
+      color: #000;
+      transition: color 0.3s ease;
+      display: block;
+      position: relative;
+      overflow: hidden;
     }
 
-    nav.active ul li a {
-      opacity: 1;
-      transform: translateY(0);
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #000059, #223E70);
+      transition: width 0.4s ease;
     }
 
-    nav.active ul li:nth-child(1) a { transition-delay: 0.1s; }
-    nav.active ul li:nth-child(2) a { transition-delay: 0.2s; }
-    nav.active ul li:nth-child(3) a { transition-delay: 0.3s; }
-    nav.active ul li:nth-child(4) a { transition-delay: 0.4s; }
-    nav.active ul li:nth-child(5) a { transition-delay: 0.5s; }
-    nav.active ul li:nth-child(6) a { transition-delay: 0.6s; }
+    nav ul li a:hover {
+      color: #000080;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
 
     nav ul li:last-child a {
       border-bottom: none;
     }
 
-  .menu-toggle {
-    display: block;
-    transition: all 0.3s ease;
-    position: relative;
-    z-index: 1001;
-  }
 
-  .menu-toggle:hover {
-    transform: scale(1.1);
-  }
 
-  .menu-toggle i {
-    transition: all 0.3s ease;
-    font-size: 20px;
-  }
-
-  .menu-toggle.active i {
-    transform: rotate(180deg);
-  }
-
-  /* Animação do menu hambúrguer */
-  .menu-toggle .hamburger {
-    display: flex;
-    flex-direction: column;
-    width: 25px;
-    height: 20px;
-    justify-content: space-between;
-    cursor: pointer;
-  }
-
-  .menu-toggle .hamburger span {
-    display: block;
-    height: 3px;
-    width: 100%;
-    background: #333;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  .menu-toggle.active .hamburger span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .menu-toggle.active .hamburger span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menu-toggle.active .hamburger span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-  }
   }
 
   @media (max-width: 480px) {
@@ -313,14 +348,34 @@
     const navbar = document.getElementById("navbar");
     const menuToggle = document.getElementById("menuToggle");
     
-    navbar.classList.toggle("active");
-    menuToggle.classList.toggle("active");
+    console.log("TOGGLE MENU CLICKED!");
     
-    // Prevenir scroll do body quando menu está aberto
-    if (navbar.classList.contains("active")) {
-      document.body.style.overflow = "hidden";
+    if (navbar) {
+      // Verificar se está aberto
+      const isOpen = navbar.style.display === "block" || navbar.classList.contains("active");
+      
+      if (isOpen) {
+        // Fechar menu
+        navbar.style.display = "none";
+        navbar.classList.remove("active");
+        menuToggle.classList.remove("active");
+        console.log("Menu CLOSED");
+      } else {
+        // Abrir menu
+        navbar.style.display = "block";
+        navbar.style.background = "white";
+        navbar.style.position = "fixed";
+        navbar.style.top = "60px";
+        navbar.style.left = "0";
+        navbar.style.right = "0";
+        navbar.style.bottom = "0";
+        navbar.style.zIndex = "10000";
+        navbar.classList.add("active");
+        menuToggle.classList.add("active");
+        console.log("Menu OPENED");
+      }
     } else {
-      document.body.style.overflow = "auto";
+      console.error("Navbar not found!");
     }
   }
 
@@ -443,14 +498,15 @@
     const navLinks = document.querySelectorAll("#navbar a");
     const header = document.querySelector("header");
     
+    // Debug: verificar se os elementos existem
+    console.log("Menu Toggle:", menuToggle);
+    console.log("Navbar:", document.getElementById("navbar"));
+    console.log("Nav Links:", navLinks);
+    
     // Ajustar padding inicial
     adjustBodyPadding();
     
-    // Toggle menu
-    menuToggle.addEventListener("click", function(e) {
-      e.stopPropagation();
-      toggleMenu();
-    });
+    // Event listeners removidos - usando onclick no HTML
     
     // Fechar menu ao clicar em links
     navLinks.forEach(link => {
@@ -497,5 +553,57 @@
     addTouchFeedback();
     animateMenuItems();
   });
+
+  // Fallback: tentar novamente após um pequeno delay
+  setTimeout(function() {
+    const menuToggle = document.getElementById("menuToggle");
+    if (menuToggle && !menuToggle.onclick) {
+      console.log("Setting up fallback event listener");
+      menuToggle.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log("Fallback menu toggle clicked!");
+        toggleMenu();
+      });
+    }
+  }, 100);
+
+  // Função global para debug
+  window.debugMenu = function() {
+    const navbar = document.getElementById("navbar");
+    const menuToggle = document.getElementById("menuToggle");
+    console.log("=== DEBUG MENU ===");
+    console.log("Navbar:", navbar);
+    console.log("Menu Toggle:", menuToggle);
+    console.log("Navbar classes:", navbar ? navbar.className : "Not found");
+    console.log("Menu Toggle classes:", menuToggle ? menuToggle.className : "Not found");
+    console.log("Is mobile:", window.innerWidth <= 768);
+    console.log("==================");
+  };
+
+  // Função de teste direta
+  window.testMenu = function() {
+    const navbar = document.getElementById("navbar");
+    console.log("=== TESTING MENU ===");
+    console.log("Navbar found:", !!navbar);
+    if (navbar) {
+      navbar.style.display = "block";
+      navbar.style.background = "red";
+      navbar.style.color = "white";
+      navbar.style.padding = "20px";
+      navbar.style.position = "fixed";
+      navbar.style.top = "60px";
+      navbar.style.left = "0";
+      navbar.style.right = "0";
+      navbar.style.zIndex = "99999";
+      console.log("Menu should be visible in RED now!");
+    }
+    console.log("===================");
+  };
+
+  // Função para forçar abertura
+  window.forceOpenMenu = function() {
+    toggleMenu();
+  };
 
 </script>

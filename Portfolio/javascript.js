@@ -46,9 +46,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }, observerOptions);
 
-  // Observe all reveal elements
-  document.querySelectorAll('.reveal').forEach(el => {
-    observer.observe(el);
+  // Observe all reveal elements with new animation system
+  const revealSelectors = [
+    '.reveal', '.reveal-left', '.reveal-right', '.reveal-scale',
+    '.reveal-bounce', '.reveal-slide-bounce', '.reveal-scale-bounce',
+    '.reveal-fade-slide', '.reveal-rotate', '.reveal-flip'
+  ];
+  
+  revealSelectors.forEach(selector => {
+    document.querySelectorAll(selector).forEach(el => {
+      observer.observe(el);
+    });
   });
 
   // ============================================

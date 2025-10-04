@@ -68,19 +68,25 @@ function animateCounter(element, target, duration = 2000) {
   updateCounter();
 }
 
+// Detectar se é mobile
+const isMobile = window.innerWidth <= 768;
+
 // Observer para animar as estatísticas quando aparecem na tela
 const observerOptions = {
-  threshold: 0.5,
-  rootMargin: '0px 0px -100px 0px'
+  threshold: isMobile ? 0.1 : 0.3, // 10% no mobile, 30% no desktop
+  rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -50px 0px' // Menos margem no mobile
 };
 
 const statsObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
+      console.log('Seção Nossa Essência detectada na viewport');
       const statNumbers = entry.target.querySelectorAll('.stat-number');
+      console.log('Números encontrados:', statNumbers.length);
       statNumbers.forEach(stat => {
         const target = parseInt(stat.getAttribute('data-target'));
         if (target && !stat.classList.contains('animated')) {
+          console.log('Animando número:', target);
           stat.classList.add('animated');
           animateCounter(stat, target);
         }
@@ -94,5 +100,50 @@ document.addEventListener('DOMContentLoaded', () => {
   const mvSection = document.querySelector('.mv-section');
   if (mvSection) {
     statsObserver.observe(mvSection);
+    
+    // Fallback para mobile: se após 2 segundos as animações não dispararam, forçar
+    setTimeout(() => {
+      const statNumbers = mvSection.querySelectorAll('.stat-number:not(.animated)');
+      if (statNumbers.length > 0) {
+        console.log('Fallback: Forçando animações dos números no mobile');
+        statNumbers.forEach(stat => {
+          const target = parseInt(stat.getAttribute('data-target'));
+          if (target) {
+            stat.classList.add('animated');
+            animateCounter(stat, target);
+          }
+        });
+      }
+    }, 2000);
   }
+  
+  // ============================================
+  // REVEAL ANIMATIONS ON SCROLL
+  // ============================================
+  
+  const revealObserverOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, revealObserverOptions);
+
+  // Observe all reveal elements with new animation system
+  const revealSelectors = [
+    '.reveal', '.reveal-left', '.reveal-right', '.reveal-scale',
+    '.reveal-bounce', '.reveal-slide-bounce', '.reveal-scale-bounce',
+    '.reveal-fade-slide', '.reveal-rotate', '.reveal-flip'
+  ];
+  
+  revealSelectors.forEach(selector => {
+    document.querySelectorAll(selector).forEach(el => {
+      revealObserver.observe(el);
+    });
+  });
 });

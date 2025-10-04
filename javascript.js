@@ -17,44 +17,112 @@ class AnimationManager {
     this.setupAutoAnimations();
   }
 
-  // Sistema de animações no scroll
+  // Sistema de animações no scroll - MELHORADO
   setupScrollAnimations() {
+    // Opções otimizadas para melhor performance
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: [0.1, 0.3, 0.5],
+      rootMargin: '0px 0px -100px 0px'
     };
 
     this.intersectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.1) {
           const element = entry.target;
           const animationType = this.getAnimationType(element);
           
           if (animationType) {
-            this.triggerAnimation(element, animationType);
+            // Delay baseado no tipo de animação e posição
+            const delay = this.calculateDelay(element, entry);
+            
+            setTimeout(() => {
+              this.triggerAnimation(element, animationType);
+            }, delay);
+            
+            // Parar de observar após animar
             this.intersectionObserver.unobserve(element);
           }
         }
       });
     }, observerOptions);
 
-    // Observar elementos com classes de reveal
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
-      this.intersectionObserver.observe(el);
+    // Observar todos os elementos com classes de reveal
+    const revealSelectors = [
+      '.reveal', '.reveal-left', '.reveal-right', '.reveal-scale',
+      '.reveal-bounce', '.reveal-slide-bounce', '.reveal-scale-bounce',
+      '.reveal-fade-slide', '.reveal-rotate', '.reveal-flip'
+    ];
+    
+    revealSelectors.forEach(selector => {
+      document.querySelectorAll(selector).forEach(el => {
+        this.intersectionObserver.observe(el);
+      });
     });
   }
 
+  // Calcular delay baseado na posição e tipo do elemento
+  calculateDelay(element, entry) {
+    const rect = entry.boundingClientRect;
+    const viewportHeight = window.innerHeight;
+    const isMobile = window.innerWidth <= 768;
+    
+    // Delay baseado na distância do topo da viewport
+    const distanceFromTop = rect.top;
+    const normalizedDistance = Math.max(0, Math.min(1, distanceFromTop / viewportHeight));
+    
+    // Delay baseado na classe de delay
+    const delayClass = Array.from(element.classList).find(cls => cls.startsWith('reveal-delay-'));
+    const classDelay = delayClass ? parseInt(delayClass.split('-')[2]) * (isMobile ? 50 : 100) : 0;
+    
+    // Delay baseado no tipo de elemento (reduzido para mobile)
+    let elementDelay = 0;
+    if (element.classList.contains('product-card')) elementDelay = isMobile ? 50 : 100;
+    else if (element.classList.contains('testimonial-card')) elementDelay = isMobile ? 75 : 150;
+    else if (element.classList.contains('gallery-item')) elementDelay = isMobile ? 40 : 80;
+    
+    // Reduzir delay geral para mobile
+    const baseDelay = isMobile ? 100 : 200;
+    
+    return normalizedDistance * baseDelay + classDelay + elementDelay;
+  }
+
   getAnimationType(element) {
-    if (element.classList.contains('reveal')) return 'reveal';
-    if (element.classList.contains('reveal-left')) return 'reveal-left';
-    if (element.classList.contains('reveal-right')) return 'reveal-right';
-    if (element.classList.contains('reveal-scale')) return 'reveal-scale';
+    // Verificar todas as classes de animação disponíveis
+    const animationClasses = [
+      'reveal-bounce', 'reveal-slide-bounce', 'reveal-scale-bounce',
+      'reveal-fade-slide', 'reveal-rotate', 'reveal-flip',
+      'reveal-left', 'reveal-right', 'reveal-scale', 'reveal'
+    ];
+    
+    for (const animationClass of animationClasses) {
+      if (element.classList.contains(animationClass)) {
+        return animationClass;
+      }
+    }
+    
     return null;
   }
 
   triggerAnimation(element, type) {
+    // Adicionar classe active para ativar a animação
     element.classList.add('active');
     this.animatedElements.add(element);
+    
+    // Log para debug (pode ser removido em produção)
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      console.log(`Animação ativada: ${type}`, element);
+    }
+    
+    // Callback personalizado se definido
+    if (element.onAnimationStart && typeof element.onAnimationStart === 'function') {
+      element.onAnimationStart(type);
+    }
+    
+    // Disparar evento customizado
+    const event = new CustomEvent('animationStart', {
+      detail: { element, type }
+    });
+    element.dispatchEvent(event);
   }
 
   // Sistema de animações no hover
@@ -637,7 +705,10 @@ if (window.location.pathname.endsWith('/index.html') || window.location.pathname
       return response.text();
     })
     .then(data => {
-      document.getElementById("footer").innerHTML = data;
+      // Corrigir caminhos das imagens e links para a página principal
+      let correctedData = data.replace(/src="\.\.\/imgs\//g, 'src="imgs/');
+      correctedData = correctedData.replace(/href="\.\.\//g, 'href="');
+      document.getElementById("footer").innerHTML = correctedData;
     })
 
   fetch("partners/header.html")
@@ -646,7 +717,10 @@ if (window.location.pathname.endsWith('/index.html') || window.location.pathname
       return response.text();
     })
     .then(data => {
-      document.getElementById("header").innerHTML = data;
+      // Corrigir caminhos das imagens e links para a página principal
+      let correctedData = data.replace(/src="\.\.\/imgs\//g, 'src="imgs/');
+      correctedData = correctedData.replace(/href="\.\.\//g, 'href="');
+      document.getElementById("header").innerHTML = correctedData;
     })
     .catch(error => console.error(error));
 }
