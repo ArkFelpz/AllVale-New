@@ -1,4 +1,3 @@
-/* Reset e Base */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,11 +17,6 @@ body {
   padding: 0 20px;
 }
 
-/* ============================================
-   SISTEMA DE ANIMAÇÕES AVANÇADO
-   ============================================ */
-
-/* Animações de Entrada */
 @keyframes fadeInDown {
   0% {
     opacity: 0;
@@ -48,7 +42,7 @@ body {
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateX(-250px);
   }
   100% {
     opacity: 1;
@@ -171,7 +165,24 @@ body {
   }
 }
 
-/* Animações de Rotação */
+@keyframes slideDownFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%) scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-50%) scaleY(0.5);
+    transform-origin: top;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    transform-origin: top;
+  }
+}
+
 @keyframes rotateIn {
   0% {
     opacity: 0;
@@ -209,7 +220,6 @@ body {
   }
 }
 
-/* Animações de Pulsação e Efeitos */
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -294,7 +304,6 @@ body {
   }
 }
 
-/* Animações de Brilho e Gradiente */
 @keyframes shimmer {
   0% {
     background-position: -200px 0;
@@ -313,7 +322,6 @@ body {
   }
 }
 
-/* Animações de Fade */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -332,7 +340,6 @@ body {
   }
 }
 
-/* Animações de Zoom */
 @keyframes zoomInUp {
   0% {
     opacity: 0;
@@ -363,7 +370,6 @@ body {
   }
 }
 
-/* Animações de Deslize */
 @keyframes slideInLeft {
   0% {
     opacity: 0;
@@ -386,7 +392,6 @@ body {
   }
 }
 
-/* Animações de Elástico */
 @keyframes elasticIn {
   0% {
     opacity: 0;
@@ -405,10 +410,6 @@ body {
   }
 }
 
-/* ============================================
-   CLASSES DE ANIMAÇÃO - FÁCEIS DE USAR
-   ============================================ */
-
 .animate {
   opacity: 0;
   animation-duration: 1s;
@@ -416,7 +417,6 @@ body {
   animation-timing-function: ease-out;
 }
 
-/* Animações de Entrada */
 .fadeIn { animation-name: fadeIn; }
 .fadeInDown { animation-name: fadeInDown; }
 .fadeInUp { animation-name: fadeInUp; }
@@ -424,34 +424,26 @@ body {
 .fadeInRight { animation-name: fadeInRight; }
 .fadeOut { animation-name: fadeOut; }
 
-/* Animações de Zoom */
 .zoomIn { animation-name: zoomIn; }
 .zoomOut { animation-name: zoomOut; }
 .zoomInUp { animation-name: zoomInUp; }
 .zoomInDown { animation-name: zoomInDown; }
 
-/* Animações de Deslize */
 .slideInLeft { animation-name: slideInLeft; }
 .slideInRight { animation-name: slideInRight; }
 .slideInUp { animation-name: slideInUp; }
 .slideInDown { animation-name: slideInDown; }
+.slideDownFromTop { animation-name: slideDownFromTop; }
 
-/* Animações de Rotação */
 .rotateIn { animation-name: rotateIn; }
 .rotateInDownLeft { animation-name: rotateInDownLeft; }
 .rotateInDownRight { animation-name: rotateInDownRight; }
 
-/* Animações de Efeito */
 .bounceIn { animation-name: bounceIn; }
 .flipInX { animation-name: flipInX; }
 .flipInY { animation-name: flipInY; }
 .elasticIn { animation-name: elasticIn; }
 
-/* ============================================
-   ANIMAÇÕES DE HOVER E INTERAÇÃO
-   ============================================ */
-
-/* Hover Effects */
 .hover-pulse:hover {
   animation: pulse 1s infinite;
 }
@@ -476,7 +468,6 @@ body {
   animation: glow 2s ease-in-out infinite alternate;
 }
 
-/* Hover Effects específicos para botões (sem conflitar com estilos existentes) */
 .btn-hover-pulse {
   transition: all 0.3s ease;
 }
@@ -527,7 +518,6 @@ body {
   transform: translateY(0) !important;
 }
 
-/* Garantir que as animações dos botões funcionem corretamente */
 .btn-whatsapp.btn-hover-pulse {
   transition: all 0.3s ease;
 }
@@ -544,17 +534,11 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
-
-/* Shimmer Effect */
 .shimmer {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
   background-size: 200px 100%;
   animation: shimmer 2s infinite;
 }
-
-/* ============================================
-   DELAYS E DURAÇÕES PERSONALIZÁVEIS
-   ============================================ */
 
 .animate-delay-1 { animation-delay: 0.1s; }
 .animate-delay-2 { animation-delay: 0.2s; }
@@ -565,10 +549,6 @@ body {
 .animate-fast { animation-duration: 0.5s; }
 .animate-slow { animation-duration: 2s; }
 .animate-slower { animation-duration: 3s; }
-
-/* ============================================
-   ANIMAÇÕES INFINITAS
-   ============================================ */
 
 .animate-infinite {
   animation-iteration-count: infinite;
@@ -586,11 +566,6 @@ body {
   animation: glow 2s infinite;
 }
 
-/* ============================================
-   ANIMAÇÕES DE SCROLL (REVEAL) - MELHORADAS
-   ============================================ */
-
-/* Estado inicial - elementos invisíveis */
 .reveal {
   opacity: 0;
   transform: translateY(50px);
@@ -639,7 +614,6 @@ body {
   transform: scale(1);
 }
 
-/* Novas animações com efeito 0 → -50px → 0 */
 .reveal-bounce {
   opacity: 0;
   transform: translateY(0);
@@ -721,7 +695,6 @@ body {
   }
 }
 
-/* Animação de fade com movimento suave */
 .reveal-fade-slide {
   opacity: 0;
   transform: translateY(30px);
@@ -734,7 +707,6 @@ body {
   transform: translateY(0);
 }
 
-/* Animação de rotação suave */
 .reveal-rotate {
   opacity: 0;
   transform: rotate(-10deg) scale(0.9);
@@ -747,7 +719,6 @@ body {
   transform: rotate(0deg) scale(1);
 }
 
-/* Animação de flip */
 .reveal-flip {
   opacity: 0;
   transform: perspective(400px) rotateY(90deg);
@@ -760,14 +731,12 @@ body {
   transform: perspective(400px) rotateY(0deg);
 }
 
-/* Delays escalonados para animações em sequência */
 .reveal-delay-1 { transition-delay: 0.1s; }
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 .reveal-delay-5 { transition-delay: 0.5s; }
 
-/* Otimizações para mobile */
 @media (max-width: 768px) {
   .reveal,
   .reveal-left,
@@ -780,25 +749,23 @@ body {
   .reveal-rotate,
   .reveal-flip {
     transition-duration: 0.6s;
-    /* Reduzir movimento para melhor performance */
     transform: translateY(20px) !important;
   }
-  
+
   .reveal-left {
     transform: translateX(-20px) !important;
   }
-  
+
   .reveal-right {
     transform: translateX(20px) !important;
   }
-  
+
   .reveal-bounce.active,
   .reveal-slide-bounce.active,
   .reveal-scale-bounce.active {
     animation-duration: 0.8s;
   }
-  
-  /* Ajustar keyframes para mobile */
+
   @keyframes bounceInFromZero {
     0% {
       opacity: 0;
@@ -813,7 +780,7 @@ body {
       transform: translateY(0);
     }
   }
-  
+
   @keyframes slideBounceIn {
     0% {
       opacity: 0;
@@ -828,7 +795,7 @@ body {
       transform: translateX(0);
     }
   }
-  
+
   @keyframes scaleBounceIn {
     0% {
       opacity: 0;
@@ -843,8 +810,7 @@ body {
       transform: scale(1);
     }
   }
-  
-  /* Reduzir delays para mobile */
+
   .reveal-delay-1 { transition-delay: 0.05s; }
   .reveal-delay-2 { transition-delay: 0.1s; }
   .reveal-delay-3 { transition-delay: 0.15s; }
@@ -852,7 +818,78 @@ body {
   .reveal-delay-5 { transition-delay: 0.25s; }
 }
 
-/* Reduzir animações para usuários que preferem movimento reduzido */
+.stat-number {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #000080;
+  transition: all 0.3s ease;
+  will-change: transform;
+}
+
+.stat-number.animated {
+  animation: counterPulse 0.6s ease-out;
+}
+
+@keyframes counterPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-number.animated {
+    animation-duration: 0.4s;
+  }
+
+  @keyframes counterPulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-number.animated {
+    animation: none;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .reveal-bounce,
+  .reveal-slide-bounce,
+  .reveal-scale-bounce,
+  .reveal-fade-slide,
+  .reveal-rotate,
+  .reveal-flip {
+    transition: opacity 0.3s ease;
+    transform: none !important;
+  }
+
+  .reveal-bounce.active,
+  .reveal-slide-bounce.active,
+  .reveal-scale-bounce.active {
+    animation: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal-left,
@@ -867,7 +904,7 @@ body {
     transition: opacity 0.3s ease;
     transform: none !important;
   }
-  
+
   .reveal-bounce.active,
   .reveal-slide-bounce.active,
   .reveal-scale-bounce.active {
@@ -875,7 +912,6 @@ body {
   }
 }
 
-/* Hero Section - Baseado no #b1827d1 */
 .hero-section {
   display: flex;
   min-height: 750px;
@@ -915,7 +951,6 @@ body {
   padding-left: 110px;
 }
 
-/* Ajuste para mobile - centralizar conteúdo */
 @media (max-width: 768px) {
   .hero-container {
     padding-left: 20px;
@@ -936,7 +971,6 @@ body {
   left: 300px;
 }
 
-/* Ajuste para mobile - remover posicionamento absoluto */
 @media (max-width: 768px) {
   .hero-content {
     left: 0;
@@ -946,7 +980,6 @@ body {
   }
 }
 
-/* Título Principal - Baseado no #bffbc59 */
 .hero-title {
   font-family: "Montserrat", Sans-serif;
   font-size: 53px;
@@ -962,7 +995,6 @@ body {
   line-height: 1.2;
 }
 
-/* Subtítulo - Baseado no #a6c8731 */
 .hero-subtitle {
   font-family: "Montserrat", Sans-serif;
   font-size: 22px;
@@ -977,7 +1009,6 @@ body {
   line-height: 1.4;
 }
 
-/* Botão WhatsApp - Baseado no #362dd75 */
 .hero-button {
   margin: 30px 0px 0px 0px;
   padding: 0px;
@@ -1062,7 +1093,6 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* About Section */
 .about-section {
   padding: 120px 0;
   background: #f8f8f8;
@@ -1213,7 +1243,6 @@ body {
   transform: scale(1.02);
 }
 
-/* Process Section */
 .process-section {
   padding: 120px 0;
   background: #f8f8f8;
@@ -1257,7 +1286,6 @@ body {
   transform: scale(1.02);
 }
 
-/* Projects Section */
 .projects-section {
   padding: 100px 0;
   background: #f8f8f8;
@@ -1354,7 +1382,6 @@ body {
   color: #25D366;
 }
 
-/* Quality Section */
 .quality-section {
   padding: 100px 0;
   background: #f8f8f8;
@@ -1362,19 +1389,18 @@ body {
 }
 
 .quality-section .section-title {
-  font-size: 25px;              /* texto menor */
-  max-width: 1200px;             /* largura da caixa */
+  font-size: 25px;
+  max-width: 1200px;
   margin: 0 auto;
-  background: #e6e6e6;          /* cinza mais próximo do da imagem */
-  padding: 40px 80px;           /* menos espaçamento interno */
-  border-radius: 8px;           /* cantos menos arredondados */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* sombra mais sutil */
-  color: #2f4f4f;               /* cinza azulado do texto */
+  background: #e6e6e6;
+  padding: 40px 80px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  color: #2f4f4f;
   font-weight: 400;
   line-height: 1.4;
   text-align: center;
 }
-/* Products Section */
 .products-section {
   padding: 100px 0;
   background: #f8f8f8;
@@ -1423,7 +1449,6 @@ body {
   font-weight: 400;
 }
 
-/* Exclusive Section */
 .exclusive-section {
   padding: 80px 0;
   background: #f8f8f8;
@@ -1484,7 +1509,6 @@ body {
   z-index: 2;
 }
 
-/* Testimonials Section */
 .testimonials-section {
   padding: 100px 0;
   background: #f8f8f8;
@@ -1501,9 +1525,295 @@ body {
   font-size: 48px;
   font-weight: 700;
   color: #000080;
-  margin: 0;
+  margin: 0 0 20px 0;
   line-height: 1.1;
   text-align: center;
+}
+
+.testimonials-subtitle {
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.testimonials-carousel {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.carousel-container {
+  overflow: hidden;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 0;
+}
+
+.carousel-item {
+  min-width: 100%;
+  padding: 0 10px;
+  opacity: 0.4;
+  transform: scale(0.85);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+.carousel-item.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  z-index: 2;
+  filter: blur(0);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.8));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.carousel-btn:hover {
+  background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.9));
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-prev {
+  left: 5px;
+}
+
+.carousel-next {
+  right: 5px;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.indicator {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.indicator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.3);
+}
+
+.indicator.active::before {
+  background: #333;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.indicator:hover {
+  transform: scale(1.2);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.testimonial-text {
+  position: relative;
+  max-height: 120px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.testimonial-text.expanded {
+  max-height: none;
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 5px 0;
+  text-decoration: underline;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.read-more-btn:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.read-more-btn::after {
+  content: ' ▼';
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.read-more-btn.expanded::after {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .testimonials-carousel {
+    padding: 0 30px;
+  }
+
+  .carousel-container {
+    padding: 15px;
+  }
+
+  .carousel-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+  }
+
+  .carousel-prev {
+    left: 0px;
+  }
+
+  .carousel-next {
+    right: 0px;
+  }
+
+  .carousel-item {
+    padding: 0 5px;
+  }
+
+  .testimonial-text {
+    max-height: 100px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials-carousel {
+    padding: 0 20px;
+  }
+
+  .carousel-container {
+    padding: 10px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .testimonial-text {
+    max-height: 80px;
+  }
+}
+
+.indicator:hover {
+  background: #25D366;
+}
+
+@media (max-width: 768px) {
+  .testimonials-title {
+    font-size: 36px;
+  }
+
+  .testimonials-subtitle {
+    font-size: 16px;
+  }
+
+  .testimonials-summary {
+    margin-top: 40px;
+    padding: 30px 15px;
+  }
+
+  .google-badge {
+    flex-direction: column;
+    gap: 8px;
+    padding: 15px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials-title {
+    font-size: 28px;
+  }
+
+  .testimonials-subtitle {
+    font-size: 14px;
+  }
+
+  .testimonials-summary {
+    margin-top: 30px;
+    padding: 25px 10px;
+  }
+
+  .summary-text {
+    font-size: 14px;
+  }
+
+  .summary-stars i {
+    font-size: 18px;
+  }
+
+  .google-badge {
+    padding: 12px 15px;
+  }
+
+  .google-text {
+    font-size: 12px;
+  }
 }
 
 .testimonials-grid {
@@ -1620,15 +1930,28 @@ body {
 
 .testimonials-summary {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 60px;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.summary-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .summary-text {
   font-family: "Montserrat", Sans-serif;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 600;
   color: #333;
-  margin-bottom: 15px;
+  margin: 0;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -1636,17 +1959,33 @@ body {
 .summary-stars {
   display: flex;
   justify-content: center;
-  gap: 2px;
-  margin-bottom: 15px;
+  gap: 3px;
   color: #f39c12;
 }
 
+.summary-stars i {
+  font-size: 20px;
+}
+
+.google-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  padding: 12px 20px;
+  border-radius: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 .google-logo {
-  font-family: "Montserrat", Sans-serif;
-  font-size: 18px;
-  font-weight: 400;
   width: 60px;
   height: 20px;
+}
+
+.google-text {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
 }
 
 .testimonial-summary {
@@ -1682,7 +2021,6 @@ body {
   color: #4285f4;
 }
 
-/* Gallery Section */
 .gallery-section {
   padding: 100px 0;
   background: #f8f8f8;
@@ -1722,7 +2060,6 @@ body {
   transform: scale(1.1);
 }
 
-/* Talentus Box Section */
 .talentus-box-section {
   padding: 100px 0;
   background: #f8f8f8;
@@ -1799,8 +2136,6 @@ body {
   font-size: 14px;
 }
 
-
-/* Floating WhatsApp Button */
 .floating-whatsapp {
   position: fixed;
   bottom: 30px;
@@ -1828,77 +2163,66 @@ body {
   box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
 }
 
-/* ============================================
-   RESPONSIVIDADE MOBILE AVANÇADA
-   ============================================ */
-
-/* Melhorias gerais para mobile */
 @media (max-width: 768px) {
-  /* Melhorar performance de scroll */
   * {
     -webkit-overflow-scrolling: touch;
   }
-  
-  /* Ajustar viewport para evitar zoom horizontal */
+
   html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
   }
-  
-  /* Melhorar legibilidade do texto */
+
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
-  /* Ajustar botões para touch */
+
   .btn-whatsapp,
   .floating-whatsapp a {
     min-height: 44px;
     min-width: 44px;
   }
-  
-  /* Melhorar espaçamento entre seções */
+
   section {
     scroll-margin-top: 70px;
   }
 }
 
-/* Tablet Landscape */
 @media (max-width: 1024px) {
   .hero-section {
     min-height: 516px;
   }
-  
+
   .hero-title {
     font-size: 45px;
   }
-  
+
   .hero-subtitle {
     font-size: 18px;
   }
-  
+
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .testimonials-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .about-content {
     gap: 30px;
     padding: 0 30px;
   }
-  
+
   .about-image img {
     width: 100%;
     max-width: 400px;
@@ -1906,44 +2230,43 @@ body {
   }
 }
 
-/* Tablet Portrait */
 @media (max-width: 900px) {
   .hidden-tablet {
     display: none;
   }
-  
+
   .hero-content {
     left: 200px;
     max-width: 500px;
   }
-  
+
   .hero-title {
     font-size: 40px;
   }
-  
+
   .hero-subtitle {
     font-size: 17px;
   }
-  
+
   .section-title {
     font-size: 42px;
   }
-  
+
   .section-title1 {
     font-size: 42px;
   }
-  
+
   .section-title2 {
     font-size: 42px;
   }
-  
+
   .about-content {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     gap: 25px;
     padding: 0 25px;
   }
-  
+
   .about-text:first-child,
   .about-text:last-child,
   .about-image:first-of-type,
@@ -1951,31 +2274,30 @@ body {
     grid-row: auto;
     grid-column: auto;
   }
-  
+
   .about-text {
     text-align: center;
     padding: 20px 15px;
   }
-  
+
   .section-title {
     text-align: center;
   }
-  
+
   .section-description {
     text-align: center;
   }
-  
+
   .section-description1 {
     text-align: center;
   }
 }
 
-/* Mobile Landscape */
 @media (max-width: 768px) {
   .container {
     padding: 0 15px;
   }
-  
+
   .hero-section {
     min-height: 600px;
     justify-content: flex-start;
@@ -1985,18 +2307,18 @@ body {
     margin-top: 0;
     background-position: center center;
   }
-  
+
   .hero-container {
     padding-left: 20px;
     justify-content: center;
   }
-  
+
   .hero-content {
     left: 0;
     max-width: 100%;
     text-align: center;
   }
-  
+
   .hero-title {
     font-size: 35px;
     margin-top: 0;
@@ -2004,36 +2326,36 @@ body {
     text-align: center;
     line-height: 1.1;
   }
-  
+
   .hero-subtitle {
     font-size: 16px;
     margin-left: 0;
     text-align: center;
     line-height: 1.3;
   }
-  
+
   .hero-button {
     margin: 25px auto 0 auto;
     padding: 0;
     align-self: center;
   }
-  
+
   .about-section {
     padding: 80px 0;
   }
-  
+
   .about-content {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     gap: 30px;
     padding: 0 20px;
   }
-  
+
   .about-text {
     padding: 20px 15px;
     text-align: center;
   }
-  
+
   .about-text:first-child,
   .about-text:last-child,
   .about-image:first-of-type,
@@ -2041,297 +2363,330 @@ body {
     grid-row: auto;
     grid-column: auto;
   }
-  
+
   .about-image img {
     width: 100%;
     max-width: 100%;
     height: 400px;
     object-fit: cover;
   }
-  
+
   .about-image-right img {
     border-radius: 20px !important;
   }
-  
+
   .about-image-left img {
     border-radius: 20px !important;
   }
-  
+
   .section-title {
     font-size: 36px;
     text-align: center;
     margin-bottom: 30px;
   }
-  
+
   .section-title1 {
     font-size: 36px;
     text-align: center;
     margin-bottom: 30px;
   }
-  
+
   .section-title2 {
     font-size: 36px;
     text-align: center;
     margin-bottom: 30px;
   }
-  
+
   .quality-section .section-title {
     font-size: 22px;
     padding: 30px 40px;
     margin-bottom: 0;
   }
-  
+
   .section-description {
     font-size: 18px;
     text-align: center;
     line-height: 1.5;
   }
-  
+
   .section-description1 {
     font-size: 18px;
     text-align: center;
     line-height: 1.5;
   }
-  
+
   .products-section {
     padding: 80px 0;
   }
-  
+
   .products-grid {
     grid-template-columns: 1fr;
     gap: 30px;
     padding: 0 20px;
   }
-  
+
   .product-card {
     padding: 40px 30px;
     text-align: center;
   }
-  
+
   .product-card-allvale {
     padding: 40px 30px;
     max-width: 100%;
   }
-  
+
   .product-title {
     font-size: 24px;
   }
-  
+
   .product-description {
     font-size: 16px;
   }
-  
+
   .testimonials-section {
     padding: 80px 0;
   }
-  
+
   .testimonials-grid {
     grid-template-columns: 1fr;
     gap: 25px;
     padding: 0 20px;
   }
-  
+
+.testimonials-carousel {
+  padding: 40px 0;
+  height: 350px;
+  max-width: 100%;
+}
+
+.carousel-track::before,
+.carousel-track::after {
+  width: 400px;
+  height: 150px;
+  border-radius: 200px 200px 0 0;
+}
+
+.carousel-track::after {
+  border-radius: 0 0 200px 200px;
+}
+
+.carousel-item {
+  width: 220px;
+  height: 250px;
+}
+
+.carousel-btn {
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+}
+
+.carousel-prev {
+  left: 5px;
+}
+
+.carousel-next {
+  right: 5px;
+}
+
   .testimonial-card {
     padding: 25px 20px;
   }
-  
+
   .gallery-section {
     padding: 80px 0;
   }
-  
+
   .gallery-grid {
     grid-template-columns: 1fr;
     gap: 20px;
     padding: 0 20px;
   }
-  
+
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 30px;
     padding: 0 20px;
   }
-  
+
   .project-image {
     height: 250px;
   }
-  
+
   .gallery-item img {
     height: 300px;
   }
-  
-  
+
   .floating-whatsapp {
     bottom: 25px;
     right: 25px;
   }
-  
+
   .floating-whatsapp a {
     width: 55px;
     height: 55px;
     font-size: 22px;
   }
-  
+
   .hidden-mobile {
     display: none;
   }
 }
 
-/* Mobile Portrait */
 @media (max-width: 480px) {
   .container {
     padding: 0 10px;
   }
-  
+
   .hero-section {
     min-height: 500px;
     padding: 15px;
   }
-  
+
   .hero-container {
     padding-left: 15px;
   }
-  
+
   .hero-content {
     left: 0;
     max-width: 100%;
   }
-  
+
   .hero-title {
     font-size: 28px;
     text-align: center;
     line-height: 1.1;
     margin-bottom: 15px;
   }
-  
+
   .hero-subtitle {
     font-size: 14px;
     text-align: center;
     line-height: 1.3;
     margin-bottom: 20px;
   }
-  
+
   .hero-button {
     margin: 20px auto 0 auto;
   }
-  
+
   .btn-whatsapp {
     padding: 12px 25px;
     font-size: 14px;
   }
-  
+
   .about-section {
     padding: 60px 0;
   }
-  
+
   .about-content {
     padding: 0 15px;
     gap: 25px;
   }
-  
+
   .about-text {
     padding: 15px 10px;
   }
-  
+
   .about-image img {
     height: 300px;
     border-radius: 15px !important;
   }
-  
+
   .section-title {
     font-size: 28px;
     margin-bottom: 25px;
   }
-  
+
   .section-title1 {
     font-size: 28px;
     margin-bottom: 25px;
   }
-  
+
   .section-title2 {
     font-size: 28px;
     margin-bottom: 25px;
   }
-  
+
   .quality-section .section-title {
     font-size: 18px;
     padding: 25px 20px;
     line-height: 1.3;
   }
-  
+
   .section-description {
     font-size: 16px;
     line-height: 1.4;
   }
-  
+
   .section-description1 {
     font-size: 16px;
     line-height: 1.4;
   }
-  
+
   .products-section {
     padding: 60px 0;
   }
-  
+
   .products-grid {
     padding: 0 15px;
     gap: 25px;
   }
-  
+
   .product-card {
     padding: 30px 20px;
   }
-  
+
   .product-card-allvale {
     padding: 30px 20px;
   }
-  
+
   .product-title {
     font-size: 22px;
     margin-bottom: 15px;
   }
-  
+
   .product-description {
     font-size: 15px;
     line-height: 1.4;
   }
-  
+
   .testimonials-section {
     padding: 60px 0;
   }
-  
+
   .testimonials-grid {
     padding: 0 15px;
     gap: 20px;
   }
-  
+
   .testimonial-card {
     padding: 20px 15px;
   }
-  
+
   .testimonial-text {
     font-size: 13px;
     line-height: 1.5;
   }
-  
+
   .gallery-section {
     padding: 60px 0;
   }
-  
+
   .gallery-grid {
     padding: 0 15px;
     gap: 15px;
   }
-  
+
   .gallery-item img {
     height: 250px;
   }
-  
-  
+
   .floating-whatsapp {
     bottom: 20px;
     right: 20px;
   }
-  
+
   .floating-whatsapp a {
     width: 50px;
     height: 50px;
@@ -2339,22 +2694,21 @@ body {
   }
 }
 
-/* Responsividade para Talentus Box */
 @media (max-width: 768px) {
   .talentus-box-section {
     padding: 80px 0;
   }
-  
+
   .talentus-box {
     padding: 40px 50px;
     margin: 0 20px;
     max-width: 90%;
   }
-  
+
   .talentus-title {
     font-size: 30px;
   }
-  
+
   .talentus-button {
     padding: 12px 25px;
     font-size: 15px;
@@ -2366,67 +2720,65 @@ body {
     padding: 30px 40px;
     margin: 0 15px;
   }
-  
+
   .talentus-title {
     font-size: 26px;
   }
-  
+
   .talentus-button {
     padding: 10px 20px;
     font-size: 14px;
   }
 }
 
-/* Mobile Small */
 @media (max-width: 360px) {
   .hero-title {
     font-size: 24px;
   }
-  
+
   .hero-subtitle {
     font-size: 13px;
   }
-  
+
   .section-title {
     font-size: 24px;
   }
-  
+
   .section-title1 {
     font-size: 24px;
   }
-  
+
   .section-title2 {
     font-size: 24px;
   }
-  
+
   .quality-section .section-title {
     font-size: 16px;
     padding: 20px 15px;
   }
-  
+
   .product-title {
     font-size: 20px;
   }
-  
+
   .product-description {
     font-size: 14px;
   }
-  
+
   .btn-whatsapp {
     padding: 10px 20px;
     font-size: 13px;
   }
-  
-  
+
   .talentus-box {
     padding: 25px 30px;
     margin: 0 10px;
   }
-  
+
   .talentus-title {
     font-size: 22px;
   }
-  
+
   .talentus-button {
     padding: 8px 18px;
     font-size: 13px;

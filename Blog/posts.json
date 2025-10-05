@@ -1,0 +1,154 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "As Tendências em Esquadrias para 2025",
+      "slug": "tendencias-esquadrias-2025",
+      "excerpt": "Descubra as principais tendências em esquadrias de alumínio que vão dominar o mercado em 2025, desde designs minimalistas até soluções tecnológicas inovadoras.",
+      "content": "O mercado de esquadrias está em constante evolução, e 2025 promete trazer inovações fascinantes. Neste artigo, exploramos as principais tendências que vão moldar o futuro das esquadrias de alumínio...",
+      "image": "../imgs/1.jpg",
+      "date": "2025-01-15",
+      "category": "esquadrias",
+      "tags": ["tendências", "alumínio", "design", "inovação"],
+      "author": "Equipe AllVale",
+      "published": true,
+      "featured": true,
+      "views": 1250
+    },
+    {
+      "id": 2,
+      "title": "Como Escolher a Esquadria Ideal para seu Projeto",
+      "slug": "escolher-esquadria-ideal-projeto",
+      "excerpt": "Guia completo para ajudar você a escolher as esquadrias perfeitas para seu projeto residencial ou comercial.",
+      "content": "A escolha das esquadrias corretas é fundamental para o sucesso de qualquer projeto arquitetônico. Neste guia, abordamos os principais fatores a serem considerados...",
+      "image": "../imgs/2.jpg",
+      "date": "2025-01-12",
+      "category": "arquitetura",
+      "tags": ["guia", "escolha", "projeto", "residencial"],
+      "author": "Equipe AllVale",
+      "published": true,
+      "featured": false,
+      "views": 980
+    },
+    {
+      "id": 3,
+      "title": "Projeto Casa Moderna: Do Conceito à Realização",
+      "slug": "projeto-casa-moderna-conceito-realizacao",
+      "excerpt": "Veja como desenvolvemos este projeto residencial moderno, desde o conceito inicial até a instalação final das esquadrias.",
+      "content": "Este projeto residencial moderno representa perfeitamente a integração entre arquitetura contemporânea e esquadrias de alta qualidade...",
+      "image": "../imgs/3.jpg",
+      "date": "2025-01-10",
+      "category": "projetos",
+      "tags": ["casa moderna", "projeto", "residencial", "contemporâneo"],
+      "author": "Equipe AllVale",
+      "published": true,
+      "featured": false,
+      "views": 750
+    },
+    {
+      "id": 4,
+      "title": "Sustentabilidade em Esquadrias de Alumínio",
+      "slug": "sustentabilidade-esquadrias-aluminio",
+      "excerpt": "Como as esquadrias de alumínio contribuem para a sustentabilidade e eficiência energética dos edifícios.",
+      "content": "A sustentabilidade é um tema cada vez mais importante na construção civil. As esquadrias de alumínio desempenham um papel crucial neste cenário...",
+      "image": "../imgs/4.jpg",
+      "date": "2025-01-08",
+      "category": "design",
+      "tags": ["sustentabilidade", "energia", "meio ambiente", "alumínio"],
+      "author": "Equipe AllVale",
+      "published": true,
+      "featured": false,
+      "views": 620
+    },
+    {
+      "id": 5,
+      "title": "Manutenção de Esquadrias: Dicas Essenciais",
+      "slug": "manutencao-esquadrias-dicas-essenciais",
+      "excerpt": "Aprenda como manter suas esquadrias sempre em perfeito estado com essas dicas práticas de manutenção.",
+      "content": "A manutenção adequada das esquadrias é essencial para garantir sua durabilidade e funcionalidade ao longo dos anos...",
+      "image": "../imgs/5.jpg",
+      "date": "2025-01-05",
+      "category": "esquadrias",
+      "tags": ["manutenção", "dicas", "durabilidade", "cuidados"],
+      "author": "Equipe AllVale",
+      "published": true,
+      "featured": false,
+      "views": 890
+    },
+    {
+      "id": 6,
+      "title": "Arquitetura Contemporânea e Esquadrias",
+      "slug": "arquitetura-contemporanea-esquadrias",
+      "excerpt": "Como as esquadrias se integram perfeitamente aos projetos de arquitetura contemporânea.",
+      "content": "A arquitetura contemporânea tem características únicas que exigem soluções específicas em esquadrias...",
+      "image": "../imgs/6.jpg",
+      "date": "2025-01-03",
+      "category": "arquitetura",
+      "tags": ["contemporâneo", "arquitetura", "integração", "design"],
+      "author": "Equipe AllVale",
+      "published": true,
+      "featured": false,
+      "views": 540
+    },
+    {
+      "id": 7,
+      "title": "Esquadrias para Edifícios Comerciais",
+      "slug": "esquadrias-edificios-comerciais",
+      "excerpt": "Especificações e considerações importantes para esquadrias em projetos comerciais.",
+      "content": "Os edifícios comerciais apresentam necessidades específicas em termos de esquadrias que diferem das residenciais...",
+      "image": "../imgs/7.jpg",
+      "date": "2025-01-01",
+      "category": "projetos",
+      "tags": ["comercial", "edifícios", "especificações", "projetos"],
+      "author": "Equipe AllVale",
+      "published": true,
+      "featured": false,
+      "views": 420
+    },
+    {
+      "id": 8,
+      "title": "Tecnologia e Inovação em Esquadrias",
+      "slug": "tecnologia-inovacao-esquadrias",
+      "excerpt": "As últimas tecnologias aplicadas ao desenvolvimento de esquadrias modernas.",
+      "content": "A tecnologia está revolucionando o setor de esquadrias, trazendo soluções cada vez mais eficientes e inteligentes...",
+      "image": "../imgs/8.jpg",
+      "date": "2024-12-28",
+      "category": "design",
+      "tags": ["tecnologia", "inovação", "moderno", "inteligente"],
+      "author": "Equipe AllVale",
+      "published": true,
+      "featured": false,
+      "views": 680
+    }
+  ],
+  "categories": [
+    {
+      "id": "esquadrias",
+      "name": "Esquadrias",
+      "description": "Artigos sobre esquadrias de alumínio"
+    },
+    {
+      "id": "arquitetura",
+      "name": "Arquitetura",
+      "description": "Tópicos relacionados à arquitetura"
+    },
+    {
+      "id": "design",
+      "name": "Design",
+      "description": "Design e tendências visuais"
+    },
+    {
+      "id": "projetos",
+      "name": "Projetos",
+      "description": "Casos de estudo e projetos realizados"
+    }
+  ],
+  "settings": {
+    "postsPerPage": 6,
+    "recentPostsCount": 4,
+    "enableComments": false,
+    "enableNewsletter": true,
+    "siteName": "Blog AllVale",
+    "siteDescription": "Esquadrias e Arquitetura"
+  }
+}

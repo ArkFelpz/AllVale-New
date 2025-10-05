@@ -1,9 +1,7 @@
-// DEBUG: Verificar se os elementos existem
 console.log("=== INICIANDO CARREGAMENTO ===");
 console.log("Header element:", document.getElementById("header"));
 console.log("Footer element:", document.getElementById("footer"));
 
-// Carregar Header e Footer
 console.log("Carregando footer...");
 fetch("../partners/footer.html")
   .then(response => {
@@ -39,7 +37,6 @@ fetch("../partners/header.html")
     console.error("Erro ao carregar header:", error);
     document.getElementById("header").innerHTML = "<p>Erro ao carregar header: " + error.message + "</p>";
   });
-/* seletor de linguagem */
 const languageSelect = document.getElementById("language-select");
 if (languageSelect) {
   languageSelect.addEventListener("change", () => {
@@ -50,15 +47,25 @@ if (languageSelect) {
   });
 }
 
-// Animação das estatísticas
+
 function animateCounter(element, target, duration = 2000) {
-  let start = 0;
+  const start = 0;
   const increment = target / (duration / 16);
+  let current = start;
+  
+  function easeOutQuart(t) {
+    return 1 - Math.pow(1 - t, 4);
+  }
   
   function updateCounter() {
-    start += increment;
-    if (start < target) {
-      element.textContent = Math.floor(start);
+    current += increment;
+    const progress = Math.min(current / target, 1);
+    const easedProgress = easeOutQuart(progress);
+    const displayValue = Math.floor(easedProgress * target);
+    
+    element.textContent = displayValue;
+    
+    if (progress < 1) {
       requestAnimationFrame(updateCounter);
     } else {
       element.textContent = target;
@@ -68,13 +75,10 @@ function animateCounter(element, target, duration = 2000) {
   updateCounter();
 }
 
-// Detectar se é mobile
 const isMobile = window.innerWidth <= 768;
 
-// Observer para animar as estatísticas quando aparecem na tela
 const observerOptions = {
-  threshold: isMobile ? 0.1 : 0.3, // 10% no mobile, 30% no desktop
-  rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -50px 0px' // Menos margem no mobile
+  rootMargin: isMobile ? '0px 0px -50px 0px' : '0px 0px -100px 0px'
 };
 
 const statsObserver = new IntersectionObserver((entries) => {
@@ -83,25 +87,29 @@ const statsObserver = new IntersectionObserver((entries) => {
       console.log('Seção Nossa Essência detectada na viewport');
       const statNumbers = entry.target.querySelectorAll('.stat-number');
       console.log('Números encontrados:', statNumbers.length);
-      statNumbers.forEach(stat => {
+      
+      statNumbers.forEach((stat, index) => {
         const target = parseInt(stat.getAttribute('data-target'));
         if (target && !stat.classList.contains('animated')) {
           console.log('Animando número:', target);
           stat.classList.add('animated');
-          animateCounter(stat, target);
+          
+          setTimeout(() => {
+            animateCounter(stat, target, isMobile ? 1500 : 2000);
+          }, index * 300);
         }
       });
+      
+      statsObserver.unobserve(entry.target);
     }
   });
 }, observerOptions);
 
-// Aplicar observer quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', () => {
   const mvSection = document.querySelector('.mv-section');
   if (mvSection) {
     statsObserver.observe(mvSection);
     
-    // Fallback para mobile: se após 2 segundos as animações não dispararam, forçar
     setTimeout(() => {
       const statNumbers = mvSection.querySelectorAll('.stat-number:not(.animated)');
       if (statNumbers.length > 0) {
@@ -117,9 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2000);
   }
   
-  // ============================================
-  // REVEAL ANIMATIONS ON SCROLL
-  // ============================================
   
   const revealObserverOptions = {
     threshold: 0.1,
@@ -134,7 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, revealObserverOptions);
 
-  // Observe all reveal elements with new animation system
   const revealSelectors = [
     '.reveal', '.reveal-left', '.reveal-right', '.reveal-scale',
     '.reveal-bounce', '.reveal-slide-bounce', '.reveal-scale-bounce',

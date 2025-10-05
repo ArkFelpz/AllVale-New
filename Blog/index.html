@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog AllVale · Esquadrias e Arquitetura</title>
+  <meta name="description" content="Acompanhe as últimas tendências em esquadrias, arquitetura e design. Dicas, projetos e novidades da AllVale.">
+  <meta name="keywords" content="Blog AllVale, Esquadrias, Arquitetura, Design, Alumínio, Projetos">
+  <link rel="icon" type="image/png" sizes="32x32" href="../imgs/cropped-REVENUE-1-32x32.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="header"></div>
+
+  <main>
+    <section class="blog-hero-section">
+      <div class="container">
+        <div class="blog-hero-content reveal-fade-slide">
+          <h1 class="blog-hero-title">Blog AllVale</h1>
+          <p class="blog-hero-subtitle">
+            Descubra as últimas tendências em esquadrias, arquitetura e design.<br>
+            Projetos inspiradores, dicas técnicas e novidades da nossa empresa.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-content-section">
+      <div class="container">
+        <div class="blog-layout">
+          <div class="blog-main">
+            <article class="featured-post reveal-bounce reveal-delay-1">
+              <div class="featured-post-image">
+                <img src="../imgs/banner.jpg" alt="Post em Destaque" id="featured-post-img">
+                <div class="featured-badge">DESTAQUE</div>
+              </div>
+              <div class="featured-post-content">
+                <div class="post-meta">
+                  <span class="post-date" id="featured-post-date">15 de Janeiro, 2025</span>
+                  <span class="post-category" id="featured-post-category">Esquadrias</span>
+                </div>
+                <h2 class="post-title" id="featured-post-title">
+                  As Tendências em Esquadrias para 2025
+                </h2>
+                <p class="post-excerpt" id="featured-post-excerpt">
+                  Descubra as principais tendências em esquadrias de alumínio que vão dominar o mercado em 2025, 
+                  desde designs minimalistas até soluções tecnológicas inovadoras.
+                </p>
+                <a href="#" class="read-more-btn" id="featured-post-link">Ler Mais</a>
+              </div>
+            </article>
+
+            <div class="blog-posts-grid" id="blog-posts-container">
+            </div>
+            <div class="load-more-container reveal-fade-slide reveal-delay-4">
+              <button class="load-more-btn" id="load-more-btn">
+                <span class="btn-text">Carregar Mais Posts</span>
+                <i class="fas fa-arrow-down"></i>
+              </button>
+            </div>
+
+            <div class="clear-filters-container reveal-fade-slide reveal-delay-5" id="clear-filters-container" style="display: none;">
+              <button class="clear-filters-btn" id="clear-filters-btn">
+                <i class="fas fa-times"></i>
+                Limpar Filtros
+              </button>
+            </div>
+          </div>
+
+          <aside class="blog-sidebar">
+            <div class="sidebar-widget reveal-scale-bounce reveal-delay-1">
+              <h3 class="widget-title">Buscar</h3>
+              <div class="search-widget">
+                <form id="search-form">
+                  <div class="search-input-group">
+                    <input type="text" id="search-input" placeholder="Digite sua busca..." class="search-input-field">
+                    <button type="submit" class="search-btn">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </form>
+                <div id="search-results" class="search-results" style="display: none;">
+                </div>
+              </div>
+            </div>
+
+            <div class="sidebar-widget reveal-scale-bounce reveal-delay-2">
+              <h3 class="widget-title">Categorias</h3>
+              <ul class="categories-list" id="categories-list">
+                <li><a href="#" data-category="all">Todas</a></li>
+                <li><a href="#" data-category="esquadrias">Esquadrias</a></li>
+                <li><a href="#" data-category="arquitetura">Arquitetura</a></li>
+                <li><a href="#" data-category="design">Design</a></li>
+                <li><a href="#" data-category="projetos">Projetos</a></li>
+              </ul>
+            </div>
+
+            <div class="sidebar-widget reveal-scale-bounce reveal-delay-3">
+              <h3 class="widget-title">Tags Populares</h3>
+              <div class="tags-cloud" id="tags-cloud">
+              </div>
+            </div>
+
+            <div class="sidebar-widget reveal-scale-bounce reveal-delay-3">
+              <h3 class="widget-title">Posts Recentes</h3>
+              <div class="recent-posts" id="recent-posts">
+              </div>
+            </div>
+
+            <div class="sidebar-widget reveal-scale-bounce reveal-delay-4">
+              <h3 class="widget-title">Newsletter</h3>
+              <div class="newsletter-form">
+                <p>Receba nossas atualizações por email</p>
+                <form id="newsletter-form">
+                  <input type="email" placeholder="Seu email" required>
+                  <button type="submit">Inscrever</button>
+                </form>
+              </div>
+            </div>
+
+            <div class="sidebar-widget reveal-scale-bounce reveal-delay-5">
+              <div class="sidebar-cta">
+                <h4>Precisa de um Orçamento?</h4>
+                <p>Entre em contato conosco para seu projeto</p>
+                <a href="https://wa.me/5512997643142?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20e%20gostaria%20de%20um%20or%C3%A7amento!" class="cta-btn">
+                  <i class="fab fa-whatsapp"></i>
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+  <div class="floating-whatsapp">
+    <a href="https://wa.me/5512997643142?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20e%20gostaria%20de%20um%20or%C3%A7amento!" target="_blank" aria-label="Abrir WhatsApp" class="pulse-infinite">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <script src="../javascript.js"></script>
+  <script src="javascript.js"></script>
+</body>
+</html>

@@ -1,9 +1,7 @@
-// DEBUG: Verificar se os elementos existem
 console.log("=== INICIANDO CARREGAMENTO ===");
 console.log("Header element:", document.getElementById("header"));
 console.log("Footer element:", document.getElementById("footer"));
 
-// Carregar Header e Footer
 console.log("Carregando footer...");
 fetch("../partners/footer.html")
   .then(response => {
@@ -40,15 +38,25 @@ fetch("../partners/header.html")
     document.getElementById("header").innerHTML = "<p>Erro ao carregar header: " + error.message + "</p>";
   });
 
-// Animação das estatísticas
+
 function animateCounter(element, target, duration = 2000) {
-  let start = 0;
+  const start = 0;
   const increment = target / (duration / 16);
+  let current = start;
+  
+  function easeOutQuart(t) {
+    return 1 - Math.pow(1 - t, 4);
+  }
   
   function updateCounter() {
-    start += increment;
-    if (start < target) {
-      element.textContent = Math.floor(start);
+    current += increment;
+    const progress = Math.min(current / target, 1);
+    const easedProgress = easeOutQuart(progress);
+    const displayValue = Math.floor(easedProgress * target);
+    
+    element.textContent = displayValue;
+    
+    if (progress < 1) {
       requestAnimationFrame(updateCounter);
     } else {
       element.textContent = target;
@@ -61,10 +69,8 @@ function animateCounter(element, target, duration = 2000) {
 // Detectar se é mobile
 const isMobile = window.innerWidth <= 768;
 
-// Observer para animar as estatísticas quando aparecem na tela
 const observerOptions = {
-  threshold: isMobile ? 0.1 : 0.3, // 10% no mobile, 30% no desktop
-  rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -50px 0px' // Menos margem no mobile
+  rootMargin: isMobile ? '0px 0px -50px 0px' : '0px 0px -100px 0px'
 };
 
 const statsObserver = new IntersectionObserver((entries) => {
@@ -73,19 +79,24 @@ const statsObserver = new IntersectionObserver((entries) => {
       console.log('Seção de estatísticas detectada na viewport');
       const statNumbers = entry.target.querySelectorAll('.stat-number');
       console.log('Números encontrados:', statNumbers.length);
-      statNumbers.forEach(stat => {
+      
+      statNumbers.forEach((stat, index) => {
         const target = parseInt(stat.getAttribute('data-target'));
         if (target && !stat.classList.contains('animated')) {
           console.log('Animando número:', target);
           stat.classList.add('animated');
-          animateCounter(stat, target);
+          
+          setTimeout(() => {
+            animateCounter(stat, target, isMobile ? 1500 : 2000);
+          }, index * 200);
         }
       });
+      
+      statsObserver.unobserve(entry.target);
     }
   });
 }, observerOptions);
 
-// Validação do formulário
 function validateForm() {
   const form = document.getElementById('contactForm');
   const name = document.getElementById('name');
@@ -95,19 +106,16 @@ function validateForm() {
   
   let isValid = true;
   
-  // Limpar erros anteriores
   document.querySelectorAll('.error-message').forEach(error => error.remove());
   document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(input => {
     input.classList.remove('error');
   });
   
-  // Validar nome
   if (!name.value.trim()) {
     showError(name, 'Nome é obrigatório');
     isValid = false;
   }
   
-  // Validar email
   if (!email.value.trim()) {
     showError(email, 'E-mail é obrigatório');
     isValid = false;
@@ -116,13 +124,11 @@ function validateForm() {
     isValid = false;
   }
   
-  // Validar assunto
   if (!subject.value) {
     showError(subject, 'Assunto é obrigatório');
     isValid = false;
   }
   
-  // Validar mensagem
   if (!message.value.trim()) {
     showError(message, 'Mensagem é obrigatória');
     isValid = false;
@@ -149,15 +155,12 @@ function isValidEmail(email) {
 
 // Máscara para telefone
 function formatPhone(input) {
-  // Remove todos os caracteres não numéricos
   let value = input.value.replace(/\D/g, '');
   
-  // Limita a 13 dígitos (55 + 2 dígitos DDD + 9 dígitos número)
   if (value.length > 13) {
     value = value.substring(0, 13);
   }
   
-  // Aplica a máscara conforme o usuário digita
   if (value.length === 0) {
     input.value = '';
   } else if (value.length <= 2) {
@@ -170,20 +173,15 @@ function formatPhone(input) {
     // +55 12-997
     input.value = `+${value.substring(0, 2)} ${value.substring(2, 4)}-${value.substring(4)}`;
   } else if (value.length <= 11) {
-    // +55 12-9977-7
     input.value = `+${value.substring(0, 2)} ${value.substring(2, 4)}-${value.substring(4, 8)}-${value.substring(8)}`;
   } else {
-    // +55 12-99777-6486
     input.value = `+${value.substring(0, 2)} ${value.substring(2, 4)}-${value.substring(4, 9)}-${value.substring(9)}`;
   }
 }
 
-// Função para tentar envio automático via webhook/API
 async function tryAutoSend(name, email, phone, subject, message, whatsappNumber) {
-  // URL do seu webhook/API (substitua pela sua URL real)
   const webhookURL = 'https://seu-servidor.com/webhook/whatsapp';
   
-  // Dados para enviar
   const payload = {
     name: name,
     email: email,

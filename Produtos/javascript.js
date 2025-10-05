@@ -1,9 +1,7 @@
-// DEBUG: Verificar se os elementos existem
 console.log("=== INICIANDO CARREGAMENTO ===");
 console.log("Header element:", document.getElementById("header"));
 console.log("Footer element:", document.getElementById("footer"));
 
-// Carregar Header e Footer
 console.log("Carregando footer...");
 fetch("../partners/footer.html")
   .then(response => {
@@ -40,7 +38,6 @@ fetch("../partners/header.html")
     document.getElementById("header").innerHTML = "<p>Erro ao carregar header: " + error.message + "</p>";
   });
 
-// Função para scroll suave para seções
 function smoothScrollTo(target) {
   const element = document.querySelector(target);
   if (element) {
@@ -51,16 +48,12 @@ function smoothScrollTo(target) {
   }
 }
 
-// Função para mostrar modal de produto (futura implementação)
 function showProductModal(productName) {
-  // Aqui você pode implementar um modal com mais detalhes do produto
   console.log(`Mostrando detalhes do produto: ${productName}`);
   
-  // Por enquanto, apenas um alert
   alert(`Detalhes do ${productName} serão implementados em breve!\n\nEntre em contato conosco para mais informações sobre este produto.`);
 }
 
-// Função para redirecionar para contato com produto selecionado
 function redirectToContact(productName) {
   const whatsappNumber = "5512997776486";
   const message = `Olá! Gostaria de saber mais informações sobre a *${productName}* da AllVale.
@@ -70,7 +63,6 @@ Podem me enviar mais detalhes e orçamento?`;
   const encodedMessage = encodeURIComponent(message);
   const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
   
-  // Detectar se é mobile para abrir app ou web
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   
   if (isMobile) {
@@ -80,11 +72,7 @@ Podem me enviar mais detalhes e orçamento?`;
   }
 }
 
-// Aplicar quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', () => {
-  // ============================================
-  // REVEAL ANIMATIONS ON SCROLL
-  // ============================================
   
   const revealObserverOptions = {
     threshold: 0.1,
@@ -99,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, revealObserverOptions);
 
-  // Observe all reveal elements with new animation system
   const revealSelectors = [
     '.reveal', '.reveal-left', '.reveal-right', '.reveal-scale',
     '.reveal-bounce', '.reveal-slide-bounce', '.reveal-scale-bounce',
@@ -112,17 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
-  // ============================================
-  // INTERAÇÕES DOS PRODUTOS
-  // ============================================
   
-  // Adicionar eventos aos botões dos produtos
   const productButtons = document.querySelectorAll('.product-btn');
   productButtons.forEach((button, index) => {
     button.addEventListener('click', (e) => {
       e.preventDefault();
       
-      // Obter o nome do produto baseado no índice
       const productNames = [
         'Linha Suprema',
         'Linha Gold', 
@@ -133,12 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const productName = productNames[index] || 'Produto';
       
-      // Mostrar modal ou redirecionar
       showProductModal(productName);
     });
   });
   
-  // Adicionar eventos aos cards dos produtos para hover effects
   const productCards = document.querySelectorAll('.product-card');
   productCards.forEach(card => {
     card.addEventListener('mouseenter', () => {
@@ -149,38 +129,20 @@ document.addEventListener('DOMContentLoaded', () => {
       card.style.transform = 'translateY(0) rotateX(0deg)';
     });
   });
-  
-  // ============================================
-  // BOTÕES CTA
-  // ============================================
-  
-  // Botão "Solicitar Orçamento"
   const ctaPrimary = document.querySelector('.cta-btn.primary');
   if (ctaPrimary) {
     ctaPrimary.addEventListener('click', (e) => {
       e.preventDefault();
-      
-      // Redirecionar para página de contato
       window.location.href = '../contato/';
     });
   }
-  
-  // Botão "Conheça a AllVale"
   const ctaSecondary = document.querySelector('.cta-btn.secondary');
   if (ctaSecondary) {
     ctaSecondary.addEventListener('click', (e) => {
       e.preventDefault();
-      
-      // Redirecionar para página sobre nós
       window.location.href = '../sobre nos/';
     });
   }
-  
-  // ============================================
-  // ANIMAÇÕES ESPECIAIS
-  // ============================================
-  
-  // Parallax effect no hero
   window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.products-hero');
@@ -188,8 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
       hero.style.transform = `translateY(${scrolled * 0.5}px)`;
     }
   });
-  
-  // Counter animation para estatísticas (se houver)
   const animateCounters = () => {
     const counters = document.querySelectorAll('.counter');
     counters.forEach(counter => {
@@ -205,8 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   };
-  
-  // Observer para animar contadores quando aparecem na tela
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -215,17 +173,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-  
   const countersSection = document.querySelector('.counters-section');
   if (countersSection) {
     counterObserver.observe(countersSection);
   }
-  
-  // ============================================
-  // NAVEGAÇÃO SUAVE
-  // ============================================
-  
-  // Adicionar navegação suave para links internos
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
@@ -233,12 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
       smoothScrollTo(target);
     });
   });
-  
-  // ============================================
-  // LAZY LOADING DE IMAGENS (FUTURA IMPLEMENTAÇÃO)
-  // ============================================
-  
-  // Observer para lazy loading de imagens
   const imageObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -250,17 +195,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
-  // Aplicar lazy loading a imagens com classe 'lazy'
   document.querySelectorAll('img[data-src]').forEach(img => {
     imageObserver.observe(img);
   });
 });
 
-// ============================================
-// FUNÇÕES GLOBAIS
-// ============================================
-
-// Função para compartilhar produto (futura implementação)
 function shareProduct(productName) {
   if (navigator.share) {
     navigator.share({
@@ -269,7 +208,6 @@ function shareProduct(productName) {
       url: window.location.href
     });
   } else {
-    // Fallback para navegadores que não suportam Web Share API
     const url = window.location.href;
     navigator.clipboard.writeText(url).then(() => {
       alert('Link copiado para a área de transferência!');
@@ -277,7 +215,6 @@ function shareProduct(productName) {
   }
 }
 
-// Função para favoritar produto (futura implementação)
 function toggleFavorite(productId) {
   const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
   const index = favorites.indexOf(productId);
@@ -293,7 +230,6 @@ function toggleFavorite(productId) {
   localStorage.setItem('favorites', JSON.stringify(favorites));
 }
 
-// Função para comparar produtos (futura implementação)
 function addToComparison(productId) {
   const comparison = JSON.parse(localStorage.getItem('comparison') || '[]');
   

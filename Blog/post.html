@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Post - Blog AllVale</title>
+  <meta name="description" id="page-description" content="Leia mais sobre esquadrias e arquitetura no blog da AllVale.">
+  <meta name="keywords" content="Blog AllVale, Esquadrias, Arquitetura, Design, Alumínio, Projetos">
+  <link rel="icon" type="image/png" sizes="32x32" href="../imgs/cropped-REVENUE-1-32x32.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .post-page {
+      padding-top: 120px;
+    }
+
+    .post-header {
+      background: linear-gradient(135deg, #000059 0%, #223E70 100%);
+      padding: 60px 0;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .post-header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('../imgs/banner.jpg') center/cover;
+      opacity: 0.2;
+      z-index: 1;
+    }
+
+    .post-header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .post-breadcrumb {
+      margin-bottom: 20px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .post-breadcrumb a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .post-breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .post-meta {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+
+    .post-meta span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .post-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    .post-content h2 {
+      font-family: "Montserrat", Sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin: 40px 0 20px 0;
+      line-height: 1.3;
+    }
+
+    .post-content h3 {
+      font-family: "Montserrat", Sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin: 30px 0 15px 0;
+      line-height: 1.3;
+    }
+
+    .post-content p {
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .post-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin: 30px 0;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 40px 0;
+    }
+
+    .post-tag {
+      background: #f0f0f0;
+      color: #000059;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .post-tag:hover {
+      background: #000059;
+      color: white;
+    }
+
+    .related-posts {
+      background: #f8f8f8;
+      padding: 60px 0;
+    }
+
+    .related-posts h3 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+      color: #2c3e50;
+    }
+
+    .related-posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .related-post {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .related-post:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .related-post-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .related-post-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .related-post:hover .related-post-image img {
+      transform: scale(1.05);
+    }
+
+    .related-post-content {
+      padding: 25px;
+    }
+
+    .related-post-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .related-post-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .related-post-title a:hover {
+      color: #000059;
+    }
+
+    .related-post-date {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .back-to-blog {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .back-to-blog a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .back-to-blog a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 89, 0.3);
+      color: white;
+    }
+
+    .loading-post {
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .error-post {
+      text-align: center;
+      padding: 100px 20px;
+      color: #c62828;
+    }
+
+    @media (max-width: 768px) {
+      .post-header {
+        padding: 40px 0;
+      }
+
+      .post-meta {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .post-content {
+        padding: 40px 15px;
+        font-size: 16px;
+      }
+
+      .post-content h2 {
+        font-size: 24px;
+      }
+
+      .post-content h3 {
+        font-size: 20px;
+      }
+
+      .related-posts-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="post-page">
+    <div id="loading-state" class="loading-post">
+      <div class="loading-spinner">
+        <i class="fas fa-spinner fa-spin fa-3x" style="color: #000059;"></i>
+        <p style="margin-top: 20px; color: #666;">Carregando post...</p>
+      </div>
+    </div>
+
+    <div id="error-state" class="error-post" style="display: none;">
+      <i class="fas fa-exclamation-triangle fa-3x" style="margin-bottom: 20px;"></i>
+      <h2>Post não encontrado</h2>
+      <p>O post que você está procurando não existe ou foi removido.</p>
+      <div class="back-to-blog">
+        <a href="index.html">
+          <i class="fas fa-arrow-left"></i>
+          Voltar ao Blog
+        </a>
+      </div>
+    </div>
+
+    <!-- Post Content -->
+    <div id="post-content" style="display: none;">
+      <header class="post-header">
+        <div class="post-header-content">
+          <nav class="post-breadcrumb">
+            <a href="../index.html">Início</a> / 
+            <a href="index.html">Blog</a> / 
+            <span id="breadcrumb-category">Categoria</span>
+          </nav>
+          
+          <h1 id="post-title">Título do Post</h1>
+          
+          <div class="post-meta">
+            <span>
+              <i class="fas fa-calendar"></i>
+              <span id="post-date">Data</span>
+            </span>
+            <span>
+              <i class="fas fa-user"></i>
+              <span id="post-author">Autor</span>
+            </span>
+            <span>
+              <i class="fas fa-eye"></i>
+              <span id="post-views">0 visualizações</span>
+            </span>
+          </div>
+        </div>
+      </header>
+
+      <div id="post-image-container" style="display: none;">
+        <img id="post-image" src="" alt="" style="width: 100%; height: 400px; object-fit: cover;">
+      </div>
+
+      <article class="post-content">
+        <div id="post-content-text"></div>
+        
+        <div class="post-tags" id="post-tags-container">
+        </div>
+      </article>
+
+      <div class="back-to-blog">
+        <a href="index.html">
+          <i class="fas fa-arrow-left"></i>
+          Voltar ao Blog
+        </a>
+      </div>
+
+      <!-- Related Posts -->
+      <section class="related-posts">
+        <div class="container">
+          <h3>Posts Relacionados</h3>
+          <div class="related-posts-grid" id="related-posts-container">
+            <!-- Posts relacionados serão inseridos aqui -->
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <!-- Floating WhatsApp Button -->
+  <div class="floating-whatsapp">
+    <a href="https://wa.me/5512997643142?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20e%20gostaria%20de%20um%20or%C3%A7amento!" target="_blank" aria-label="Abrir WhatsApp" class="pulse-infinite">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <script src="../javascript.js"></script>
+  <script src="javascript.js"></script>
+  <script>
+    // Classe para gerenciar página de post individual
+    class PostPageManager {
+      constructor() {
+        this.post = null;
+        this.allPosts = [];
+        this.categories = [];
+        this.init();
+      }
+
+      async init() {
+        try {
+          // Obter slug da URL
+          const slug = BlogUtils.getUrlParameter('slug');
+          if (!slug) {
+            this.showError();
+            return;
+          }
+
+          // Carregar dados do blog
+          await this.loadBlogData();
+          
+          // Encontrar post pelo slug
+          this.post = this.allPosts.find(post => post.slug === slug);
+          
+          if (!this.post) {
+            this.showError();
+            return;
+          }
+
+          // Renderizar post
+          this.renderPost();
+          
+          // Carregar posts relacionados
+          this.loadRelatedPosts();
+          
+          // Atualizar views (simulado)
+          this.updateViews();
+          
+          // Esconder loading
+          document.getElementById('loading-state').style.display = 'none';
+          document.getElementById('post-content').style.display = 'block';
+          
+        } catch (error) {
+          console.error('Erro ao carregar post:', error);
+          this.showError();
+        }
+      }
+
+      async loadBlogData() {
+        let data;
+        
+        // Primeiro, tentar carregar do localStorage (dados atualizados do admin)
+        const localData = localStorage.getItem('blogData');
+        if (localData) {
+          console.log('📱 Carregando dados do localStorage (admin)');
+          data = JSON.parse(localData);
+        } else {
+          // Fallback: carregar do arquivo JSON
+          console.log('📁 Carregando dados do posts.json');
+          const response = await fetch('./posts.json');
+          data = await response.json();
+        }
+        
+        this.allPosts = data.posts.filter(post => post.published);
+        this.categories = data.categories;
+      }
+
+      renderPost() {
+        // Atualizar título da página
+        document.title = `${this.post.title} - Blog AllVale`;
+        document.getElementById('page-title').textContent = `${this.post.title} - Blog AllVale`;
+        document.getElementById('page-description').content = this.post.excerpt;
+
+        // Atualizar cabeçalho
+        document.getElementById('post-title').textContent = this.post.title;
+        document.getElementById('post-date').textContent = BlogUtils.formatDate(this.post.date);
+        document.getElementById('post-author').textContent = this.post.author;
+        document.getElementById('post-views').textContent = `${this.post.views} visualizações`;
+
+        // Atualizar breadcrumb
+        const categoryObj = this.categories.find(cat => cat.id === this.post.category);
+        document.getElementById('breadcrumb-category').textContent = categoryObj ? categoryObj.name : this.post.category;
+
+        // Atualizar imagem
+        if (this.post.image) {
+          document.getElementById('post-image').src = this.post.image;
+          document.getElementById('post-image').alt = this.post.title;
+          document.getElementById('post-image-container').style.display = 'block';
+        }
+
+        // Atualizar conteúdo
+        document.getElementById('post-content-text').innerHTML = this.formatContent(this.post.content);
+
+        // Atualizar tags
+        this.renderTags();
+      }
+
+      formatContent(content) {
+        // Converter quebras de linha em parágrafos
+        const paragraphs = content.split('\n\n').filter(p => p.trim());
+        return paragraphs.map(p => `<p>${p.trim()}</p>`).join('');
+      }
+
+      renderTags() {
+        const container = document.getElementById('post-tags-container');
+        container.innerHTML = '';
+
+        this.post.tags.forEach(tag => {
+          const tagElement = document.createElement('a');
+          tagElement.href = `#`;
+          tagElement.className = 'post-tag';
+          tagElement.textContent = tag;
+          container.appendChild(tagElement);
+        });
+      }
+
+      loadRelatedPosts() {
+        const relatedPosts = this.getRelatedPosts();
+        const container = document.getElementById('related-posts-container');
+        container.innerHTML = '';
+
+        if (relatedPosts.length === 0) {
+          container.innerHTML = '<p style="text-align: center; color: #666;">Nenhum post relacionado encontrado.</p>';
+          return;
+        }
+
+        relatedPosts.forEach(post => {
+          const postElement = document.createElement('article');
+          postElement.className = 'related-post';
+          
+          postElement.innerHTML = `
+            <div class="related-post-image">
+              <img src="${post.image}" alt="${post.title}" loading="lazy">
+            </div>
+            <div class="related-post-content">
+              <h4 class="related-post-title">
+                <a href="post.html?slug=${post.slug}">${post.title}</a>
+              </h4>
+              <span class="related-post-date">${BlogUtils.formatDate(post.date)}</span>
+            </div>
+          `;
+
+          container.appendChild(postElement);
+        });
+      }
+
+      getRelatedPosts(limit = 3) {
+        return this.allPosts
+          .filter(post => 
+            post.id !== this.post.id && 
+            (post.category === this.post.category || 
+             post.tags.some(tag => this.post.tags.includes(tag)))
+          )
+          .slice(0, limit);
+      }
+
+      updateViews() {
+        // Simular incremento de views
+        this.post.views = (this.post.views || 0) + 1;
+        document.getElementById('post-views').textContent = `${this.post.views} visualizações`;
+      }
+
+      showError() {
+        document.getElementById('loading-state').style.display = 'none';
+        document.getElementById('error-state').style.display = 'block';
+      }
+    }
+
+    // Inicializar quando DOM estiver carregado
+    document.addEventListener('DOMContentLoaded', () => {
+      window.postPageManager = new PostPageManager();
+    });
+  </script>
+</body>
+</html>

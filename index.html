@@ -11,18 +11,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header -->
   <div id="header"></div>
 
   <main>
-    <!-- Hero Section -->
     <section class="hero-section" id="b1827d1">
       <div class="hero-container">
         <div class="hero-content">
-          <h1 class="hero-title hidden-mobile hidden-tablet animate fadeInDown animate-delay-1">
+          <h1 class="hero-title animate fadeInLeft animate-delay-1">
             Esquadrias sob medida<br>para projetos únicos
           </h1>
-          <h2 class="hero-subtitle animate fadeInUp animate-delay-2">
+          <h2 class="hero-subtitle animate slideDownFromTop animate-delay-3">
             Design, resistência e sofisticação em alumínio<br>
             para transformar sua ideia em realidade
           </h2>
@@ -40,7 +38,6 @@
       </div>
     </section>
 
-    <!-- About Section -->
     <section class="about-section">
       <div class="container">
         <div class="about-content">
@@ -66,7 +63,6 @@
       </div>
       </section>
 
-    <!-- Projects Section -->
     <section class="projects-section">
       <div class="container">
         <div class="projects-header">
@@ -101,7 +97,6 @@
       </div>
     </section>
 
-    <!-- Quality Section -->
     <section class="quality-section">
       <div class="container">
         <h2 class="section-title">
@@ -110,7 +105,6 @@
       </div>
     </section>
 
-    <!-- Products Section -->
     <section class="products-section">
       <div class="container">
         <div class="products-grid">
@@ -154,100 +148,178 @@
       </div>
     </section>
 
-    <!-- Testimonials Section -->
     <section class="testimonials-section">
       <div class="container">
         <div class="testimonials-header">
-          <h2 class="testimonials-title">Depoimento dos <br> nossos clientes</h2>
+          <h2 class="testimonials-title">O que nossos clientes dizem</h2>
+          <div class="divider"></div>
+          <p class="testimonials-subtitle">
+            A satisfação dos nossos clientes é nossa maior recompensa. <br>
+            Conheça as experiências de quem confiou na AllVale.
+          </p>
         </div>
         
-        <div class="testimonials-grid">
-          <div class="testimonial-card reveal-rotate reveal-delay-1">
-            <div class="testimonial-header">
-              <div class="testimonial-info">
-                <div class="testimonial-avatar">V</div>
-                <div class="testimonial-details">
-                  <span class="testimonial-name">Vincentina Café</span>
-                  <span class="testimonial-date">27/08/2025</span>
+        <div class="testimonials-carousel">
+          <button class="carousel-btn carousel-prev" aria-label="Depoimento anterior">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          
+          <div class="carousel-container">
+            <div class="carousel-track">
+              <div class="testimonial-card carousel-item" data-index="0">
+                <div class="testimonial-header">
+                  <div class="testimonial-info">
+                    <div class="testimonial-avatar">V</div>
+                    <div class="testimonial-details">
+                      <span class="testimonial-name">Vincentina Café</span>
+                      <span class="testimonial-date">27/08/2025</span>
+                    </div>
+                  </div>
+                  <img class="ti-platform-icon" src="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="Google" width="20" height="20" loading="lazy">
                 </div>
+                <div class="testimonial-stars">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                </div>
+                <p class="testimonial-text">
+                  A empresa foi recomendada pelos nossos arquitetos e ficamos muito satisfeitos com a experiência dos serviços prestados pela Allvale! Equipe alinhada sob a coordenação da Juliana. Tivemos toda a atenção necessária nas informações do pré e pós-venda. Os materiais de boa qualidade e design. O atendimento superou nossas expectativas e o resultado final ficou exatamente como planejamos.
+                </p>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Ler mais</button>
               </div>
-              <img class="ti-platform-icon" src="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="Google" width="20" height="20" loading="lazy">
-            </div>
-            <div class="testimonial-stars">
-              <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
-              <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
-              <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
-              <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
-              <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
-            </div>
-            <p class="testimonial-text">
-              A empresa foi recomendada pelos nossos arquitetos e ficamos muito satisfeitos com a experiência dos serviços prestados pela Allvale! Equipe alinhada sob a coordenação da Juliana. Tivemos toda a atenção necessária nas informações do pré e pós-venda. Os materiais de boa qualidade e design.
-            </p>
-          </div>
 
-          <div class="testimonial-card reveal-scale-bounce reveal-delay-2">
-            <div class="testimonial-header">
-              <div class="testimonial-info">
-                <div class="testimonial-avatar">D</div>
-                <div class="testimonial-details">
-                  <span class="testimonial-name">Douglas Duarte</span>
-                  <span class="testimonial-date">05/08/2025</span>
+              <div class="testimonial-card carousel-item active" data-index="1">
+                <div class="testimonial-header">
+                  <div class="testimonial-info">
+                    <div class="testimonial-avatar">D</div>
+                    <div class="testimonial-details">
+                      <span class="testimonial-name">Douglas Duarte</span>
+                      <span class="testimonial-date">05/08/2025</span>
+                    </div>
+                  </div>
+                  <img class="ti-platform-icon" src="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="Google" width="20" height="20" loading="lazy">
                 </div>
+                <div class="testimonial-stars">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                </div>
+                <p class="testimonial-text">
+                  Gostaria de parabenizar a Allvale pelo atendimento, profissionalismo no atendimento e instalação das esquadrias da minha casa. Além disto, gostaria de ressaltar sobre a qualidade do produto, é excelente. Indico a todos a Allvale. A equipe técnica demonstrou grande conhecimento e eficiência durante todo o processo.
+                </p>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Ler mais</button>
               </div>
-              <img class="ti-platform-icon" src="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="Google" width="20" height="20" loading="lazy">
-            </div>
-            <div class="testimonial-stars">
-              <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
-              <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
-              <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
-              <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
-              <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
-            </div>
-            <p class="testimonial-text">
-              Gostaria de parabenizar a Allvale pelo atendimento, profissionalismo no atendimento e instalação das esquadrias da minha casa. Além disto, gostaria de ressaltar sobre a qualidade do produto, é excelente. Indico a todos a Allvale.
-            </p>
-          </div>
 
-          <div class="testimonial-card reveal-flip reveal-delay-3">
-            <div class="testimonial-header">
-              <div class="testimonial-info">
-                <div class="testimonial-avatar">E</div>
-                <div class="testimonial-details">
-                  <span class="testimonial-name">Eliseo Yoshihara</span>
-                  <span class="testimonial-date">17/08/2025</span>
+              <div class="testimonial-card carousel-item" data-index="2">
+                <div class="testimonial-header">
+                  <div class="testimonial-info">
+                    <div class="testimonial-avatar">E</div>
+                    <div class="testimonial-details">
+                      <span class="testimonial-name">Eliseo Yoshihara</span>
+                      <span class="testimonial-date">17/08/2025</span>
+                    </div>
+                  </div>
+                  <img class="ti-platform-icon" src="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="Google" width="20" height="20" loading="lazy">
                 </div>
+                <div class="testimonial-stars">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                </div>
+                <p class="testimonial-text">
+                  Estão cuidando com muito carinho da casa da minha filha! Realizando o sonho deles! O trabalho está ficando lindo e entregaram bem antes do prazo! A Juliana é ótima! Procurem o atendimento dela! Parabéns! A dedicação e atenção aos detalhes fazem toda a diferença.
+                </p>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Ler mais</button>
               </div>
-              <img class="ti-platform-icon" src="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="Google" width="20" height="20" loading="lazy">
+
+              <div class="testimonial-card carousel-item" data-index="3">
+                <div class="testimonial-header">
+                  <div class="testimonial-info">
+                    <div class="testimonial-avatar">M</div>
+                    <div class="testimonial-details">
+                      <span class="testimonial-name">Maria Silva</span>
+                      <span class="testimonial-date">12/09/2025</span>
+                    </div>
+                  </div>
+                  <img class="ti-platform-icon" src="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="Google" width="20" height="20" loading="lazy">
+                </div>
+                <div class="testimonial-stars">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                </div>
+                <p class="testimonial-text">
+                  Excelente trabalho da Allvale! Desde o primeiro contato até a instalação final, tudo foi perfeito. A equipe é muito profissional e atenciosa. As esquadrias ficaram lindas e com acabamento impecável. Recomendo de olhos fechados! O prazo foi cumprido e a qualidade superou todas as expectativas.
+                </p>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Ler mais</button>
+              </div>
+
+              <div class="testimonial-card carousel-item" data-index="4">
+                <div class="testimonial-header">
+                  <div class="testimonial-info">
+                    <div class="testimonial-avatar">R</div>
+                    <div class="testimonial-details">
+                      <span class="testimonial-name">Roberto Santos</span>
+                      <span class="testimonial-date">03/10/2025</span>
+                    </div>
+                  </div>
+                  <img class="ti-platform-icon" src="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="Google" width="20" height="20" loading="lazy">
+                </div>
+                <div class="testimonial-stars">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                  <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
+                </div>
+                <p class="testimonial-text">
+                  Contratei a Allvale para as esquadrias do meu escritório e não me arrependo. O atendimento foi excepcional, desde o orçamento até a entrega. A qualidade dos materiais é superior e o prazo foi cumprido rigorosamente. Parabéns pela excelência! Definitivamente voltarei a contratar para futuros projetos.
+                </p>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Ler mais</button>
+              </div>
             </div>
-            <div class="testimonial-stars">
-              <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
-              <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
-              <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
-              <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
-              <img class="testimonial-stars" src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google" width="17" height="17" loading="lazy">
-            </div>
-            <p class="testimonial-text">
-              Estão cuidando com muito carinho da casa da minha filha! Realizando o sonho deles! O trabalho está ficando lindo e entregaram bem antes do prazo! A Juliana é ótima! Procurem o atendimento dela! Parabéns!
-            </p>
           </div>
+          
+          <button class="carousel-btn carousel-next" aria-label="Próximo depoimento">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        
+        <div class="carousel-indicators">
+          <button class="indicator active" data-index="0"></button>
+          <button class="indicator" data-index="1"></button>
+          <button class="indicator" data-index="2"></button>
+          <button class="indicator" data-index="3"></button>
+          <button class="indicator" data-index="4"></button>
         </div>
 
         <div class="testimonials-summary">
-          <p class="summary-text">Com base em 34 AVALIAÇÕES</p>
-          <div class="summary-stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+          <div class="summary-content">
+            <p class="summary-text">Com base em 34 avaliações no Google</p>
+            <div class="summary-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="google-badge">
+              <img class="google-logo" src="https://cdn.trustindex.io/assets/platform/Google/logo.svg" alt="Google">
+              <span class="google-text">Avaliações verificadas</span>
+            </div>
           </div>
-            <img class="google-logo" src="https://cdn.trustindex.io/assets/platform/Google/logo.svg" alt="Google">
-
         </div>
       </div>
     </section>
 
-    <!-- Gallery Section -->
     <section class="gallery-section">
       <div class="container">
         <div class="gallery-grid">
@@ -293,10 +365,7 @@
         </div>
       </div>
     </section>
-  <!-- Footer -->
   <div id="footer"></div>
-
-  <!-- Floating WhatsApp Button -->
   <div class="floating-whatsapp">
     <a href="https://wa.me/5512997643142?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento!" target="_blank" aria-label="Abrir WhatsApp" class="pulse-infinite">
       <i class="fab fa-whatsapp"></i>
