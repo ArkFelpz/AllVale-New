@@ -12,11 +12,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header -->
   <div id="header"></div>
 
   <main>
-    <!-- Hero Section -->
     <section class="portfolio-hero">
       <div class="container">
         <div class="hero-content">
@@ -29,123 +27,146 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
     <section class="projects-section">
       <div class="container">
+        <div class="portfolio-tabs">
+          <button class="tab-button active" data-tab="todos">Todos os Projetos</button>
+          <button class="tab-button" data-tab="residencial">Residencial</button>
+          <button class="tab-button" data-tab="premium">Premium</button>
+        </div>
+        
         <div class="projects-grid">
-          <!-- Projeto 1 -->
-          <div class="project-card reveal-bounce reveal-delay-1">
+          <div class="project-card reveal-bounce reveal-delay-1" data-category="residencial">
             <div class="project-image">
-              <img src="../imgs/1.jpg" alt="Casa Seermaai - AllVale" loading="lazy">
-              <div class="project-overlay">
-                <div class="project-info">
-                  <h3 class="project-name">Casa Seermaai</h3>
-                  <p class="project-location">São José dos Campos</p>
-                </div>
+              <img src="Portfolio imgs/Casa A&M.jpg" alt="Casa A&M - AllVale" loading="lazy">
+            </div>
+            <div class="project-info">
+              <div>
+                <h3 class="project-name">Casa A&M</h3>
+                <p class="project-location">São José dos Campos</p>
+              </div>
+              <div class="project-arrow">
+                <i class="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Projeto 2 -->
-          <div class="project-card reveal-scale-bounce reveal-delay-2">
+          <div class="project-card reveal-scale-bounce reveal-delay-2" data-category="residencial">
             <div class="project-image">
-              <img src="../imgs/2.jpg" alt="Casa Casqueiro - AllVale" loading="lazy">
-              <div class="project-overlay">
-                <div class="project-info">
-                  <h3 class="project-name">Casa Casqueiro</h3>
-                  <p class="project-location">São José dos Campos</p>
-                </div>
+              <img src="Portfolio imgs/Casa A&R.jpg" alt="Casa A&R - AllVale" loading="lazy">
+            </div>
+            <div class="project-info">
+              <div>
+                <h3 class="project-name">Casa A&R</h3>
+                <p class="project-location">Taubaté</p>
+              </div>
+              <div class="project-arrow">
+                <i class="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Projeto 3 -->
-          <div class="project-card reveal-flip reveal-delay-3">
+          <div class="project-card reveal-flip reveal-delay-3" data-category="residencial">
             <div class="project-image">
-              <img src="../imgs/3.jpg" alt="Casa Raízes - AllVale" loading="lazy">
-              <div class="project-overlay">
-                <div class="project-info">
-                  <h3 class="project-name">Casa Raízes</h3>
-                  <p class="project-location">São José dos Campos</p>
-                </div>
+              <img src="Portfolio imgs/Casa Baraldi.jpg" alt="Casa Baraldi - AllVale" loading="lazy">
+            </div>
+            <div class="project-info">
+              <div>
+                <h3 class="project-name">Casa Baraldi</h3>
+                <p class="project-location">Taubaté</p>
+              </div>
+              <div class="project-arrow">
+                <i class="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Projeto 4 -->
-          <div class="project-card reveal-rotate reveal-delay-4">
+          <div class="project-card reveal-rotate reveal-delay-4" data-category="residencial">
             <div class="project-image">
-              <img src="../imgs/4.jpg" alt="Saboeiro - AllVale" loading="lazy">
-              <div class="project-overlay">
-                <div class="project-info">
-                  <h3 class="project-name">Saboeiro</h3>
-                  <p class="project-location">Lago Sul</p>
-                </div>
+              <img src="Portfolio imgs/Casa C&R.jpg" alt="Casa C&R - AllVale" loading="lazy">
+            </div>
+            <div class="project-info">
+              <div>
+                <h3 class="project-name">Casa C&R</h3>
+                <p class="project-location">Taubaté</p>
+              </div>
+              <div class="project-arrow">
+                <i class="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Projeto 5 -->
-          <div class="project-card reveal-slide-bounce reveal-delay-5">
+          <div class="project-card reveal-slide-bounce reveal-delay-5" data-category="residencial">
             <div class="project-image">
-              <img src="../imgs/5.jpg" alt="Braúna - AllVale" loading="lazy">
-              <div class="project-overlay">
-                <div class="project-info">
-                  <h3 class="project-name">Braúna</h3>
-                  <p class="project-location">Ocidental</p>
-                </div>
+              <img src="Portfolio imgs/Casa D&M.jpg" alt="Casa D&M - AllVale" loading="lazy">
+            </div>
+            <div class="project-info">
+              <div>
+                <h3 class="project-name">Casa D&M</h3>
+                <p class="project-location">Taubaté</p>
+              </div>
+              <div class="project-arrow">
+                <i class="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Projeto 6 -->
-          <div class="project-card reveal-fade-slide reveal-delay-1">
+          <div class="project-card reveal-fade-slide reveal-delay-1" data-category="residencial">
             <div class="project-image">
-              <img src="../imgs/6.jpg" alt="Imbiruçu - AllVale" loading="lazy">
-              <div class="project-overlay">
-                <div class="project-info">
-                  <h3 class="project-name">Imbiruçu</h3>
-                  <p class="project-location">São José dos Campos</p>
-                </div>
+              <img src="Portfolio imgs/Casa G.M.jpg" alt="Casa G.M - AllVale" loading="lazy">
+            </div>
+            <div class="project-info">
+              <div>
+                <h3 class="project-name">Casa G.M</h3>
+                <p class="project-location">Taubaté</p>
+              </div>
+              <div class="project-arrow">
+                <i class="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Projeto 7 -->
-          <div class="project-card reveal-bounce reveal-delay-2">
+          <div class="project-card reveal-bounce reveal-delay-2" data-category="premium">
             <div class="project-image">
-              <img src="../imgs/7.jpg" alt="Projeto Premium - AllVale" loading="lazy">
-              <div class="project-overlay">
-                <div class="project-info">
-                  <h3 class="project-name">Projeto Premium</h3>
-                  <p class="project-location">São José dos Campos</p>
-                </div>
+              <img src="Portfolio imgs/Casa G&A.jpg" alt="Casa G&A - AllVale" loading="lazy">
+            </div>
+            <div class="project-info">
+              <div>
+                <h3 class="project-name">Casa G&A</h3>
+                <p class="project-location">São José dos Campos</p>
+              </div>
+              <div class="project-arrow">
+                <i class="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Projeto 8 -->
-          <div class="project-card reveal-scale-bounce reveal-delay-3">
+          <div class="project-card reveal-scale-bounce reveal-delay-3" data-category="premium">
             <div class="project-image">
-              <img src="../imgs/8.jpg" alt="Residência Moderna - AllVale" loading="lazy">
-              <div class="project-overlay">
-                <div class="project-info">
-                  <h3 class="project-name">Residência Moderna</h3>
-                  <p class="project-location">São José dos Campos</p>
-                </div>
+              <img src="Portfolio imgs/Casa L.M.jpg" alt="Casa L.M - AllVale" loading="lazy">
+            </div>
+            <div class="project-info">
+              <div>
+                <h3 class="project-name">Casa L.M</h3>
+                <p class="project-location">Taubaté</p>
+              </div>
+              <div class="project-arrow">
+                <i class="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
 
-          <!-- Projeto 9 -->
-          <div class="project-card reveal-flip reveal-delay-4">
+          <div class="project-card reveal-rotate reveal-delay-4" data-category="premium">
             <div class="project-image">
-              <img src="../imgs/9.jpg" alt="Casa Contemporânea - AllVale" loading="lazy">
-              <div class="project-overlay">
-                <div class="project-info">
-                  <h3 class="project-name">Casa Contemporânea</h3>
-                  <p class="project-location">São José dos Campos</p>
-                </div>
+              <img src="Portfolio imgs/CASA TREVO.jpg" alt="Casa Trevo - AllVale" loading="lazy">
+            </div>
+            <div class="project-info">
+              <div>
+                <h3 class="project-name">Casa Trevo</h3>
+                <p class="project-location">São José dos Campos</p>
+              </div>
+              <div class="project-arrow">
+                <i class="fas fa-arrow-right"></i>
               </div>
             </div>
           </div>
@@ -153,7 +174,6 @@
       </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta-section">
       <div class="container">
         <div class="cta-content">
@@ -167,10 +187,7 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <div id="footer"></div>
-
-  <!-- Floating WhatsApp Button -->
   <div class="floating-whatsapp">
     <a href="https://wa.me/5512997643142?text=Ol%C3%A1%2C%20vim%20pelo%20portf%C3%B3lio%20e%20gostaria%20de%20um%20or%C3%A7amento!" target="_blank" aria-label="Abrir WhatsApp" class="pulse-infinite">
       <i class="fab fa-whatsapp"></i>

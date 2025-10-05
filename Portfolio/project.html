@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Projeto - Portfolio AllVale</title>
+  <meta name="description" id="page-description" content="Conheça mais sobre nossos projetos de esquadrias de alumínio.">
+  <meta name="keywords" content="Portfolio AllVale, Esquadrias, Projetos, Alumínio, Arquitetura">
+  <link rel="icon" type="image/png" sizes="32x32" href="../imgs/cropped-REVENUE-1-32x32.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700&display=swap">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .project-page {
+      padding-top: 0;
+    }
+
+    .project-hero {
+      background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+      padding: 50px 0;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 89, 0.1);
+    }
+
+    .project-hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('../imgs/1.jpg') center/cover;
+      opacity: 0.1;
+      z-index: 1;
+      transition: all 0.5s ease;
+    }
+
+    .project-hero.has-banner::before {
+      opacity: 0.15;
+    }
+
+    .project-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .project-breadcrumb {
+      margin-bottom: 20px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .project-breadcrumb a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .project-breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .project-meta {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      margin: 40px 0;
+      font-size: 16px;
+    }
+
+    .project-meta-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .project-meta-item i {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .project-meta-label {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .project-meta-value {
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .project-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .project-description {
+      background: #f8f8f8;
+      padding: 40px;
+      border-radius: 15px;
+      margin-bottom: 60px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    .project-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .project-info-section h3 {
+      font-family: "Montserrat", Sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .project-features {
+      list-style: none;
+      padding: 0;
+    }
+
+    .project-features li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .project-features li:last-child {
+      border-bottom: none;
+    }
+
+    .project-features li i {
+      color: #000059;
+      font-size: 16px;
+    }
+
+    .project-challenge, .project-solution {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      margin-bottom: 20px;
+    }
+
+    .project-gallery {
+      margin: 60px 0;
+    }
+
+    .project-gallery h3 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+      color: #2c3e50;
+    }
+
+    .gallery-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      flex: 1;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .gallery-grid.transitioning {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+
+    .gallery-grid.slide-left {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+
+    .gallery-grid.slide-right {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    .gallery-nav-btn {
+      background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 89, 0.3);
+      z-index: 10;
+    }
+
+    .gallery-nav-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 89, 0.4);
+    }
+
+    .gallery-nav-btn:active {
+      transform: scale(0.95);
+      transition: transform 0.1s ease;
+    }
+
+    .gallery-nav-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .gallery-nav-btn.loading {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .gallery-nav-btn i {
+      font-size: 18px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0;
+      transform: translateY(30px) scale(0.9);
+      animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+    .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+    .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+
+    .gallery-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .gallery-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .gallery-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ddd;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-indicator.active {
+      background: #000059;
+      transform: scale(1.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 89, 0.3);
+    }
+
+    .gallery-indicator:hover {
+      background: #223E70;
+      transform: scale(1.1);
+    }
+
+    .gallery-indicator:active {
+      transform: scale(0.9);
+    }
+
+    .gallery-indicator::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.3s ease;
+    }
+
+    .gallery-indicator:hover::before {
+      width: 20px;
+      height: 20px;
+    }
+
+    .back-to-portfolio {
+      text-align: center;
+      margin: 60px 0;
+    }
+
+    .back-to-portfolio a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .back-to-portfolio a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 89, 0.3);
+      color: white;
+    }
+
+    .related-projects {
+      background: #f8f8f8;
+      padding: 60px 0;
+    }
+
+    .related-projects h3 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+      color: #2c3e50;
+    }
+
+    .related-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .related-project {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .related-project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .related-project-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .related-project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .related-project:hover .related-project-image img {
+      transform: scale(1.05);
+    }
+
+    .related-project-content {
+      padding: 25px;
+    }
+
+    .related-project-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .related-project-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .related-project-title a:hover {
+      color: #000059;
+    }
+
+    .related-project-location {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .loading-project {
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .error-project {
+      text-align: center;
+      padding: 100px 20px;
+      color: #c62828;
+    }
+
+    .project-cta {
+      background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+      margin: 60px 0;
+    }
+
+    .project-cta h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .project-cta p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .project-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      color: #000059;
+      padding: 15px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .project-cta a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+    }
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .gallery-grid {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .gallery-item {
+        animation-duration: 0.5s;
+        transition: all 0.3s ease-out;
+      }
+
+      .gallery-item:nth-child(1) { animation-delay: 0.08s; }
+      .gallery-item:nth-child(2) { animation-delay: 0.15s; }
+      .gallery-item:nth-child(3) { animation-delay: 0.22s; }
+
+      .gallery-item:hover {
+        transform: translateY(-5px) scale(1.015);
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .project-header {
+        padding: 60px 0;
+      }
+
+      .project-meta {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+      }
+
+      .project-info-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .project-content {
+        padding: 40px 15px;
+      }
+
+      .project-description {
+        padding: 30px 20px;
+        font-size: 16px;
+      }
+
+      .gallery-container {
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        flex: 1;
+        width: 100%;
+        min-height: 100px;
+      }
+
+      .gallery-nav-btn {
+        width: 40px;
+        height: 40px;
+        position: relative;
+        margin: 0 auto;
+        touch-action: manipulation;
+        flex-shrink: 0;
+      }
+
+      .gallery-nav-btn i {
+        font-size: 14px;
+      }
+      .gallery-grid {
+        transition: all 0.3s ease-out;
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+
+      .gallery-item {
+        animation-duration: 0.4s;
+        transition: all 0.2s ease-out;
+      }
+
+      .gallery-item:nth-child(1) { animation-delay: 0.05s; }
+      .gallery-item:nth-child(2) { animation-delay: 0.1s; }
+      .gallery-item:nth-child(3) { animation-delay: 0.15s; }
+
+      .gallery-item:hover {
+        transform: translateY(-3px) scale(1.01);
+      }
+
+      .gallery-item {
+        width: 100%;
+        height: 100px;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+
+      .gallery-item img {
+        transition: transform 0.2s ease-out;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.03);
+      }
+
+      .gallery-indicator {
+        width: 14px;
+        height: 14px;
+        transition: all 0.2s ease-out;
+      }
+
+      .gallery-indicator.active {
+        transform: scale(1.4);
+      }
+
+      .gallery-indicator:hover {
+        transform: scale(1.2);
+      }
+      .gallery-container {
+        touch-action: pan-x;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+
+      .gallery-nav-btn {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+        min-height: 44px;
+        min-width: 44px;
+      }
+
+      .gallery-indicator {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .gallery-indicator::after {
+        content: '';
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: inherit;
+      }
+
+      .related-projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .project-meta {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      
+      .project-meta-item {
+        font-size: 14px;
+      }
+      
+      .project-meta-item i {
+        font-size: 20px;
+      }
+      
+      .project-meta-value {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="project-page">
+    <div id="loading-state" class="loading-project">
+      <div class="loading-spinner">
+        <i class="fas fa-spinner fa-spin fa-3x" style="color: #000059;"></i>
+        <p style="margin-top: 20px; color: #666;">Carregando projeto...</p>
+      </div>
+    </div>
+
+    <div id="error-state" class="error-project" style="display: none;">
+      <i class="fas fa-exclamation-triangle fa-3x" style="margin-bottom: 20px;"></i>
+      <h2>Projeto não encontrado</h2>
+      <p>O projeto que você está procurando não existe ou foi removido.</p>
+      <div class="back-to-portfolio">
+        <a href="index.html">
+          <i class="fas fa-arrow-left"></i>
+          Voltar ao Portfolio
+        </a>
+      </div>
+    </div>
+    <div id="project-content" style="display: none;">
+      <section class="project-hero">
+        <div class="project-hero-content">
+          <nav class="project-breadcrumb">
+            <span id="breadcrumb-category">Categoria</span>
+          </nav>
+          
+          <h1 id="project-title" style="font-size: 2.5rem; margin-bottom: 30px; font-weight: 700;">Título do Projeto</h1>
+          
+          <div class="project-meta">
+            <div class="project-meta-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span class="project-meta-label">Localização</span>
+              <span class="project-meta-value" id="project-location">Local</span>
+            </div>
+            <div class="project-meta-item">
+              <i class="fas fa-home"></i>
+              <span class="project-meta-label">Tipo</span>
+              <span class="project-meta-value" id="project-type">Tipo</span>
+            </div>
+            <div class="project-meta-item">
+              <i class="fas fa-ruler-combined"></i>
+              <span class="project-meta-label">Área</span>
+              <span class="project-meta-value" id="project-area">Área</span>
+            </div>
+            <div class="project-meta-item">
+              <i class="fas fa-calendar"></i>
+              <span class="project-meta-label">Ano</span>
+              <span class="project-meta-value" id="project-year">Ano</span>
+            </div>
+            <div class="project-meta-item">
+              <i class="fas fa-user-tie"></i>
+              <span class="project-meta-label">Arquiteto</span>
+              <span class="project-meta-value" id="project-architect">Arquiteto</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="project-content">
+        <div class="project-description" id="project-description">
+        </div>
+
+        <div class="project-info-grid">
+          <div class="project-info-section">
+            <h3><i class="fas fa-star"></i>Características Principais</h3>
+            <ul class="project-features" id="project-features">
+            </ul>
+          </div>
+          
+          <div class="project-info-section">
+            <h3><i class="fas fa-lightbulb"></i>Desafio & Solução</h3>
+            <div class="project-challenge">
+              <h4>Desafio:</h4>
+              <p id="project-challenge">Desafio do projeto</p>
+            </div>
+            <div class="project-solution">
+              <h4>Solução:</h4>
+              <p id="project-solution">Solução implementada</p>
+            </div>
+          </div>
+        </div>
+        <div class="project-gallery" id="project-gallery" style="display: none;">
+          <h3>Galeria de Imagens</h3>
+          <div class="gallery-container">
+            <button class="gallery-nav-btn gallery-prev" id="gallery-prev" style="display: none;">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="gallery-grid" id="gallery-grid">
+            </div>
+            <button class="gallery-nav-btn gallery-next" id="gallery-next" style="display: none;">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="gallery-indicators" id="gallery-indicators" style="display: none;">
+          </div>
+        </div>
+        <div class="project-cta">
+          <h3>Interessado em um Projeto Similar?</h3>
+          <p>Entre em contato conosco e vamos transformar sua ideia em realidade</p>
+          <a href="https://wa.me/5512997643142?text=Ol%C3%A1%2C%20vim%20pelo%20portfolio%20e%20gostaria%20de%20um%20or%C3%A7amento!" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            Solicitar Orçamento
+          </a>
+        </div>
+      </div>
+      <div class="back-to-portfolio">
+        <a href="index.html">
+          <i class="fas fa-arrow-left"></i>
+          Voltar ao Portfolio
+        </a>
+      </div>
+      <section class="related-projects">
+        <div class="container">
+          <h3>Projetos Relacionados</h3>
+          <div class="related-projects-grid" id="related-projects-container">
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <div id="footer"></div>
+  <div class="floating-whatsapp">
+    <a href="https://wa.me/5512997643142?text=Ol%C3%A1%2C%20vim%20pelo%20portfolio%20e%20gostaria%20de%20um%20or%C3%A7amento!" target="_blank" aria-label="Abrir WhatsApp" class="pulse-infinite">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <script src="../javascript.js"></script>
+  <script src="javascript.js"></script>
+  <script>
+    class ProjectPageManager {
+      constructor() {
+        this.project = null;
+        this.allProjects = [];
+        this.categories = [];
+        this.init();
+      }
+
+      async init() {
+        try {
+          const slug = this.getUrlParameter('slug');
+          if (!slug) {
+            this.showError();
+            return;
+          }
+          await this.loadPortfolioData();
+          this.project = this.allProjects.find(project => project.slug === slug);
+          
+          if (!this.project) {
+            this.showError();
+            return;
+          }
+          this.renderProject();
+          this.loadRelatedProjects();
+          this.setupResizeListener();
+          document.getElementById('loading-state').style.display = 'none';
+          document.getElementById('project-content').style.display = 'block';
+          
+        } catch (error) {
+          console.error('Erro ao carregar projeto:', error);
+          this.showError();
+        }
+      }
+      async loadPortfolioData() {
+        let data;
+        const localData = localStorage.getItem('portfolioData');
+        if (localData) {
+          console.log('📱 Carregando dados do localStorage');
+          data = JSON.parse(localData);
+        } else {
+          console.log('📁 Carregando dados do projects.json');
+          const response = await fetch('./projects.json');
+          data = await response.json();
+        }
+        this.allProjects = data.projects.filter(project => project.published);
+        this.categories = data.categories;
+      }
+      renderProject() {
+        document.title = `${this.project.title} - Portfolio AllVale`;
+        document.getElementById('page-title').textContent = `${this.project.title} - Portfolio AllVale`;
+        document.getElementById('page-description').content = this.project.excerpt;
+        document.getElementById('project-title').textContent = this.project.title;
+        document.getElementById('project-location').textContent = this.project.location;
+        document.getElementById('project-type').textContent = this.project.type;
+        document.getElementById('project-area').textContent = this.project.area;
+        document.getElementById('project-year').textContent = this.project.year;
+        document.getElementById('project-architect').textContent = this.project.architect;
+        const categoryObj = this.categories.find(cat => cat.id === this.project.category);
+        document.getElementById('breadcrumb-category').textContent = categoryObj ? categoryObj.name : this.project.category;
+        document.getElementById('project-description').textContent = this.project.description;
+        this.updateBanner();
+        this.renderFeatures();
+        document.getElementById('project-challenge').textContent = this.project.challenges;
+        document.getElementById('project-solution').textContent = this.project.solutions;
+        this.renderGallery();
+      }
+      updateBanner() {
+        if (this.project.banner) {
+          const heroSection = document.querySelector('.project-hero');
+          heroSection.classList.add('has-banner');
+          heroSection.style.setProperty('--banner-image', `url('${this.project.banner}')`);
+          const style = document.createElement('style');
+          style.textContent = `
+            .project-hero.has-banner::before {
+              background-image: var(--banner-image) !important;
+              opacity: 0.15 !important;
+            }
+          `;
+          document.head.appendChild(style);
+        }
+      }
+
+      renderFeatures() {
+        const container = document.getElementById('project-features');
+        container.innerHTML = '';
+
+        this.project.features.forEach(feature => {
+          const featureElement = document.createElement('li');
+          featureElement.innerHTML = `
+            <i class="fas fa-check"></i>
+            <span>${feature}</span>
+          `;
+          container.appendChild(featureElement);
+        });
+      }
+
+      renderGallery() {
+        if (!this.project.gallery || this.project.gallery.length === 0) {
+          document.getElementById('project-gallery').style.display = 'none';
+          return;
+        }
+        this.galleryConfig = {
+          images: this.project.gallery,
+          currentPage: 0,
+          imagesPerPage: this.getImagesPerPage(),
+          totalPages: Math.ceil(this.project.gallery.length / this.getImagesPerPage())
+        };
+
+        console.log('Configuração da galeria:', this.galleryConfig);
+        console.log('Largura da tela:', window.innerWidth);
+
+        this.renderGalleryPage();
+        this.setupGalleryNavigation();
+        this.renderGalleryIndicators();
+
+        document.getElementById('project-gallery').style.display = 'block';
+      }
+
+      getImagesPerPage() {
+        const width = window.innerWidth;
+        let imagesPerPage;
+        
+        if (width >= 1024) {
+          imagesPerPage = 3;
+        } else if (width >= 768) {
+          imagesPerPage = 2;
+        } else {
+          imagesPerPage = 3;
+        }
+        
+        console.log(`Largura: ${width}px, Imagens por página: ${imagesPerPage}`);
+        return imagesPerPage;
+      }
+      recalculateGalleryConfig() {
+        if (this.galleryConfig) {
+          this.galleryConfig.imagesPerPage = this.getImagesPerPage();
+          this.galleryConfig.totalPages = Math.ceil(this.galleryConfig.images.length / this.galleryConfig.imagesPerPage);
+          if (this.galleryConfig.currentPage >= this.galleryConfig.totalPages) {
+            this.galleryConfig.currentPage = Math.max(0, this.galleryConfig.totalPages - 1);
+          }
+        }
+      }
+
+      renderGalleryPage() {
+        const container = document.getElementById('gallery-grid');
+        container.innerHTML = '';
+
+        const startIndex = this.galleryConfig.currentPage * this.galleryConfig.imagesPerPage;
+        const endIndex = Math.min(startIndex + this.galleryConfig.imagesPerPage, this.galleryConfig.images.length);
+
+        console.log(`Renderizando página ${this.galleryConfig.currentPage + 1}: imagens ${startIndex + 1} a ${endIndex} (total: ${this.galleryConfig.images.length})`);
+        console.log(`Images per page: ${this.galleryConfig.imagesPerPage}`);
+
+        for (let i = startIndex; i < endIndex; i++) {
+          const image = this.galleryConfig.images[i];
+          const imageElement = document.createElement('div');
+          imageElement.className = 'gallery-item';
+          imageElement.innerHTML = `
+            <img src="${image}" alt="${this.project.title}" loading="lazy">
+          `;
+          container.appendChild(imageElement);
+        }
+      }
+
+      setupGalleryNavigation() {
+        const prevBtn = document.getElementById('gallery-prev');
+        const nextBtn = document.getElementById('gallery-next');
+        const galleryContainer = document.querySelector('.gallery-container');
+        if (this.galleryConfig.totalPages > 1) {
+          prevBtn.style.display = 'flex';
+          nextBtn.style.display = 'flex';
+        } else {
+          prevBtn.style.display = 'none';
+          nextBtn.style.display = 'none';
+        }
+        prevBtn.onclick = () => this.navigateGallery(-1);
+        nextBtn.onclick = () => this.navigateGallery(1);
+        if (window.innerWidth <= 768) {
+          this.setupSwipeGestures(galleryContainer);
+        }
+        this.updateGalleryButtons();
+      }
+      setupSwipeGestures(container) {
+        let startX = 0;
+        let startY = 0;
+        let isDragging = false;
+        let hasSwiped = false;
+        container.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+          isDragging = true;
+          hasSwiped = false;
+        }, { passive: true });
+        container.addEventListener('touchmove', (e) => {
+          if (!isDragging) return;
+          const currentX = e.touches[0].clientX;
+          const currentY = e.touches[0].clientY;
+          const diffX = startX - currentX;
+          const diffY = startY - currentY;
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+            hasSwiped = true;
+            e.preventDefault();
+          }
+        }, { passive: false });
+
+        container.addEventListener('touchend', (e) => {
+          if (!isDragging || !hasSwiped) {
+            isDragging = false;
+            return;
+          }
+
+          const endX = e.changedTouches[0].clientX;
+          const diffX = startX - endX;
+          const threshold = 100;
+
+          if (Math.abs(diffX) > threshold) {
+            if (diffX > 0) {
+              this.navigateGallery(1);
+            } else {
+              this.navigateGallery(-1);
+            }
+          }
+
+          isDragging = false;
+          hasSwiped = false;
+        }, { passive: true });
+      }
+
+      navigateGallery(direction) {
+        const newPage = this.galleryConfig.currentPage + direction;
+        
+        if (newPage >= 0 && newPage < this.galleryConfig.totalPages) {
+          this.animateGalleryTransition(direction, newPage);
+        }
+      }
+
+      animateGalleryTransition(direction, newPage) {
+        const galleryGrid = document.getElementById('gallery-grid');
+        const prevBtn = document.getElementById('gallery-prev');
+        const nextBtn = document.getElementById('gallery-next');
+        
+        const isMobile = window.innerWidth <= 768;
+        const isTablet = window.innerWidth <= 1024 && window.innerWidth > 768;
+        let transitionDuration, renderDelay;
+        if (isMobile) {
+          transitionDuration = 150; 
+          renderDelay = 25;
+        } else if (isTablet) {
+          transitionDuration = 200; 
+          renderDelay = 40;
+        } else {
+          transitionDuration = 250;
+          renderDelay = 50;
+        }
+        prevBtn.classList.add('loading');
+        nextBtn.classList.add('loading');
+        
+        if (direction > 0) {
+          galleryGrid.classList.add('slide-left');
+        } else {
+          galleryGrid.classList.add('slide-right');
+        }
+        
+        setTimeout(() => {
+          this.galleryConfig.currentPage = newPage;
+          this.renderGalleryPage();
+          galleryGrid.classList.remove('slide-left', 'slide-right');
+          setTimeout(() => {
+            this.updateGalleryButtons();
+            this.updateGalleryIndicators();
+            prevBtn.classList.remove('loading');
+            nextBtn.classList.remove('loading');
+          }, renderDelay);
+        }, transitionDuration);
+      }
+
+      updateGalleryButtons() {
+        const prevBtn = document.getElementById('gallery-prev');
+        const nextBtn = document.getElementById('gallery-next');
+
+        prevBtn.disabled = this.galleryConfig.currentPage === 0;
+        nextBtn.disabled = this.galleryConfig.currentPage === this.galleryConfig.totalPages - 1;
+      }
+
+      renderGalleryIndicators() {
+        const container = document.getElementById('gallery-indicators');
+        container.innerHTML = '';
+
+        if (this.galleryConfig.totalPages > 1) {
+          container.style.display = 'flex';
+
+          for (let i = 0; i < this.galleryConfig.totalPages; i++) {
+            const indicator = document.createElement('div');
+            indicator.className = `gallery-indicator ${i === this.galleryConfig.currentPage ? 'active' : ''}`;
+            indicator.onclick = () => this.goToGalleryPage(i);
+            container.appendChild(indicator);
+          }
+        } else {
+          container.style.display = 'none';
+        }
+      }
+
+      updateGalleryIndicators() {
+        const indicators = document.querySelectorAll('.gallery-indicator');
+        indicators.forEach((indicator, index) => {
+          indicator.classList.toggle('active', index === this.galleryConfig.currentPage);
+        });
+      }
+
+      goToGalleryPage(page) {
+        if (page >= 0 && page < this.galleryConfig.totalPages && page !== this.galleryConfig.currentPage) {
+          const direction = page > this.galleryConfig.currentPage ? 1 : -1;
+          this.animateGalleryTransition(direction, page);
+        }
+      }
+
+      setupResizeListener() {
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            if (this.galleryConfig) {
+              const oldImagesPerPage = this.galleryConfig.imagesPerPage;
+              this.recalculateGalleryConfig();
+              if (oldImagesPerPage !== this.galleryConfig.imagesPerPage) {
+                this.renderGalleryPage();
+                this.setupGalleryNavigation();
+                this.renderGalleryIndicators();
+              }
+            }
+          }, 150);
+        });
+      }
+
+      loadRelatedProjects() {
+        const relatedProjects = this.getRelatedProjects();
+        const container = document.getElementById('related-projects-container');
+        container.innerHTML = '';
+
+        if (relatedProjects.length === 0) {
+          container.innerHTML = '<p style="text-align: center; color: #666;">Nenhum projeto relacionado encontrado.</p>';
+          return;
+        }
+
+        relatedProjects.forEach(project => {
+          const projectElement = document.createElement('article');
+          projectElement.className = 'related-project';
+          
+          projectElement.innerHTML = `
+            <div class="related-project-image">
+              <img src="${project.image}" alt="${project.title}" loading="lazy">
+            </div>
+            <div class="related-project-content">
+              <h4 class="related-project-title">
+                <a href="project.html?slug=${project.slug}">${project.title}</a>
+              </h4>
+              <span class="related-project-location">${project.location}</span>
+            </div>
+          `;
+
+          container.appendChild(projectElement);
+        });
+      }
+
+      getRelatedProjects(limit = 3) {
+        return this.allProjects
+          .filter(project => 
+            project.id !== this.project.id && 
+            project.category === this.project.category
+          )
+          .slice(0, limit);
+      }
+
+      getUrlParameter(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+      }
+
+      showError() {
+        document.getElementById('loading-state').style.display = 'none';
+        document.getElementById('error-state').style.display = 'block';
+      }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      window.projectPageManager = new ProjectPageManager();
+    });
+  </script>
+</body>
+</html>
