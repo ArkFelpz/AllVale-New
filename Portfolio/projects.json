@@ -47,7 +47,7 @@
       "description": "Na arquitetura contemporânea, as esquadrias desempenham um papel cada vez mais central — não apenas como elementos funcionais, mas como protagonistas na estética e na integração dos espaços. Neste projeto, a escolha pela linha Gold foi essencial para valorizar os grandes vãos e aberturas generosas que caracterizam o projeto. Com performance superior, a linha Gold oferece robustez estrutural aliada a um design elegante, permitindo composições amplas como portas de correr e aberturas de canto, com máxima leveza visual. Suas esquadrias em acabamento preto criam um contraste sofisticado com a materialidade da fachada e reforçam o traço arquitetônico com precisão e personalidade. A fluidez entre interior e exterior é ampliada graças aos grandes vãos, que favorecem a iluminação natural e promovem a conexão com a área externa. Já o brise amadeirado vertical no pavimento superior complementa a proposta com controle solar, privacidade e um toque de modernidade. Projetos como este demonstram como as esquadrias, quando bem especificadas, se tornam elementos fundamentais para o desempenho e a estética da obra — unindo eficiência, design e funcionalidade em cada detalhe.",
       "excerpt": "Residência com design minimalista onde as esquadrias complementam perfeitamente a arquitetura contemporânea.",
       "image": "Portfolio imgs/Casa A&R.jpg",
-      "banner": "Portfolio imgs/Banner inicial casa A&R.jpg",
+      "banner": "Portfolio imgs/Banner inicial Casa A&R.jpg",
       "gallery": [
         "Portfolio imgs/Casa A&R.jpg",
         "Portfolio imgs/Casa A&R 2.jpg",
@@ -352,4 +352,5 @@
     "siteName": "Portfolio AllVale",
     "siteDescription": "Projetos de Esquadrias de Alumínio"
   }
+
 }
