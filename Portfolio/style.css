@@ -16,11 +16,6 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
-
-/* ============================================
-   ANIMAÇÕES (Importadas do style.css principal)
-   ============================================ */
-
 @keyframes fadeInDown {
   0% {
     opacity: 0;
@@ -218,11 +213,6 @@ body {
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 .reveal-delay-5 { transition-delay: 0.5s; }
-
-/* ============================================
-   HERO SECTION - PORTFOLIO
-   ============================================ */
-
 .portfolio-hero {
   padding: 120px 0 80px 0;
   background: linear-gradient(135deg, #000059 0%, #223E70 100%);
@@ -268,10 +258,6 @@ body {
   line-height: 1.6;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
-
-/* ============================================
-   PORTFOLIO TABS
-   ============================================ */
 
 .portfolio-tabs {
   display: flex;
@@ -374,11 +360,6 @@ body {
     max-width: 280px;
   }
 }
-
-/* ============================================
-   PROJECTS SECTION
-   ============================================ */
-
 .projects-section {
   padding: 100px 0;
   background: #F8F8F8;
@@ -470,11 +451,6 @@ body {
   background: rgba(0, 0, 128, 0.1);
   transform: translateX(5px);
 }
-
-/* ============================================
-   CTA SECTION
-   ============================================ */
-
 .cta-section {
   padding: 100px 0;
   background: linear-gradient(135deg, #000059 0%, #223E70 100%);
@@ -529,10 +505,6 @@ body {
   font-size: 20px;
 }
 
-/* ============================================
-   FLOATING WHATSAPP BUTTON
-   ============================================ */
-
 .floating-whatsapp {
   position: fixed;
   bottom: 30px;
@@ -559,10 +531,6 @@ body {
   transform: scale(1.1);
   box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
 }
-
-/* ============================================
-   RESPONSIVIDADE
-   ============================================ */
 
 @media (max-width: 1024px) {
   .projects-grid {
@@ -796,3 +764,4 @@ body {
     transform: none;
   }
 }
+
