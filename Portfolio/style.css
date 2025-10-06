@@ -16,6 +16,7 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
+
 @keyframes fadeInDown {
   0% {
     opacity: 0;
@@ -213,6 +214,7 @@ body {
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 .reveal-delay-5 { transition-delay: 0.5s; }
+
 .portfolio-hero {
   padding: 120px 0 80px 0;
   background: linear-gradient(135deg, #000059 0%, #223E70 100%);
@@ -451,6 +453,7 @@ body {
   background: rgba(0, 0, 128, 0.1);
   transform: translateX(5px);
 }
+
 .cta-section {
   padding: 100px 0;
   background: linear-gradient(135deg, #000059 0%, #223E70 100%);
@@ -764,4 +767,3 @@ body {
     transform: none;
   }
 }
-
