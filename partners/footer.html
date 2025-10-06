@@ -30,7 +30,7 @@
   </div>
 
   <div class="footer-bottom">
-    <p class="copy">Copyright © AllVale Esquadrias de Alumínio | Todos os Direitos Reservados</p>
+    <p class="copy">Copyright © AllVale Esquadrias de Alumínio | <a href="../privacidade/index.html" class="privacy-link">Todos os Direitos Reservados</a></p>
     <p class="feito"><i class="fas fa-bolt"></i> Feito por <a href="https://www.instagram.com/fip_nn/" target="_blank">Filipe Fogliene</a></p>
   </div>
 </footer>
@@ -173,6 +173,18 @@
     margin: 0;
   }
 
+  .privacy-link {
+    color: #000080;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+
+  .privacy-link:hover {
+    color: #25D366;
+    text-decoration: underline;
+  }
+
   .feito {
     margin: 0;
     display: flex;
@@ -194,8 +206,6 @@
   .feito a:hover {
     color: #25D366;
   }
-
-  /* Responsividade */
   @media (max-width: 768px) {
     .footer {
       padding: 40px 0 15px 0;
@@ -291,7 +301,6 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Adicionar efeitos de hover suaves
     const socialLinks = document.querySelectorAll('.footer-social a');
     
     socialLinks.forEach(link => {
@@ -304,7 +313,6 @@
       });
     });
 
-    // Adicionar animação de entrada
     const footerCols = document.querySelectorAll('.footer-col');
     footerCols.forEach((col, index) => {
       col.style.opacity = '0';

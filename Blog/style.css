@@ -621,10 +621,6 @@
   color: #ffffff;
 }
 
-/* ============================================
-   RESPONSIVIDADE PARA BLOG
-   ============================================ */
-
 @media (max-width: 1024px) {
   .blog-layout {
     gap: 40px;

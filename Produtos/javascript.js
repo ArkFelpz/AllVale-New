@@ -103,6 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const productButtons = document.querySelectorAll('.product-btn');
   productButtons.forEach((button, index) => {
     button.addEventListener('click', (e) => {
+      if (button.tagName === 'A' && button.href) {
+        return;
+      }
       e.preventDefault();
       
       const productNames = [

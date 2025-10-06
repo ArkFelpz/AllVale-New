@@ -1,0 +1,161 @@
+{
+  "products": [
+    {
+      "id": "linha-gold",
+      "name": "Linha Gold IV",
+      "badge": "Gold",
+      "badgeType": "gold",
+      "icon": "fas fa-medal",
+      "description": "Na arquitetura contemporânea, as esquadrias desempenham um papel cada vez mais central — não apenas como elementos funcionais, mas como protagonistas na estética e na integração dos espaços. A Linha Gold IV foi desenvolvida para atender às demandas da arquitetura com elegância, resistência e versatilidade. Com perfis de 32 mm, oferece robustez estrutural e desempenho técnico que a tornam ideal para grandes vãos e composições arquitetônicas exigentes.",
+      "features": [
+        "Robustez estrutural aliada a design elegante",
+        "Grandes vãos livres sem comprometer leveza visual",
+        "Composições amplas como portas de correr e aberturas de canto",
+        "Excelente vedação e conforto térmico e acústico",
+        "Máxima leveza visual",
+        "Encaixes precisos e montagens a 90°"
+      ],
+      "image": "../imgs/Banner Produtos.jpg",
+      "category": "gold",
+      "details": {
+        "perfil": "32mm",
+        "aplicacao": "Médio a alto padrão",
+        "tecnologia": "Avançada"
+      },
+      "tipologias": [
+        "Porta de Giro",
+        "Veneziana – Vidro – Lambril",
+        "Porta de Correr",
+        "Porta de canto – Opção com tela mosquiteira",
+        "Maxim-ar",
+        "Quadro Fixo",
+        "Janelas de correr",
+        "Com persiana",
+        "Motorizada integrada"
+      ],
+      "gallery": [
+        "../imgs/1.jpg",
+        "../imgs/2.jpg",
+        "../imgs/3.jpg",
+        "../imgs/4.jpg",
+        "../imgs/5.jpg",
+        "../imgs/6.jpg"
+      ]
+    },
+    {
+      "id": "linha-suprema-allvale",
+      "name": "Linha Suprema Allvale",
+      "badge": "Premium",
+      "badgeType": "premium",
+      "icon": "fas fa-crown",
+      "description": "Nossa linha mais exclusiva e sofisticada, desenvolvida para projetos únicos que exigem o máximo em qualidade, design e tecnologia. A Linha Suprema Allvale representa o ápice da engenharia em esquadrias, combinando máxima resistência estrutural com acabamento refinado e tecnologia de ponta para projetos de alto padrão.",
+      "features": [
+        "Máxima resistência estrutural",
+        "Acabamento premium refinado",
+        "Tecnologia de ponta",
+        "Soluções sob medida",
+        "Design exclusivo e sofisticado",
+        "Performance superior em grandes vãos"
+      ],
+      "image": "../imgs/Banner Produtos.jpg",
+      "category": "premium",
+      "details": {
+        "perfil": "50mm",
+        "aplicacao": "Alto padrão e luxo",
+        "tecnologia": "Premium"
+      }
+    },
+    {
+      "id": "linha-esmerium",
+      "name": "Linha Esmerium",
+      "badge": "Moderno",
+      "badgeType": "modern",
+      "icon": "fas fa-gem",
+      "description": "Design minimalista com sistemas avançados de vedação e trilho embutido com drenagem. Perfeita para projetos contemporâneos e sofisticados que valorizam a estética limpa e funcionalidade superior. A Linha Esmerium representa a evolução do design em esquadrias, unindo tecnologia e estética de forma harmoniosa.",
+      "features": [
+        "Design minimalista e contemporâneo",
+        "Sistemas avançados de vedação",
+        "Trilho embutido com drenagem",
+        "Acabamento sofisticado",
+        "Funcionalidade superior",
+        "Integração perfeita com arquitetura moderna"
+      ],
+      "image": "../imgs/Banner Produtos.jpg",
+      "category": "modern",
+      "details": {
+        "perfil": "32mm",
+        "aplicacao": "Contemporâneo",
+        "tecnologia": "Inovadora"
+      }
+    },
+    {
+      "id": "brises",
+      "name": "Brises",
+      "badge": "Proteção",
+      "badgeType": "protection",
+      "icon": "fas fa-shield-alt",
+      "description": "Soluções inteligentes de proteção solar que combinam funcionalidade e estética. Os brises da AllVale oferecem controle solar, privacidade e um toque de modernidade aos projetos. Com ritmo vertical e acabamento preciso, atuam como elementos sofisticados que complementam o design da fachada, promovendo conforto térmico e eficiência energética.",
+      "features": [
+        "Controle solar eficiente",
+        "Privacidade e conforto",
+        "Design moderno e sofisticado",
+        "Acabamento preciso",
+        "Eficiência energética",
+        "Integração harmoniosa com fachadas"
+      ],
+      "image": "../imgs/Banner Produtos.jpg",
+      "category": "protection",
+      "details": {
+        "perfil": "Variável",
+        "aplicacao": "Fachadas e proteção solar",
+        "tecnologia": "Especializada"
+      }
+    },
+    {
+      "id": "portas-entrada-fachadas",
+      "name": "Portas de Entrada e Fachadas",
+      "badge": "Entrada",
+      "badgeType": "entrance",
+      "icon": "fas fa-door-open",
+      "description": "As portas de entrada e fachadas são o cartão de visitas de qualquer projeto. Desenvolvidas com foco na segurança, durabilidade e impacto visual, nossas soluções criam uma primeira impressão marcante e duradoura. Combinando robustez estrutural com design sofisticado, garantem proteção e elegância para seu projeto.",
+      "features": [
+        "Alta segurança e durabilidade",
+        "Impacto visual marcante",
+        "Robustez estrutural",
+        "Design sofisticado",
+        "Primeira impressão duradoura",
+        "Proteção eficiente"
+      ],
+      "image": "../imgs/Banner Produtos.jpg",
+      "category": "entrance",
+      "details": {
+        "perfil": "Variável",
+        "aplicacao": "Entradas e fachadas",
+        "tecnologia": "Especializada"
+      }
+    },
+    {
+      "id": "coberturas-pergolados",
+      "name": "Coberturas e Pergolados",
+      "badge": "Estrutural",
+      "badgeType": "structural",
+      "icon": "fas fa-home",
+      "description": "Soluções estruturais em alumínio para coberturas e pergolados que unem funcionalidade, resistência e design. Nossas estruturas oferecem proteção contra intempéries, controle de luminosidade e integração perfeita com a arquitetura do projeto, criando espaços externos funcionais e esteticamente agradáveis.",
+      "features": [
+        "Proteção contra intempéries",
+        "Controle de luminosidade",
+        "Integração arquitetônica",
+        "Resistência estrutural",
+        "Espaços externos funcionais",
+        "Design esteticamente agradável"
+      ],
+      "image": "../imgs/Banner Produtos.jpg",
+      "category": "structural",
+      "details": {
+        "perfil": "Estrutural",
+        "aplicacao": "Coberturas e pergolados",
+        "tecnologia": "Estrutural"
+      }
+    }
+  ]
+}
