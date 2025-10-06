@@ -1,0 +1,70 @@
+{
+  "name": "AllVale Esquadrias - Esquadrias de Alumínio de Alto Padrão",
+  "short_name": "AllVale",
+  "description": "Esquadrias de alumínio de alto padrão para residências e projetos comerciais. Design, resistência e sofisticação para transformar sua ideia em realidade.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1a1a1a",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["business", "construction", "home-improvement"],
+  "icons": [
+    {
+      "src": "imgs/cropped-REVENUE-1-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "imgs/cropped-REVENUE-1-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "imgs/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "AllVale Esquadrias - Desktop"
+    },
+    {
+      "src": "imgs/screenshot-mobile.png",
+      "sizes": "375x667",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "AllVale Esquadrias - Mobile"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Solicitar Orçamento",
+      "short_name": "Orçamento",
+      "description": "Solicite um orçamento para suas esquadrias",
+      "url": "/orcamento",
+      "icons": [
+        {
+          "src": "imgs/whatsapp-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Nossos Projetos",
+      "short_name": "Projetos",
+      "description": "Veja nossos projetos realizados",
+      "url": "/projetos",
+      "icons": [
+        {
+          "src": "imgs/projects-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}
