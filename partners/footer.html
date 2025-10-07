@@ -1,31 +1,77 @@
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-col">
-      <img src="../imgs/logo principal.png" alt="AllVale Logo" class="footer-logo">
-      <p class="footer-desc">Esquadrias para residências de alto padrão em alumínio e com texturas de madeira.</p>
-      <div class="footer-social">
-        <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <div class="footer-card">
+        <div class="card-header">
+          <img src="../imgs/logo principal.png" alt="AllVale Logo" class="footer-logo">
+        </div>
+        <div class="card-content">
+          <p class="footer-desc">Esquadrias para residências de alto padrão em alumínio e com texturas de madeira.</p>
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="footer-col">
-      <h3>Páginas</h3>
-      <ul>
-        <li><a href="../sobre nos/index.html">Sobre Nós</a></li>
-        <li><a href="../Portfolio/index.html">Portfólio</a></li>
-        <li><a href="../Produtos/index.html">Produtos</a></li>
-        <li><a href="../Blog/index.html">Blog</a></li>
-        <li><a href="../contato/index.html">Contato</a></li>
-      </ul>
+      <div class="footer-card">
+        <div class="card-header">
+          <i class="fas fa-sitemap"></i>
+          <h3>Páginas</h3>
+        </div>
+        <div class="card-content">
+          <ul>
+            <li><a href="../sobre nos/index.html">Sobre Nós</a></li>
+            <li><a href="../Portfolio/index.html">Portfólio</a></li>
+            <li><a href="../Produtos/index.html">Produtos</a></li>
+            <li><a href="../Blog/index.html">Blog</a></li>
+            <li><a href="../contato/index.html">Contato</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="footer-col">
-      <h3>Contato</h3>
-      <p>Av. Amador Bueno da Veiga, 399<br>Jardim Jaragua, Taubaté - SP<br>12062-400</p>
-      <p><a href="mailto:contato@allvalealuminio.com.br">contato@allvalealuminio.com.br</a></p>
-      <p>(12) 99764-3142</p>
+      <div class="footer-card">
+        <div class="card-header">
+          <i class="fas fa-phone"></i>
+          <h3>Contato</h3>
+        </div>
+        <div class="card-content">
+          <div class="address-section">
+            <div class="address-item">
+              <div class="address-header">
+                <i class="fas fa-map-marker-alt"></i>
+                <span class="address-title">AllVale 1</span>
+              </div>
+              <div class="address-details">
+                <p>Av. Amador Bueno da Veiga, 399</p>
+                <p>Jardim Jaragua, Taubaté - SP</p>
+                <p>12062-400</p>
+              </div>
+            </div>
+
+            <div class="address-item">
+              <div class="address-header">
+                <i class="fas fa-map-marker-alt"></i>
+                <span class="address-title">AllVale 2</span>
+              </div>
+              <div class="address-details">
+                <p>Av Fraternidade, 460</p>
+                <p>Jardim Ana Rosa</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> <a href="mailto:contato@allvalealuminio.com.br">contato@allvalealuminio.com.br</a></p>
+            <p><i class="fas fa-phone"></i> (12) 99764-3142</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -59,26 +105,69 @@
     align-items: flex-start;
   }
 
+  .footer-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    padding: 0;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 128, 0.1);
+  }
+
+  .footer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-header {
+    background: linear-gradient(135deg, #000080, #4169E1);
+    color: white;
+    padding: 20px;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0;
+  }
+
+  .card-header i {
+    font-size: 20px;
+    color: white;
+  }
+
+  .card-header h3 {
+    color: white;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .card-content {
+    padding: 25px;
+  }
+
   .footer-logo {
-    width: 250px;
+    width: 200px;
     height: auto;
-    margin-bottom: -50px;
-    margin-top: -75px;
+    margin: 0;
   }
 
   .footer-desc {
     font-size: 14px;
     line-height: 1.6;
-    color: #000;
+    color: #333;
     margin-bottom: 25px;
-    max-width: 300px;
     text-align: left;
   }
 
   .footer-social {
     display: flex;
     gap: 15px;
-    margin-left: 60px;
+    justify-content: center;
+    margin: 0;
   }
 
   .footer-social a {
@@ -101,15 +190,6 @@
     transform: translateY(-2px);
   }
 
-  .footer-col h3 {
-    color: #000080;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: left;
-  }
 
   .footer-col ul {
     list-style: none;
@@ -123,21 +203,24 @@
   }
 
   .footer-col ul li a {
-    color: #000;
+    color: #333;
     text-decoration: none;
     font-size: 14px;
     transition: all 0.3s ease;
     display: block;
-    padding: 2px 0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: rgba(0, 0, 128, 0.05);
   }
 
   .footer-col ul li a:hover {
     color: #000080;
-    padding-left: 5px;
+    background: rgba(0, 0, 128, 0.1);
+    transform: translateX(5px);
   }
 
   .footer-col p {
-    color: #000;
+    color: #333;
     font-size: 14px;
     line-height: 1.6;
     margin-bottom: 10px;
@@ -153,6 +236,76 @@
   .footer-col p a:hover {
     color: #25D366;
     text-decoration: underline;
+  }
+
+  .address-section {
+    margin-bottom: 25px;
+  }
+
+  .address-item {
+    background: rgba(0, 0, 128, 0.05);
+    border-left: 3px solid #000080;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 0 8px 8px 0;
+    transition: all 0.3s ease;
+  }
+
+  .address-item:hover {
+    background: rgba(0, 0, 128, 0.1);
+    transform: translateX(5px);
+  }
+
+  .address-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 8px;
+  }
+
+  .address-header i {
+    color: #000080;
+    font-size: 16px;
+    width: 16px;
+  }
+
+  .address-title {
+    font-weight: 600;
+    color: #000080;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .address-details {
+    margin-left: 24px;
+  }
+
+  .address-details p {
+    margin: 2px 0;
+    font-size: 13px;
+    color: #333;
+    line-height: 1.4;
+  }
+
+  .contact-info {
+    border-top: 1px solid rgba(0, 0, 128, 0.2);
+    padding-top: 15px;
+  }
+
+  .contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .contact-info i {
+    color: #000080;
+    font-size: 14px;
+    width: 16px;
+    text-align: center;
   }
 
   .footer-bottom {
@@ -223,9 +376,20 @@
       align-items: center;
     }
 
+    .footer-card {
+      margin-bottom: 20px;
+    }
+
+    .card-header {
+      padding: 15px;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
     .footer-logo {
-      width: 180px;
-      margin-bottom: -30px;
+      width: 150px;
     }
 
     .footer-desc {
@@ -235,7 +399,6 @@
     }
 
     .footer-social {
-      margin-left: 0;
       justify-content: center;
     }
 
@@ -245,13 +408,29 @@
       font-size: 16px;
     }
 
-    .footer-col h3 {
+    .card-header h3 {
       font-size: 16px;
-      margin-bottom: 15px;
     }
 
     .footer-col ul li a,
     .footer-col p {
+      font-size: 13px;
+    }
+
+    .address-item {
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .address-title {
+      font-size: 13px;
+    }
+
+    .address-details p {
+      font-size: 12px;
+    }
+
+    .contact-info p {
       font-size: 13px;
     }
 
@@ -282,13 +461,38 @@
       width: 120px;
     }
 
-    .footer-col h3 {
-      font-size: 16px;
+    .card-header {
+      padding: 12px;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card-header h3 {
+      font-size: 14px;
     }
 
     .footer-col ul li a,
     .footer-col p {
       font-size: 13px;
+    }
+
+    .address-item {
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .address-title {
+      font-size: 12px;
+    }
+
+    .address-details p {
+      font-size: 11px;
+    }
+
+    .contact-info p {
+      font-size: 12px;
     }
 
     .footer-social a {

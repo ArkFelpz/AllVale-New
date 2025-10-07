@@ -70,6 +70,24 @@
     align-items: center;
   }
 
+  /* Garantir que o nav seja visível em desktop */
+  @media (min-width: 769px) {
+    nav {
+      display: flex !important;
+      position: relative !important;
+      top: auto !important;
+      left: auto !important;
+      right: auto !important;
+      bottom: auto !important;
+      width: auto !important;
+      height: auto !important;
+      background: transparent !important;
+      z-index: auto !important;
+      overflow: visible !important;
+      padding-top: 0 !important;
+    }
+  }
+
   nav ul {
     list-style: none;
     display: flex;
@@ -487,6 +505,34 @@
     });
   }
 
+  // Função para garantir que o menu esteja no estado correto baseado no tamanho da tela
+  function ensureCorrectMenuState() {
+    const navbar = document.getElementById("navbar");
+    const menuToggle = document.getElementById("menuToggle");
+    const isMobile = window.innerWidth <= 768;
+    
+    if (navbar && menuToggle) {
+      if (isMobile) {
+        // Em mobile, o menu deve estar oculto por padrão
+        if (!navbar.classList.contains("active")) {
+          navbar.style.display = "none";
+        }
+      } else {
+        // Em desktop, o menu deve estar visível
+        navbar.style.display = "flex";
+        navbar.classList.remove("active");
+        navbar.style.background = "";
+        navbar.style.position = "";
+        navbar.style.top = "";
+        navbar.style.left = "";
+        navbar.style.right = "";
+        navbar.style.bottom = "";
+        navbar.style.zIndex = "";
+        menuToggle.classList.remove("active");
+      }
+    }
+  }
+
   // Event listeners
   document.addEventListener("DOMContentLoaded", function() {
     const menuToggle = document.getElementById("menuToggle");
@@ -497,6 +543,9 @@
     console.log("Menu Toggle:", menuToggle);
     console.log("Navbar:", document.getElementById("navbar"));
     console.log("Nav Links:", navLinks);
+    
+    // Garantir estado correto do menu
+    ensureCorrectMenuState();
     
     // Ajustar padding inicial
     adjustBodyPadding();
@@ -537,10 +586,8 @@
     // Resize listener para ajustar responsividade
     window.addEventListener("resize", function() {
       adjustBodyPadding();
-      if (window.innerWidth > 768) {
-        closeMenu();
-        header.classList.remove("scrolled");
-      }
+      ensureCorrectMenuState(); // Usar a função centralizada
+      header.classList.remove("scrolled");
     });
     
     // Adicionar efeitos extras

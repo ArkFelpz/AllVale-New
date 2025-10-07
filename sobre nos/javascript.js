@@ -75,10 +75,13 @@ function animateCounter(element, target, duration = 2000) {
   updateCounter();
 }
 
-const isMobile = window.innerWidth <= 768;
+// Detectar se é mobile de forma mais robusta
+const isMobile = () => window.innerWidth <= 768;
 
+// Configuração do observer mais permissiva para detectar elementos fora do viewport
 const observerOptions = {
-  rootMargin: isMobile ? '0px 0px -50px 0px' : '0px 0px -100px 0px'
+  rootMargin: '0px 0px 0px 0px', // Sem margem negativa para detectar elementos fora do viewport
+  threshold: 0.1 // Dispara quando 10% do elemento estiver visível
 };
 
 const statsObserver = new IntersectionObserver((entries) => {
@@ -95,7 +98,7 @@ const statsObserver = new IntersectionObserver((entries) => {
           stat.classList.add('animated');
           
           setTimeout(() => {
-            animateCounter(stat, target, isMobile ? 1500 : 2000);
+            animateCounter(stat, target, isMobile() ? 1500 : 2000);
           }, index * 300);
         }
       });
@@ -110,19 +113,34 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mvSection) {
     statsObserver.observe(mvSection);
     
-    setTimeout(() => {
-      const statNumbers = mvSection.querySelectorAll('.stat-number:not(.animated)');
-      if (statNumbers.length > 0) {
-        console.log('Fallback: Forçando animações dos números no mobile');
-        statNumbers.forEach(stat => {
-          const target = parseInt(stat.getAttribute('data-target'));
-          if (target) {
-            stat.classList.add('animated');
-            animateCounter(stat, target);
-          }
-        });
+    // Fallback mais inteligente - só anima se o elemento estiver visível
+    const checkAndAnimateStats = () => {
+      const rect = mvSection.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      
+      if (isVisible) {
+        const statNumbers = mvSection.querySelectorAll('.stat-number:not(.animated)');
+        if (statNumbers.length > 0) {
+          console.log('Fallback: Animando números visíveis');
+          statNumbers.forEach((stat, index) => {
+            const target = parseInt(stat.getAttribute('data-target'));
+            if (target) {
+              stat.classList.add('animated');
+              setTimeout(() => {
+                animateCounter(stat, target, isMobile() ? 1500 : 2000);
+              }, index * 200);
+            }
+          });
+        }
       }
-    }, 2000);
+    };
+    
+    // Fallback no scroll para elementos que podem ter sido perdidos
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(checkAndAnimateStats, 100);
+    });
   }
   
   
@@ -142,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const revealSelectors = [
     '.reveal', '.reveal-left', '.reveal-right', '.reveal-scale',
     '.reveal-bounce', '.reveal-slide-bounce', '.reveal-scale-bounce',
-    '.reveal-fade-slide', '.reveal-rotate', '.reveal-flip'
+    '.reveal-fade-slide', '.reveal-rotate', '.reveal-flip', '.reveal-slide-left'
   ];
   
   revealSelectors.forEach(selector => {
