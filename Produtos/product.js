@@ -18,7 +18,8 @@ class ProductManager {
 
   async loadProducts() {
     try {
-      const response = await fetch('products.json');
+      // Adicionar timestamp para evitar cache
+      const response = await fetch(`products.json?v=${Date.now()}&t=${Math.random()}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -79,13 +80,19 @@ class ProductManager {
 
   loadProductFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('id') || 'linha-gold';
+    const productId = urlParams.get('id');
+    
+    if (!productId) {
+      // Se não há ID na URL, usar o primeiro produto
+      this.currentProduct = this.products[0];
+      return;
+    }
     
     this.currentProduct = this.products.find(product => product.id === productId);
     
     if (!this.currentProduct) {
-      // Fallback para o primeiro produto se não encontrar
-      this.currentProduct = this.products[0] || this.getFallbackProducts()[0];
+      // Se não encontrar o produto específico, usar o primeiro disponível
+      this.currentProduct = this.products[0];
     }
   }
 
@@ -100,6 +107,7 @@ class ProductManager {
     this.updateTipologias();
     this.updateGallery();
     this.updateMetaTags();
+    this.updateCTATitle();
   }
 
   updatePageTitle() {
@@ -198,7 +206,7 @@ class ProductManager {
 
     galleryGrid.innerHTML = this.currentProduct.gallery
       .map((image, index) => `
-        <div class="gallery-item" onclick="openLightbox('${image}', ${index})">
+        <div class="gallery-item" onclick="openZoomModal(${index})">
           <img src="${image}" alt="${this.currentProduct.name} - Imagem ${index + 1}" loading="lazy">
           <div class="gallery-overlay">
             <i class="fas fa-search-plus"></i>
@@ -223,6 +231,13 @@ class ProductManager {
     if (ogDescription) ogDescription.content = description;
   }
 
+  updateCTATitle() {
+    const ctaTitle = document.getElementById('cta-title');
+    if (ctaTitle) {
+      ctaTitle.textContent = `Interessado na ${this.currentProduct.name}?`;
+    }
+  }
+
   // Método para obter produto por ID (para uso externo)
   getProductById(id) {
     return this.products.find(product => product.id === id);
@@ -234,78 +249,122 @@ class ProductManager {
   }
 }
 
-// Função para abrir lightbox da galeria
-function openLightbox(imageSrc, index) {
-  // Implementação simples do lightbox
-  const lightbox = document.createElement('div');
-  lightbox.className = 'lightbox';
-  lightbox.innerHTML = `
-    <div class="lightbox-content">
-      <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-      <img src="${imageSrc}" alt="Imagem ${index + 1}">
-    </div>
-  `;
+// Funções do Modal de Zoom (igual ao portfolio)
+function openZoomModal(imageIndex) {
+  if (!window.productManager || !window.productManager.currentProduct || !window.productManager.currentProduct.gallery) return;
   
-  // Estilos do lightbox
-  lightbox.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-    cursor: pointer;
-  `;
+  const images = window.productManager.currentProduct.gallery;
   
-  const content = lightbox.querySelector('.lightbox-content');
-  content.style.cssText = `
-    position: relative;
-    max-width: 90%;
-    max-height: 90%;
-    cursor: default;
-  `;
+  window.zoomConfig = {
+    currentIndex: imageIndex,
+    images: images,
+    totalImages: images.length
+  };
+
+  updateZoomModal();
+  setupZoomModalEvents();
   
-  const img = lightbox.querySelector('img');
-  img.style.cssText = `
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  `;
-  
-  const close = lightbox.querySelector('.lightbox-close');
-  close.style.cssText = `
-    position: absolute;
-    top: -40px;
-    right: 0;
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.5);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  `;
-  
-  document.body.appendChild(lightbox);
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
+  const modal = document.getElementById('zoom-modal');
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden'; // Previne scroll da página
 }
 
-function closeLightbox() {
-  const lightbox = document.querySelector('.lightbox');
-  if (lightbox) {
-    lightbox.remove();
+function closeZoomModal() {
+  const modal = document.getElementById('zoom-modal');
+  modal.classList.remove('active');
+  document.body.style.overflow = ''; // Restaura scroll da página
+}
+
+function updateZoomModal() {
+  if (!window.zoomConfig) return;
+
+  const { currentIndex, images, totalImages } = window.zoomConfig;
+  const zoomImage = document.getElementById('zoom-image');
+  const zoomCounter = document.getElementById('zoom-counter');
+  const zoomPrev = document.getElementById('zoom-prev');
+  const zoomNext = document.getElementById('zoom-next');
+
+  zoomImage.src = images[currentIndex];
+  zoomImage.alt = `${window.productManager.currentProduct.name} - Imagem ${currentIndex + 1}`;
+  zoomCounter.textContent = `${currentIndex + 1} / ${totalImages}`;
+
+  // Mostrar/ocultar botões de navegação
+  zoomPrev.style.display = totalImages > 1 ? 'flex' : 'none';
+  zoomNext.style.display = totalImages > 1 ? 'flex' : 'none';
+}
+
+function navigateZoom(direction) {
+  if (!window.zoomConfig) return;
+
+  const { currentIndex, totalImages } = window.zoomConfig;
+  let newIndex = currentIndex + direction;
+
+  // Loop infinito
+  if (newIndex < 0) {
+    newIndex = totalImages - 1;
+  } else if (newIndex >= totalImages) {
+    newIndex = 0;
   }
+
+  window.zoomConfig.currentIndex = newIndex;
+  updateZoomModal();
+}
+
+function setupZoomModalEvents() {
+  const modal = document.getElementById('zoom-modal');
+  const closeBtn = document.getElementById('zoom-close');
+  const prevBtn = document.getElementById('zoom-prev');
+  const nextBtn = document.getElementById('zoom-next');
+
+  // Fechar modal
+  closeBtn.onclick = () => closeZoomModal();
+  
+  // Fechar clicando fora da imagem
+  modal.onclick = (e) => {
+    if (e.target === modal) {
+      closeZoomModal();
+    }
+  };
+
+  // Navegação
+  prevBtn.onclick = (e) => {
+    e.stopPropagation();
+    navigateZoom(-1);
+  };
+
+  nextBtn.onclick = (e) => {
+    e.stopPropagation();
+    navigateZoom(1);
+  };
+
+  // Prevenir fechamento ao clicar na imagem
+  const zoomImage = document.getElementById('zoom-image');
+  zoomImage.onclick = (e) => e.stopPropagation();
+
+  // Teclas de atalho
+  document.addEventListener('keydown', handleZoomKeyboard);
+}
+
+function handleZoomKeyboard(e) {
+  const modal = document.getElementById('zoom-modal');
+  if (!modal.classList.contains('active')) return;
+
+  switch(e.key) {
+    case 'Escape':
+      closeZoomModal();
+      break;
+    case 'ArrowLeft':
+      navigateZoom(-1);
+      break;
+    case 'ArrowRight':
+      navigateZoom(1);
+      break;
+  }
+}
+
+// Função para abrir lightbox da galeria (mantida para compatibilidade)
+function openLightbox(imageSrc, index) {
+  openZoomModal(index);
 }
 async function loadHeaderAndFooter() {
   try {

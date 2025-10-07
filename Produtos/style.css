@@ -205,6 +205,18 @@ body {
   background: linear-gradient(139deg, #f093fb 0%, #f5576c 100%);
 }
 
+.product-badge.protection {
+  background: linear-gradient(139deg, #2ecc71 0%, #27ae60 100%);
+}
+
+.product-badge.entrance {
+  background: linear-gradient(139deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.product-badge.structural {
+  background: linear-gradient(139deg, #8e44ad 0%, #9b59b6 100%);
+}
+
 .product-content {
   padding: 40px 30px;
 }
