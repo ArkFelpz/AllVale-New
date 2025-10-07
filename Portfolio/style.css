@@ -436,6 +436,42 @@ body {
   letter-spacing: 1px;
 }
 
+.project-tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-family: "Montserrat", Sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.tag-line {
+  background: linear-gradient(135deg, #223E70 0%, #000059 100%);
+  color: #ffffff;
+  border: 1px solid #223E70;
+}
+
+.tag-category {
+  background: rgba(0, 0, 128, 0.1);
+  color: #000080;
+  border: 1px solid rgba(0, 0, 128, 0.2);
+}
+
+.tag:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
 .project-arrow {
   width: 40px;
   height: 40px;
@@ -596,6 +632,16 @@ body {
     font-size: 14px;
   }
   
+  .project-tags {
+    margin-top: 10px;
+    gap: 6px;
+  }
+  
+  .tag {
+    padding: 3px 10px;
+    font-size: 11px;
+  }
+  
   .cta-section {
     padding: 80px 0;
   }
@@ -667,6 +713,16 @@ body {
     width: 32px;
     height: 32px;
     font-size: 12px;
+  }
+  
+  .project-tags {
+    margin-top: 8px;
+    gap: 5px;
+  }
+  
+  .tag {
+    padding: 2px 8px;
+    font-size: 10px;
   }
   
   .cta-section {

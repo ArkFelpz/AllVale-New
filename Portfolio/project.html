@@ -181,7 +181,7 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       flex: 1;
       overflow: hidden;
@@ -271,6 +271,161 @@
       height: 250px;
       object-fit: cover;
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .gallery-item-empty {
+      display: none;
+    }
+
+    /* Modal de Zoom */
+    .zoom-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .zoom-modal.active {
+      display: flex;
+    }
+
+    .zoom-modal-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .zoom-modal-image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .zoom-modal-close {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .zoom-modal-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    .zoom-modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .zoom-modal-nav:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .zoom-modal-prev {
+      left: -70px;
+    }
+
+    .zoom-modal-next {
+      right: -70px;
+    }
+
+    .zoom-modal-counter {
+      position: absolute;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Responsividade do Modal */
+    @media (max-width: 768px) {
+      .zoom-modal {
+        padding: 10px;
+      }
+
+      .zoom-modal-close {
+        top: -40px;
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+      }
+
+      .zoom-modal-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+
+      .zoom-modal-prev {
+        left: -50px;
+      }
+
+      .zoom-modal-next {
+        right: -50px;
+      }
+
+      .zoom-modal-counter {
+        bottom: -40px;
+        font-size: 12px;
+        padding: 6px 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .zoom-modal-prev {
+        left: -35px;
+      }
+
+      .zoom-modal-next {
+        right: -35px;
+      }
     }
 
     .gallery-item:hover img {
@@ -439,6 +594,43 @@
     .related-project-location {
       font-size: 14px;
       color: #666;
+      margin-bottom: 12px;
+    }
+
+    .related-project-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .related-project .tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 15px;
+      font-family: "Montserrat", Sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+
+    .related-project .tag-line {
+      background: linear-gradient(135deg, #223E70 0%, #000059 100%);
+      color: #ffffff;
+      border: 1px solid #223E70;
+    }
+
+    .related-project .tag-category {
+      background: rgba(0, 0, 128, 0.1);
+      color: #000080;
+      border: 1px solid rgba(0, 0, 128, 0.2);
+    }
+
+    .related-project .tag:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     }
 
     .loading-project {
@@ -652,6 +844,16 @@
         gap: 20px;
         padding: 0 15px;
       }
+
+      .related-project-tags {
+        gap: 4px;
+        margin-top: 6px;
+      }
+
+      .related-project .tag {
+        padding: 2px 6px;
+        font-size: 9px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -773,6 +975,23 @@
           <div class="gallery-indicators" id="gallery-indicators" style="display: none;">
           </div>
         </div>
+
+        <!-- Modal de Zoom -->
+        <div class="zoom-modal" id="zoom-modal">
+          <div class="zoom-modal-content">
+            <button class="zoom-modal-close" id="zoom-close">
+              <i class="fas fa-times"></i>
+            </button>
+            <button class="zoom-modal-nav zoom-modal-prev" id="zoom-prev">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <img class="zoom-modal-image" id="zoom-image" src="" alt="">
+            <button class="zoom-modal-nav zoom-modal-next" id="zoom-next">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="zoom-modal-counter" id="zoom-counter"></div>
+          </div>
+        </div>
         <div class="project-cta">
           <h3>Interessado em um Projeto Similar?</h3>
           <p>Entre em contato conosco e vamos transformar sua ideia em realidade</p>
@@ -790,7 +1009,10 @@
       </div>
       <section class="related-projects">
         <div class="container">
-          <h3>Projetos Relacionados</h3>
+          <h3>Projetos Similares</h3>
+          <p style="text-align: center; color: #666; margin-bottom: 30px; font-size: 16px;">
+            Descubra outros projetos que utilizam tecnologias e características similares
+          </p>
           <div class="related-projects-grid" id="related-projects-container">
           </div>
         </div>
@@ -932,7 +1154,7 @@
         if (width >= 1024) {
           imagesPerPage = 3;
         } else if (width >= 768) {
-          imagesPerPage = 2;
+          imagesPerPage = 3; // Mantém 3 imagens para consistência
         } else {
           imagesPerPage = 3;
         }
@@ -960,6 +1182,22 @@
         console.log(`Renderizando página ${this.galleryConfig.currentPage + 1}: imagens ${startIndex + 1} a ${endIndex} (total: ${this.galleryConfig.images.length})`);
         console.log(`Images per page: ${this.galleryConfig.imagesPerPage}`);
 
+        // Se há apenas 1 ou 2 imagens, centralizar no grid de 3 colunas
+        const totalImagesOnPage = endIndex - startIndex;
+        if (totalImagesOnPage <= 2) {
+          container.style.justifyContent = 'center';
+          container.style.gridTemplateColumns = 'repeat(3, 1fr)';
+          
+          // Adicionar espaços vazios para centralizar as imagens
+          if (totalImagesOnPage === 1) {
+            const emptySpace1 = document.createElement('div');
+            emptySpace1.className = 'gallery-item-empty';
+            container.appendChild(emptySpace1);
+          }
+        } else {
+          container.style.justifyContent = 'stretch';
+        }
+
         for (let i = startIndex; i < endIndex; i++) {
           const image = this.galleryConfig.images[i];
           const imageElement = document.createElement('div');
@@ -967,7 +1205,22 @@
           imageElement.innerHTML = `
             <img src="${image}" alt="${this.project.title}" loading="lazy">
           `;
+          
+          // Adicionar evento de clique para zoom
+          const imgElement = imageElement.querySelector('img');
+          imgElement.style.cursor = 'pointer';
+          imgElement.addEventListener('click', () => {
+            this.openZoomModal(i);
+          });
+          
           container.appendChild(imageElement);
+        }
+
+        // Adicionar espaço vazio final se necessário para centralizar 1 imagem
+        if (totalImagesOnPage === 1) {
+          const emptySpace2 = document.createElement('div');
+          emptySpace2.className = 'gallery-item-empty';
+          container.appendChild(emptySpace2);
         }
       }
 
@@ -1147,7 +1400,16 @@
         container.innerHTML = '';
 
         if (relatedProjects.length === 0) {
-          container.innerHTML = '<p style="text-align: center; color: #666;">Nenhum projeto relacionado encontrado.</p>';
+          container.innerHTML = `
+            <div style="text-align: center; color: #666; padding: 40px 20px;">
+              <i class="fas fa-info-circle" style="font-size: 48px; color: #ddd; margin-bottom: 20px;"></i>
+              <h4 style="color: #333; margin-bottom: 10px;">Nenhum projeto similar encontrado</h4>
+              <p>Este projeto é único em suas características. Explore nosso portfólio completo para ver outros projetos incríveis.</p>
+              <a href="index.html" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background: linear-gradient(139deg, #000059 0%, #223E70 100%); color: white; text-decoration: none; border-radius: 25px; font-weight: 600;">
+                Ver Todos os Projetos
+              </a>
+            </div>
+          `;
           return;
         }
 
@@ -1164,6 +1426,10 @@
                 <a href="project.html?slug=${project.slug}">${project.title}</a>
               </h4>
               <span class="related-project-location">${project.location}</span>
+              <div class="related-project-tags">
+                <span class="tag tag-line">${project.line || 'Linha não especificada'}</span>
+                <span class="tag tag-category">${project.category_type || 'Tipo não especificado'}</span>
+              </div>
             </div>
           `;
 
@@ -1172,12 +1438,59 @@
       }
 
       getRelatedProjects(limit = 3) {
-        return this.allProjects
-          .filter(project => 
-            project.id !== this.project.id && 
-            project.category === this.project.category
-          )
+        // Calcular similaridade baseada em múltiplos critérios
+        const projectsWithScore = this.allProjects
+          .filter(project => project.id !== this.project.id)
+          .map(project => {
+            let score = 0;
+            
+            // 1. Mesma linha de esquadrias (peso alto)
+            if (project.line === this.project.line) {
+              score += 40;
+            } else if (project.line && this.project.line && 
+                      project.line.includes(this.project.line.split(' ')[1])) {
+              score += 20; // Linhas similares (ex: Gold e Gold IV)
+            }
+            
+            // 2. Mesma categoria (peso médio)
+            if (project.category === this.project.category) {
+              score += 25;
+            }
+            
+            // 3. Mesmo tipo de categoria (Residencial/Comercial)
+            if (project.category_type === this.project.category_type) {
+              score += 20;
+            }
+            
+            // 4. Mesma localização (peso médio)
+            if (project.location === this.project.location) {
+              score += 15;
+            }
+            
+            // 5. Projetos premium têm prioridade se o atual for premium
+            if (this.project.category === 'premium' && project.category === 'premium') {
+              score += 10;
+            }
+            
+            // 6. Projetos recentes têm pequena vantagem
+            if (project.year === this.project.year) {
+              score += 5;
+            }
+            
+            return { ...project, similarityScore: score };
+          })
+          .sort((a, b) => b.similarityScore - a.similarityScore)
           .slice(0, limit);
+        
+        console.log('Projetos relacionados calculados:', projectsWithScore.map(p => ({
+          title: p.title,
+          score: p.similarityScore,
+          line: p.line,
+          category: p.category,
+          location: p.location
+        })));
+        
+        return projectsWithScore;
       }
 
       getUrlParameter(name) {
@@ -1188,6 +1501,122 @@
       showError() {
         document.getElementById('loading-state').style.display = 'none';
         document.getElementById('error-state').style.display = 'block';
+      }
+
+      // Funções do Modal de Zoom
+      openZoomModal(imageIndex) {
+        if (!this.galleryConfig || !this.galleryConfig.images) return;
+        
+        this.zoomConfig = {
+          currentIndex: imageIndex,
+          images: this.galleryConfig.images,
+          totalImages: this.galleryConfig.images.length
+        };
+
+        this.updateZoomModal();
+        this.setupZoomModalEvents();
+        
+        const modal = document.getElementById('zoom-modal');
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Previne scroll da página
+      }
+
+      closeZoomModal() {
+        const modal = document.getElementById('zoom-modal');
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restaura scroll da página
+      }
+
+      updateZoomModal() {
+        if (!this.zoomConfig) return;
+
+        const { currentIndex, images, totalImages } = this.zoomConfig;
+        const zoomImage = document.getElementById('zoom-image');
+        const zoomCounter = document.getElementById('zoom-counter');
+        const zoomPrev = document.getElementById('zoom-prev');
+        const zoomNext = document.getElementById('zoom-next');
+
+        zoomImage.src = images[currentIndex];
+        zoomImage.alt = `${this.project.title} - Imagem ${currentIndex + 1}`;
+        zoomCounter.textContent = `${currentIndex + 1} / ${totalImages}`;
+
+        // Mostrar/ocultar botões de navegação
+        zoomPrev.style.display = totalImages > 1 ? 'flex' : 'none';
+        zoomNext.style.display = totalImages > 1 ? 'flex' : 'none';
+      }
+
+      navigateZoom(direction) {
+        if (!this.zoomConfig) return;
+
+        const { currentIndex, totalImages } = this.zoomConfig;
+        let newIndex = currentIndex + direction;
+
+        // Loop infinito
+        if (newIndex < 0) {
+          newIndex = totalImages - 1;
+        } else if (newIndex >= totalImages) {
+          newIndex = 0;
+        }
+
+        this.zoomConfig.currentIndex = newIndex;
+        this.updateZoomModal();
+      }
+
+      setupZoomModalEvents() {
+        const modal = document.getElementById('zoom-modal');
+        const closeBtn = document.getElementById('zoom-close');
+        const prevBtn = document.getElementById('zoom-prev');
+        const nextBtn = document.getElementById('zoom-next');
+
+        // Fechar modal
+        closeBtn.onclick = () => this.closeZoomModal();
+        
+        // Fechar clicando fora da imagem
+        modal.onclick = (e) => {
+          if (e.target === modal) {
+            this.closeZoomModal();
+          }
+        };
+
+        // Navegação
+        prevBtn.onclick = (e) => {
+          e.stopPropagation();
+          this.navigateZoom(-1);
+        };
+
+        nextBtn.onclick = (e) => {
+          e.stopPropagation();
+          this.navigateZoom(1);
+        };
+
+        // Prevenir fechamento ao clicar na imagem
+        const zoomImage = document.getElementById('zoom-image');
+        zoomImage.onclick = (e) => e.stopPropagation();
+
+        // Teclas de atalho
+        document.addEventListener('keydown', this.handleZoomKeyboard.bind(this));
+      }
+
+      handleZoomKeyboard(e) {
+        const modal = document.getElementById('zoom-modal');
+        if (!modal.classList.contains('active')) return;
+
+        switch(e.key) {
+          case 'Escape':
+            this.closeZoomModal();
+            break;
+          case 'ArrowLeft':
+            this.navigateZoom(-1);
+            break;
+          case 'ArrowRight':
+            this.navigateZoom(1);
+            break;
+        }
+      }
+
+      // Limpar eventos do modal quando fechado
+      cleanupZoomModal() {
+        document.removeEventListener('keydown', this.handleZoomKeyboard.bind(this));
       }
     }
     document.addEventListener('DOMContentLoaded', () => {
