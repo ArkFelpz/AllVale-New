@@ -3,7 +3,7 @@
     {
       "id": "linha-gold",
       "name": "Linha Gold IV",
-      "badge": "GOLD",
+      "badge": "GOLD IV",
       "badgeType": "gold",
       "icon": "fas fa-medal",
       "description": "Na arquitetura contemporânea, as esquadrias desempenham um papel cada vez mais central — não apenas como elementos funcionais, mas como protagonistas na estética e na integração dos espaços. A Linha Gold IV foi desenvolvida para atender às demandas da arquitetura com elegância, resistência e versatilidade. Com perfis de 32 mm, oferece robustez estrutural e desempenho técnico que a tornam ideal para grandes vãos e composições arquitetônicas exigentes.",
@@ -286,3 +286,4 @@
     }
   ]
 }
+
