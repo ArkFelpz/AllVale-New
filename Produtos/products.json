@@ -44,7 +44,7 @@
     {
       "id": "linha-suprema",
       "name": "Linha Suprema",
-      "badge": "SUPREMA",
+      "badge": "SUPREMA ALLVALE",
       "badgeType": "premium",
       "icon": "fas fa-crown",
       "description": "Nossa linha mais exclusiva e sofisticada, desenvolvida para projetos únicos que exigem o máximo em qualidade, design e tecnologia. A Linha Suprema Allvale representa o ápice da engenharia em esquadrias, combinando máxima resistência estrutural com acabamento refinado e tecnologia de ponta para projetos de alto padrão.",
@@ -71,46 +71,6 @@
         "Maxim-ar",
         "Janelas de correr Opção com tela mosquiteira",
         "Com persiana motorizada integrada",
-        "Sistema Motorizado Avançado",
-        "Porta Automática"
-      ],
-      "gallery": [
-        "Produtos imgs/Suprema Allvale 1.jpg",
-        "Produtos imgs/Suprema Allvale 3.jpg",
-        "Produtos imgs/Suprema Allvale 4.jpg",
-        "Produtos imgs/Suprema Allvale 5.jpg"
-      ]
-    },
-    {
-      "id": "linha-suprema-allvale",
-      "name": "Linha Suprema Allvale",
-      "badge": "SUPREMA ALLVALE",
-      "badgeType": "exclusive",
-      "icon": "fas fa-star",
-      "description": "Nossa linha mais exclusiva e sofisticada da AllVale. Desenvolvida para projetos únicos que exigem o máximo em qualidade, design e tecnologia. A Linha Suprema Allvale representa o ápice da engenharia em esquadrias, combinando máxima resistência estrutural com acabamento refinado e tecnologia de ponta para projetos de alto padrão.",
-      "features": [
-        "Máxima resistência estrutural",
-        "Acabamento premium refinado",
-        "Tecnologia de ponta",
-        "Soluções sob medida",
-        "Design exclusivo e sofisticado",
-        "Performance superior em grandes vãos"
-      ],
-      "image": "Produtos imgs/Linha suprema allvale.jpg",
-      "category": "premium",
-      "details": {
-        "perfil": "50mm",
-        "aplicacao": "Alto padrão e luxo",
-        "tecnologia": "Premium"
-      },
-      "tipologias": [
-        "Porta de Giro Premium",
-        "Porta de Correr de Luxo",
-        "Janelas Panorâmicas",
-        "Porta de Canto Premium",
-        "Quadro Fixo Estrutural",
-        "Maxim-ar Premium",
-        "Veneziana de Luxo",
         "Sistema Motorizado Avançado",
         "Porta Automática"
       ],
@@ -286,5 +246,6 @@
     }
   ]
 }
+
 
 
