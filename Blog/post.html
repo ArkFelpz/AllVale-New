@@ -6,107 +6,169 @@
   <title id="page-title">Post - Blog AllVale</title>
   <meta name="description" id="page-description" content="Leia mais sobre esquadrias e arquitetura no blog da AllVale.">
   <meta name="keywords" content="Blog AllVale, Esquadrias, Arquitetura, Design, Alumínio, Projetos">
+  <meta name="author" content="AllVale Esquadrias">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <link rel="canonical" href="https://allvalealuminio.com.br/blog/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Post - Blog AllVale">
+  <meta property="og:description" content="Leia mais sobre esquadrias e arquitetura no blog da AllVale.">
+  <meta property="og:url" content="https://allvalealuminio.com.br/blog/">
+  <meta property="og:site_name" content="AllVale Esquadrias">
+  <meta property="og:image" content="https://allvalealuminio.com.br/imgs/banner.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AllVale Blog - Esquadrias de Alumínio">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Post - Blog AllVale">
+  <meta name="twitter:description" content="Leia mais sobre esquadrias e arquitetura no blog da AllVale.">
+  <meta name="twitter:image" content="https://allvalealuminio.com.br/imgs/banner.jpg">
+  <meta name="twitter:image:alt" content="AllVale Blog - Esquadrias de Alumínio">
+  <meta name="theme-color" content="#1a1a1a">
+  <meta name="msapplication-TileColor" content="#1a1a1a">
+  <meta name="application-name" content="AllVale Esquadrias">
+  <meta name="apple-mobile-web-app-title" content="AllVale">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="icon" type="image/png" sizes="32x32" href="../imgs/cropped-REVENUE-1-32x32.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="icon" type="image/png" sizes="16x16" href="../imgs/cropped-REVENUE-1-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../imgs/apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="//wa.me">
+  <link rel="preload" href="style.css" as="style">
+  <link rel="preload" href="javascript.js" as="script">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="style.css">
   <style>
-    .post-page {
-      padding-top: 0;
-      background: #ffffff;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .post-header {
-      background: linear-gradient(135deg, #000059 0%, #223E70 50%, #4a6fa5 100%);
-      padding: 120px 0 80px 0;
-      color: white;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      min-height: 60vh;
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f8f8f8;
+      color: #333333;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    .post-header::after {
-      content: "";
-      position: absolute;
-      bottom: -20px;
-      left: 0;
-      right: 0;
-      height: 40px;
-      background: #ffffff;
-      border-radius: 50% 50% 0 0;
-      transform: scaleX(2);
-    }
-
-    .post-header-content {
-      max-width: 800px;
+    .container {
+      max-width: 1200px;
+      align-items: center;
       margin: 0 auto;
       padding: 0 20px;
+    }
+
+    .post-hero {
+      padding: 120px 0 80px 0;
+      background: linear-gradient(135deg, #000059 0%, #223E70 100%);
       position: relative;
-      z-index: 2;
-    }
-
-    .post-header h1 {
-      font-family: "Montserrat", Sans-serif;
-      font-size: 48px;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 20px;
-      line-height: 1.2;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    .post-date-hero {
-      font-size: 18px;
-      color: white;
-      opacity: 0.9;
-      margin-bottom: 40px;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    }
-
-    .post-featured-image {
-      max-width: 800px;
-      margin: -100px auto 60px auto;
-      position: relative;
-      z-index: 10;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-      border-radius: 15px;
       overflow: hidden;
     }
 
-    .post-featured-image img {
+    .post-hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('../imgs/banner.jpg') center center/cover no-repeat;
+      opacity: 0.2;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      gap: 60px;
+      align-items: center;
+      min-height: 500px;
+    }
+
+    .hero-image {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .hero-image:hover {
+      transform: scale(1.02);
+      box-shadow: 0 35px 80px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-image img {
       width: 100%;
       height: 400px;
       object-fit: cover;
       display: block;
     }
 
-    .post-breadcrumb {
-      margin-bottom: 30px;
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .post-badge-container {
+      margin-bottom: 20px;
+    }
+
+    .post-badge {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 50px;
       font-size: 14px;
-      color: #666;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .post-breadcrumb a {
-      color: #000059;
-      text-decoration: none;
       font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
-    .post-breadcrumb a:hover {
-      color: #223E70;
-      text-decoration: underline;
+    .hero-title {
+      font-family: "Inter", Sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 30px;
+      line-height: 1.1;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
     }
 
-    .post-meta {
+    .hero-subtitle {
+      font-family: "Inter", Sans-serif;
+      font-size: 22px;
+      font-weight: 300;
+      color: #ffffff;
+      line-height: 1.6;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .post-meta-hero {
       display: flex;
       justify-content: center;
       gap: 30px;
-      margin: 30px 0;
-      font-size: 14px;
-      color: #666;
+      margin-top: 30px;
+      font-size: 16px;
+      color: #ffffff;
+      opacity: 0.9;
     }
 
     .post-meta-item {
@@ -117,47 +179,177 @@
 
     .post-meta-item i {
       font-size: 16px;
-      color: #000059;
     }
 
-    .post-meta-value {
-      font-weight: 500;
+    .post-main {
+      padding: 100px 0;
+      background: #f8f8f8;
     }
 
-    .post-content {
+    .post-content-wrapper {
       max-width: 800px;
       margin: 0 auto;
-      padding: 60px 20px;
-      line-height: 1.7;
+    }
+
+    .post-article {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 60px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .post-article:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+    }
+
+    .post-intro-section {
+      margin-bottom: 40px;
+      padding: 30px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .post-intro-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    .post-intro-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .post-intro-text h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .post-intro-text p {
       font-size: 16px;
-      color: #333;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .post-intro-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .post-breadcrumb {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      height: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .post-breadcrumb a {
+      color: #000059;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      padding: 6px 12px;
+      border-radius: 15px;
+      background: rgba(0, 0, 89, 0.05);
+    }
+
+    .post-breadcrumb a:hover {
+      color: #ffffff;
+      background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+      text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 89, 0.2);
+    }
+
+    .share-section {
+      padding: 30px 0;
+      background: #ffffff;
+      border-top: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .share-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .share-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #8B4513;
+    }
+
+    .share-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .share-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #f8f9fa;
+      color: #666666;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid #e0e0e0;
+    }
+
+    .share-icon:hover {
+      background: #000059;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 89, 0.2);
+      text-decoration: none;
+    }
+
+    .share-icon i {
+      font-size: 16px;
     }
 
     .post-content h2 {
-      font-family: "Montserrat", Sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 32px;
       font-weight: 700;
-      color: #000059;
-      margin: 50px 0 25px 0;
-      line-height: 1.3;
+      margin-bottom: 25px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .post-content h3 {
-      font-family: "Montserrat", Sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 24px;
       font-weight: 600;
-      color: #000059;
+      color: #223E70;
       margin: 40px 0 20px 0;
       line-height: 1.3;
-    }
-
-    .post-content h4 {
-      font-family: "Montserrat", Sans-serif;
-      font-size: 20px;
-      font-weight: 600;
-      color: #223E70;
-      margin: 30px 0 15px 0;
-      line-height: 1.3;
+      letter-spacing: -0.01em;
     }
 
     .post-content p {
@@ -183,126 +375,465 @@
     .post-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
       margin: 40px 0;
+      padding: 30px 0;
+      border-top: 1px solid #e0e0e0;
     }
 
     .post-tag {
-      background: #f0f0f0;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
       color: #000059;
-      padding: 8px 16px;
-      border-radius: 20px;
+      padding: 10px 20px;
+      border-radius: 25px;
       font-size: 14px;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease;
+      border: 2px solid transparent;
+      font-family: "Inter", sans-serif;
     }
 
     .post-tag:hover {
-      background: #000059;
-      color: white;
+      background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 89, 0.2);
+      border-color: transparent;
+    }
+
+
+    .features-section {
+      padding: 100px 0;
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .features-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ddd" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ddd" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23ddd" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      pointer-events: none;
+    }
+
+    .features-header {
+      text-align: center;
+      margin-bottom: 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .features-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+      background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .divider {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+      margin: 20px auto 30px auto;
+      border-radius: 2px;
+    }
+
+    .features-subtitle {
+      font-size: 20px;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature-card {
+      background: #f8f8f8;
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      font-size: 32px;
+      color: #fff;
+      background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .feature-card h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-card p {
+      font-size: 16px;
+      color: #666666;
+      line-height: 1.6;
     }
 
     .related-posts {
+      padding: 100px 0;
       background: #f8f8f8;
-      padding: 60px 0;
+      position: relative;
+      overflow: hidden;
     }
 
-    .related-posts h3 {
+    .related-posts::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ddd" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ddd" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23ddd" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      pointer-events: none;
+    }
+
+    .related-posts-header {
       text-align: center;
-      margin-bottom: 40px;
-      font-size: 28px;
-      color: #2c3e50;
+      margin-bottom: 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .related-posts h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+      background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .related-posts-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      position: relative;
+      z-index: 2;
     }
 
     .related-post {
-      background: white;
-      border-radius: 15px;
+      background: #ffffff;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+      transform-style: preserve-3d;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .related-post::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+      transform: scaleX(0);
+      transition: transform 0.6s ease;
+    }
+
+    .related-post:hover::before {
+      transform: scaleX(1);
     }
 
     .related-post:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      transform: translateY(-20px) rotateX(5deg);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
     }
 
     .related-post-image {
-      height: 200px;
+      height: 220px;
       overflow: hidden;
+      position: relative;
     }
 
     .related-post-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.3s ease;
+      transition: transform 0.6s ease;
     }
 
     .related-post:hover .related-post-image img {
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
 
     .related-post-content {
-      padding: 25px;
+      padding: 40px 30px;
     }
 
     .related-post-title {
-      font-size: 18px;
+      font-family: 'Inter', sans-serif;
+      font-size: 22px;
       font-weight: 700;
-      color: #2c3e50;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       line-height: 1.3;
+      letter-spacing: -0.01em;
+      background: linear-gradient(139deg, #000059 0%, #223E70 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .related-post-title a {
       color: inherit;
       text-decoration: none;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .related-post-title a:hover {
       color: #000059;
+      -webkit-text-fill-color: #000059;
     }
 
     .related-post-date {
+      font-family: 'Inter', sans-serif;
       font-size: 14px;
       color: #666;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .related-post-date::before {
+      content: '📅';
+      font-size: 12px;
+    }
+
+    .cta-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #000059 0%, #223E70 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('../imgs/banner.jpg') center center/cover no-repeat;
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-description {
+      font-size: 20px;
+      color: #ffffff;
+      margin-bottom: 40px;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 18px 40px;
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      min-width: 200px;
+    }
+
+    .cta-btn.primary {
+      background: #ffffff;
+      color: #000059;
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+    }
+
+    .cta-btn.primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
+      text-decoration: none;
+      color: #000059;
+    }
+
+    .cta-btn.secondary {
+      background: #25D366;
+      color: #ffffff;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+    }
+
+    .cta-btn.secondary:hover {
+      transform: translateY(-3px);
+      background: #20b85a;
+      box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .cta-btn i {
+      font-size: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .cta-btn:hover i {
+      transform: translateX(5px);
     }
 
     .back-to-blog {
       text-align: center;
-      margin: 40px 0;
+      margin: 60px 0;
     }
 
     .back-to-blog a {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       background: linear-gradient(139deg, #000059 0%, #223E70 100%);
       color: white;
-      padding: 15px 30px;
-      border-radius: 25px;
+      padding: 18px 40px;
+      border-radius: 12px;
       text-decoration: none;
       font-weight: 600;
-      font-size: 16px;
+      font-size: 18px;
+      font-family: "Inter", sans-serif;
       transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 89, 0.2);
+      min-width: 200px;
+      justify-content: center;
     }
 
     .back-to-blog a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 0, 89, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0, 0, 89, 0.3);
       color: white;
+      text-decoration: none;
+    }
+
+    .back-to-blog a i {
+      font-size: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .back-to-blog a:hover i {
+      transform: translateX(-5px);
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+    }
+
+    .floating-whatsapp a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 24px;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .floating-whatsapp a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+    }
+
+    .pulse-infinite {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
     }
 
     .loading-post {
@@ -315,46 +846,349 @@
       padding: 100px 20px;
       color: #c62828;
     }
+    .reveal-bounce {
+      opacity: 0;
+      transform: translateY(0);
+      transition: all 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      will-change: opacity, transform;
+    }
 
-    @media (max-width: 768px) {
-      .post-header {
-        padding: 100px 0 60px 0;
-        min-height: 50vh;
+    .reveal-bounce.active {
+      opacity: 1;
+      animation: bounceInFromZero 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    }
+
+    @keyframes bounceInFromZero {
+      0% {
+        opacity: 0;
+        transform: translateY(0);
+      }
+      50% {
+        opacity: 0.8;
+        transform: translateY(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal-scale-bounce {
+      opacity: 0;
+      transform: scale(1);
+      transition: all 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      will-change: opacity, transform;
+    }
+
+    .reveal-scale-bounce.active {
+      opacity: 1;
+      animation: scaleBounceIn 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    }
+
+    @keyframes scaleBounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(0.7);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .reveal-flip {
+      opacity: 0;
+      transform: perspective(400px) rotateY(90deg);
+      transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: opacity, transform;
+    }
+
+    .reveal-flip.active {
+      opacity: 1;
+      transform: perspective(400px) rotateY(0deg);
+    }
+
+    .reveal-fade-slide {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: opacity, transform;
+    }
+
+    .reveal-fade-slide.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    @media (max-width: 1024px) {
+      .hero-content {
+        grid-template-columns: 300px 1fr;
+        gap: 40px;
+        min-height: 400px;
       }
 
-      .post-header h1 {
-        font-size: 36px;
-      }
-
-      .post-date-hero {
-        font-size: 16px;
-      }
-
-      .post-featured-image {
-        margin: -80px auto 40px auto;
-      }
-
-      .post-featured-image img {
+      .hero-image img {
         height: 300px;
       }
 
-      .post-content {
-        padding: 40px 15px;
+      .hero-title {
+        font-size: 56px;
+      }
+      
+      
+      .features-title {
+        font-size: 40px;
+      }
+      
+      .related-posts h2 {
+        font-size: 40px;
+      }
+      
+      .related-posts-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .post-hero {
+        padding: 100px 0 60px 0;
       }
 
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+        min-height: auto;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .hero-image {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .hero-image img {
+        height: 250px;
+      }
+      
+      .hero-title {
+        font-size: 48px;
+      }
+      
+      .hero-subtitle {
+        font-size: 20px;
+      }
+      
+      .post-meta-hero {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .share-wrapper {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .share-icons {
+        justify-content: center;
+      }
+
+      .post-main {
+        padding: 80px 0;
+      }
+      
+      
+      .post-article {
+        padding: 40px 30px;
+      }
+
+      .post-intro-section {
+        padding: 25px;
+      }
+
+      .post-intro-text h2 {
+        font-size: 24px;
+      }
+      
       .post-content h2 {
         font-size: 28px;
       }
-
+      
       .post-content h3 {
         font-size: 22px;
       }
-
-
+      
+      .features-section {
+        padding: 80px 0;
+      }
+      
+      .features-title {
+        font-size: 36px;
+      }
+      
+      .features-subtitle {
+        font-size: 18px;
+      }
+      
+      .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+      }
+      
+      .related-posts {
+        padding: 80px 0;
+      }
+      
+      .related-posts h2 {
+        font-size: 36px;
+        margin-bottom: 50px;
+      }
+      
       .related-posts-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 15px;
+        gap: 30px;
+      }
+      
+      .cta-section {
+        padding: 80px 0;
+      }
+      
+      .cta-title {
+        font-size: 36px;
+      }
+      
+      .cta-description {
+        font-size: 18px;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .post-hero {
+        padding: 80px 0 40px 0;
+      }
+
+      .hero-image {
+        max-width: 300px;
+      }
+
+      .hero-image img {
+        height: 200px;
+      }
+      
+      .hero-title {
+        font-size: 40px;
+      }
+      
+      .hero-subtitle {
+        font-size: 18px;
+      }
+      
+      .post-main {
+        padding: 60px 0;
+      }
+      
+      .post-article {
+        padding: 30px 20px;
+      }
+
+      .post-intro-section {
+        padding: 20px;
+      }
+
+      .post-intro-text h2 {
+        font-size: 22px;
+      }
+
+      .post-intro-text p {
+        font-size: 15px;
+      }
+      
+      .post-content h2 {
+        font-size: 24px;
+      }
+      
+      .post-content h3 {
+        font-size: 20px;
+      }
+      
+      .features-section {
+        padding: 60px 0;
+      }
+      
+      .features-title {
+        font-size: 28px;
+      }
+      
+      .features-subtitle {
+        font-size: 16px;
+      }
+      
+      .feature-card {
+        padding: 30px 20px;
+      }
+      
+      .feature-card h3 {
+        font-size: 20px;
+      }
+      
+      .feature-card p {
+        font-size: 15px;
+      }
+      
+      .related-posts {
+        padding: 60px 0;
+      }
+      
+      .related-posts h2 {
+        font-size: 28px;
+      }
+      
+      .cta-section {
+        padding: 60px 0;
+      }
+      
+      .cta-title {
+        font-size: 28px;
+      }
+      
+      .cta-description {
+        font-size: 16px;
+      }
+      
+      .floating-whatsapp {
+        bottom: 25px;
+        right: 25px;
+      }
+      
+      .floating-whatsapp a {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
       }
     }
   </style>
@@ -362,7 +1196,7 @@
 <body>
   <div id="header"></div>
 
-  <main class="post-page">
+  <main>
     <div id="loading-state" class="loading-post">
       <div class="loading-spinner">
         <i class="fas fa-spinner fa-spin fa-3x" style="color: #000059;"></i>
@@ -381,56 +1215,171 @@
         </a>
       </div>
     </div>
-
-    <!-- Post Content -->
     <div id="post-content" style="display: none;">
-      <header class="post-header">
-        <div class="post-header-content">
-          <h1 id="post-title">Título do Post</h1>
-          <div class="post-date-hero" id="post-date-hero">Data</div>
+      <section class="post-hero">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-image" id="hero-image" style="display: none;">
+              <img id="hero-img" src="" alt="">
+            </div>
+            <div class="hero-text">
+              <div class="post-badge-container">
+                <span id="post-badge" class="post-badge">Blog</span>
+              </div>
+              <h1 id="post-title" class="hero-title">Título do Post</h1>
+              <p id="post-subtitle" class="hero-subtitle">
+                Descrição do post que complementa o título principal
+              </p>
+              <div class="post-meta-hero">
+                <div class="post-meta-item">
+                  <i class="fas fa-calendar"></i>
+                  <span id="post-date-hero">Data</span>
+                </div>
+                <div class="post-meta-item">
+                  <i class="fas fa-user"></i>
+                  <span>AllVale</span>
+                </div>
+                <div class="post-meta-item">
+                  <i class="fas fa-clock"></i>
+                  <span id="reading-time">5 min</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </header>
+      </section>
 
-      <div class="post-featured-image" id="post-featured-image" style="display: none;">
-        <img id="post-image" src="" alt="">
-      </div>
-
-      <nav class="post-breadcrumb" style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
-        <a href="../index.html">Início</a> / 
-        <a href="index.html">Blog</a> / 
-        <span id="breadcrumb-category">Categoria</span>
-      </nav>
-
-      <article class="post-content">
-        <div id="post-content-text"></div>
-        
-        <div class="post-tags" id="post-tags-container">
+      <section class="share-section">
+        <div class="container">
+          <div class="share-wrapper">
+            <div class="share-text">
+              <span>Compartilhe Esse Post</span>
+            </div>
+            <div class="share-icons">
+              <a href="#" class="share-icon" onclick="shareOnFacebook()" title="Compartilhar no Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="share-icon" onclick="shareOnLinkedIn()" title="Compartilhar no LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="share-icon" onclick="shareOnInstagram()" title="Compartilhar no Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="share-icon" onclick="shareOnEmail()" title="Compartilhar por Email">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
         </div>
-      </article>
+      </section>
 
-      <div class="back-to-blog">
-        <a href="index.html">
-          <i class="fas fa-arrow-left"></i>
-          Voltar ao Blog
-        </a>
-      </div>
+      <section class="post-main">
+        <div class="container">
+          <nav class="post-breadcrumb">
+            <a href="../index.html">Início</a> / 
+            <a href="index.html">Blog</a> / 
+            <span id="breadcrumb-category">Categoria</span>
+          </nav>
 
-      <!-- Related Posts -->
+          <div class="post-content-wrapper">
+            <article class="post-article reveal-bounce">
+              <div class="post-intro-section" id="post-intro-section" style="display: none;">
+                <div class="post-intro-text">
+                  <div id="post-intro-content"></div>
+                </div>
+              </div>
+              
+              <div id="post-content-text" class="post-content"></div>
+              
+              <div class="post-tags" id="post-tags-container">
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="features-section">
+        <div class="container">
+          <div class="features-header">
+            <h2 class="features-title">Por que ler nosso blog?</h2>
+            <div class="divider"></div>
+            <p class="features-subtitle">
+              Conteúdo especializado em esquadrias, arquitetura e tendências do mercado
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-card reveal-fade-slide reveal-delay-1">
+              <div class="feature-icon">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <h3>Conteúdo Especializado</h3>
+              <p>Artigos técnicos e dicas práticas sobre esquadrias de alumínio e arquitetura.</p>
+            </div>
+
+            <div class="feature-card reveal-fade-slide reveal-delay-2">
+              <div class="feature-icon">
+                <i class="fas fa-trending-up"></i>
+              </div>
+              <h3>Tendências do Mercado</h3>
+              <p>Fique por dentro das últimas tendências em design e tecnologia de esquadrias.</p>
+            </div>
+
+            <div class="feature-card reveal-fade-slide reveal-delay-3">
+              <div class="feature-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <h3>Dicas Práticas</h3>
+              <p>Orientações técnicas e práticas para escolher e manter suas esquadrias.</p>
+            </div>
+
+            <div class="feature-card reveal-fade-slide reveal-delay-4">
+              <div class="feature-icon">
+                <i class="fas fa-project-diagram"></i>
+              </div>
+              <h3>Casos de Sucesso</h3>
+              <p>Conheça projetos realizados e inspire-se com nossas soluções inovadoras.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="related-posts">
         <div class="container">
-          <h3>Posts Relacionados</h3>
+          <div class="related-posts-header">
+            <h2>Posts Relacionados</h2>
+            <div class="divider"></div>
+          </div>
           <div class="related-posts-grid" id="related-posts-container">
-            <!-- Posts relacionados serão inseridos aqui -->
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-content">
+            <h2 class="cta-title">Gostou do conteúdo?</h2>
+            <p class="cta-description">
+              Entre em contato conosco e descubra como podemos ajudar em seu próximo projeto
+            </p>
+            <div class="cta-buttons">
+              <a href="../contato/" class="cta-btn primary">
+                <span>Solicitar Orçamento</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="https://wa.me/5512997643142?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20e%20gostaria%20de%20um%20or%C3%A7amento!" class="cta-btn secondary">
+                <span>Falar no WhatsApp</span>
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
           </div>
         </div>
       </section>
     </div>
   </main>
 
-  <!-- Footer -->
   <div id="footer"></div>
 
-  <!-- Floating WhatsApp Button -->
   <div class="floating-whatsapp">
     <a href="https://wa.me/5512997643142?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20e%20gostaria%20de%20um%20or%C3%A7amento!" target="_blank" aria-label="Abrir WhatsApp" class="pulse-infinite">
       <i class="fab fa-whatsapp"></i>
@@ -451,98 +1400,87 @@
 
       async init() {
         try {
-          // Obter slug da URL
           const slug = BlogUtils.getUrlParameter('slug');
           if (!slug) {
             this.showError();
             return;
           }
-
-          // Carregar dados do blog
           await this.loadBlogData();
-          
-          // Encontrar post pelo slug
           this.post = this.allPosts.find(post => post.slug === slug);
           
           if (!this.post) {
             this.showError();
             return;
           }
-
-          // Renderizar post
           this.renderPost();
-          
-          // Carregar posts relacionados
           this.loadRelatedPosts();
-          
-          
-          // Esconder loading
+          this.activateAnimations();
           document.getElementById('loading-state').style.display = 'none';
           document.getElementById('post-content').style.display = 'block';
-          
         } catch (error) {
           console.error('Erro ao carregar post:', error);
           this.showError();
         }
       }
-
       async loadBlogData() {
         let data;
-        
-        // Primeiro, tentar carregar do localStorage (dados atualizados do admin)
         const localData = localStorage.getItem('blogData');
         if (localData) {
-          console.log('📱 Carregando dados do localStorage (admin)');
+          console.log('Carregando dados do localStorage (admin)');
           data = JSON.parse(localData);
         } else {
-          // Fallback: carregar do arquivo JSON
-          console.log('📁 Carregando dados do posts.json');
+          console.log('Carregando dados do posts.json');
           const response = await fetch('./posts.json');
           data = await response.json();
         }
-        
         this.allPosts = data.posts.filter(post => post.published);
         this.categories = data.categories;
       }
-
       renderPost() {
-        // Atualizar título da página
         document.title = `${this.post.title} - Blog AllVale`;
         document.getElementById('page-title').textContent = `${this.post.title} - Blog AllVale`;
         document.getElementById('page-description').content = this.post.excerpt;
-
-        // Atualizar cabeçalho
         document.getElementById('post-title').textContent = this.post.title;
+        document.getElementById('post-subtitle').textContent = this.post.excerpt;
         document.getElementById('post-date-hero').textContent = BlogUtils.formatDate(this.post.date);
-
-        // Atualizar breadcrumb
         const categoryObj = this.categories.find(cat => cat.id === this.post.category);
         document.getElementById('breadcrumb-category').textContent = categoryObj ? categoryObj.name : this.post.category;
-
-        // Atualizar imagem
+        document.getElementById('reading-time').textContent = this.calculateReadingTime() + ' min';
         if (this.post.image) {
-          document.getElementById('post-image').src = this.post.image;
-          document.getElementById('post-image').alt = this.post.title;
-          document.getElementById('post-featured-image').style.display = 'block';
+          document.getElementById('hero-img').src = this.post.image;
+          document.getElementById('hero-img').alt = this.post.title;
+          document.getElementById('hero-image').style.display = 'block';
+        } else {
+          document.querySelector('.hero-content').style.gridTemplateColumns = '1fr';
+          document.querySelector('.hero-text').style.textAlign = 'center';
         }
-
-        // Atualizar conteúdo
-        document.getElementById('post-content-text').innerHTML = this.formatContent(this.post.content);
-
-        // Atualizar tags
+        const contentParts = this.separateIntroContent(this.post.content);
+        document.getElementById('post-intro-content').innerHTML = contentParts.intro;
+        document.getElementById('post-intro-section').style.display = 'block';
+        document.getElementById('post-content-text').innerHTML = contentParts.main;
         this.renderTags();
       }
-
+      calculateReadingTime() {
+        const wordsPerMinute = 200;
+        const wordCount = this.post.content.split(' ').length;
+        return Math.ceil(wordCount / wordsPerMinute);
+      }
+      separateIntroContent(content) {
+        const paragraphs = content.split('\n\n').filter(p => p.trim());
+        const introParagraphs = paragraphs.slice(0, 2);
+        const mainParagraphs = paragraphs.slice(2);
+        return {
+          intro: introParagraphs.map(p => `<p>${p.trim()}</p>`).join(''),
+          main: mainParagraphs.map(p => `<p>${p.trim()}</p>`).join('')
+        };
+      }
       formatContent(content) {
-        // Converter quebras de linha em parágrafos
         const paragraphs = content.split('\n\n').filter(p => p.trim());
         return paragraphs.map(p => `<p>${p.trim()}</p>`).join('');
       }
-
       renderTags() {
         const container = document.getElementById('post-tags-container');
         container.innerHTML = '';
-
         this.post.tags.forEach(tag => {
           const tagElement = document.createElement('a');
           tagElement.href = `#`;
@@ -551,37 +1489,32 @@
           container.appendChild(tagElement);
         });
       }
-
       loadRelatedPosts() {
         const relatedPosts = this.getRelatedPosts();
         const container = document.getElementById('related-posts-container');
         container.innerHTML = '';
-
         if (relatedPosts.length === 0) {
           container.innerHTML = '<p style="text-align: center; color: #666;">Nenhum post relacionado encontrado.</p>';
           return;
         }
-
-        relatedPosts.forEach(post => {
+        relatedPosts.forEach((post, index) => {
           const postElement = document.createElement('article');
-          postElement.className = 'related-post';
+          postElement.className = `related-post reveal-bounce reveal-delay-${index + 1}`;
           
           postElement.innerHTML = `
             <div class="related-post-image">
               <img src="${post.image}" alt="${post.title}" loading="lazy">
             </div>
             <div class="related-post-content">
-              <h4 class="related-post-title">
+              <h3 class="related-post-title">
                 <a href="post.html?slug=${post.slug}">${post.title}</a>
-              </h4>
+              </h3>
               <span class="related-post-date">${BlogUtils.formatDate(post.date)}</span>
             </div>
           `;
-
           container.appendChild(postElement);
         });
       }
-
       getRelatedPosts(limit = 3) {
         return this.allPosts
           .filter(post => 
@@ -591,15 +1524,42 @@
           )
           .slice(0, limit);
       }
-
-
+      activateAnimations() {
+        setTimeout(() => {
+          const elements = document.querySelectorAll('.reveal-bounce, .reveal-scale-bounce, .reveal-flip, .reveal-fade-slide');
+          elements.forEach((element, index) => {
+            setTimeout(() => {
+              element.classList.add('active');
+            }, index * 200);
+          });
+        }, 300);
+      }
       showError() {
         document.getElementById('loading-state').style.display = 'none';
         document.getElementById('error-state').style.display = 'block';
       }
     }
-
-    // Inicializar quando DOM estiver carregado
+    function shareOnFacebook() {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+    }
+    function shareOnLinkedIn() {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=600,height=400');
+    }
+    function shareOnTwitter() {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '_blank', 'width=600,height=400');
+    }
+    function shareOnEmail() {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      const body = encodeURIComponent(`Confira este post: ${title}\n\n${url}`);
+      window.location.href = `mailto:?subject=${title}&body=${body}`;
+    }
     document.addEventListener('DOMContentLoaded', () => {
       window.postPageManager = new PostPageManager();
     });

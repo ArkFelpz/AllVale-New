@@ -69,8 +69,6 @@
     display: flex;
     align-items: center;
   }
-
-  /* Garantir que o nav seja visível em desktop */
   @media (min-width: 769px) {
     nav {
       display: flex !important;
@@ -331,20 +329,14 @@
     nav ul li:last-child a {
       border-bottom: none;
     }
-
-
-
   }
-
   @media (max-width: 480px) {
     .header-container {
       padding: 0 10px;
     }
-
     .logo {
       height: 45px;
     }
-
     nav ul li a {
       font-size: 14px;
       font-weight: 600;
@@ -356,7 +348,6 @@
 </style>
 
 <script>
-  // Função para alternar o menu mobile
   function toggleMenu() {
     const navbar = document.getElementById("navbar");
     const menuToggle = document.getElementById("menuToggle");
@@ -364,17 +355,14 @@
     console.log("TOGGLE MENU CLICKED!");
     
     if (navbar) {
-      // Verificar se está aberto
       const isOpen = navbar.style.display === "block" || navbar.classList.contains("active");
       
       if (isOpen) {
-        // Fechar menu
         navbar.style.display = "none";
         navbar.classList.remove("active");
         menuToggle.classList.remove("active");
         console.log("Menu CLOSED");
       } else {
-        // Abrir menu
         navbar.style.display = "block";
         navbar.style.background = "white";
         navbar.style.position = "fixed";
@@ -391,8 +379,6 @@
       console.error("Navbar not found!");
     }
   }
-
-  // Fechar menu ao clicar em um link
   function closeMenu() {
     const navbar = document.getElementById("navbar");
     const menuToggle = document.getElementById("menuToggle");
@@ -401,17 +387,12 @@
     menuToggle.classList.remove("active");
     document.body.style.overflow = "auto";
   }
-
-  // Destacar link ativo
   function setActiveLink() {
     const currentPath = window.location.pathname;
     const links = document.querySelectorAll("#navbar a");
-
     links.forEach(link => {
       link.classList.remove("active");
       const href = link.getAttribute("href");
-      
-      // Verificar se é a página atual
       if (href === currentPath || 
           (currentPath.endsWith('/') && href === 'index.html' && currentPath.includes('index.html')) ||
           (href === 'index.html' && currentPath === '/')) {
@@ -419,8 +400,6 @@
       }
     });
   }
-
-  // Função para header sticky em mobile
   function handleScroll() {
     const header = document.querySelector("header");
     const isMobile = window.innerWidth <= 768;
@@ -433,25 +412,18 @@
       }
     }
   }
-
-  // Função para detectar dispositivo móvel
   function isMobileDevice() {
     return window.innerWidth <= 768;
   }
-
-  // Função para ajustar padding do body quando header é fixo
   function adjustBodyPadding() {
     const header = document.querySelector("header");
     const isMobile = isMobileDevice();
-    
     if (isMobile) {
       document.body.style.paddingTop = "60px";
     } else {
       document.body.style.paddingTop = "0";
     }
   }
-
-  // Função para adicionar efeitos de hover nos links do menu
   function addMenuHoverEffects() {
     const navLinks = document.querySelectorAll("#navbar a");
     
@@ -467,22 +439,15 @@
       });
     });
   }
-
-  // Função para adicionar feedback tátil em dispositivos móveis
   function addTouchFeedback() {
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.querySelectorAll("#navbar a");
-    
-    // Feedback no botão do menu
     menuToggle.addEventListener("touchstart", function() {
       this.style.transform = "scale(0.95)";
     });
-    
     menuToggle.addEventListener("touchend", function() {
       this.style.transform = "scale(1)";
     });
-    
-    // Feedback nos links do menu
     navLinks.forEach(link => {
       link.addEventListener("touchstart", function() {
         this.style.backgroundColor = "rgba(243, 156, 18, 0.2)";
@@ -495,8 +460,6 @@
       });
     });
   }
-
-  // Função para adicionar animação de entrada do menu
   function animateMenuItems() {
     const navLinks = document.querySelectorAll("#navbar a");
     
@@ -504,8 +467,6 @@
       link.style.animationDelay = `${index * 0.1}s`;
     });
   }
-
-  // Função para garantir que o menu esteja no estado correto baseado no tamanho da tela
   function ensureCorrectMenuState() {
     const navbar = document.getElementById("navbar");
     const menuToggle = document.getElementById("menuToggle");
@@ -513,12 +474,10 @@
     
     if (navbar && menuToggle) {
       if (isMobile) {
-        // Em mobile, o menu deve estar oculto por padrão
         if (!navbar.classList.contains("active")) {
           navbar.style.display = "none";
         }
       } else {
-        // Em desktop, o menu deve estar visível
         navbar.style.display = "flex";
         navbar.classList.remove("active");
         navbar.style.background = "";
@@ -532,35 +491,21 @@
       }
     }
   }
-
-  // Event listeners
   document.addEventListener("DOMContentLoaded", function() {
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.querySelectorAll("#navbar a");
     const header = document.querySelector("header");
-    
-    // Debug: verificar se os elementos existem
     console.log("Menu Toggle:", menuToggle);
     console.log("Navbar:", document.getElementById("navbar"));
     console.log("Nav Links:", navLinks);
-    
-    // Garantir estado correto do menu
     ensureCorrectMenuState();
-    
-    // Ajustar padding inicial
     adjustBodyPadding();
-    
-    // Event listeners removidos - usando onclick no HTML
-    
-    // Fechar menu ao clicar em links
     navLinks.forEach(link => {
       link.addEventListener("click", function(e) {
         e.stopPropagation();
         closeMenu();
       });
     });
-    
-    // Fechar menu ao clicar fora
     document.addEventListener("click", function(e) {
       const navbar = document.getElementById("navbar");
       const menuToggle = document.getElementById("menuToggle");
@@ -569,34 +514,22 @@
         closeMenu();
       }
     });
-    
-    // Fechar menu com tecla ESC
     document.addEventListener("keydown", function(e) {
       if (e.key === "Escape") {
         closeMenu();
       }
     });
-    
-    // Definir link ativo
     setActiveLink();
-    
-    // Scroll listener para header sticky
     window.addEventListener("scroll", handleScroll);
-    
-    // Resize listener para ajustar responsividade
     window.addEventListener("resize", function() {
       adjustBodyPadding();
-      ensureCorrectMenuState(); // Usar a função centralizada
+      ensureCorrectMenuState(); 
       header.classList.remove("scrolled");
     });
-    
-    // Adicionar efeitos extras
     addMenuHoverEffects();
     addTouchFeedback();
     animateMenuItems();
   });
-
-  // Fallback: tentar novamente após um pequeno delay
   setTimeout(function() {
     const menuToggle = document.getElementById("menuToggle");
     if (menuToggle && !menuToggle.onclick) {
@@ -609,8 +542,6 @@
       });
     }
   }, 100);
-
-  // Função global para debug
   window.debugMenu = function() {
     const navbar = document.getElementById("navbar");
     const menuToggle = document.getElementById("menuToggle");
@@ -622,8 +553,6 @@
     console.log("Is mobile:", window.innerWidth <= 768);
     console.log("==================");
   };
-
-  // Função de teste direta
   window.testMenu = function() {
     const navbar = document.getElementById("navbar");
     console.log("=== TESTING MENU ===");
@@ -642,8 +571,6 @@
     }
     console.log("===================");
   };
-
-  // Função para forçar abertura
   window.forceOpenMenu = function() {
     toggleMenu();
   };
