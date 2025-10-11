@@ -1174,15 +1174,6 @@ body {
   text-align: left;
 }
 
-.section-title2 {
-  font-family: "Montserrat", Sans-serif;
-  font-size: 48px;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 40px;
-  line-height: 1.1;
-  text-align: center;
-}
 
 .product-title1 {
   font-family: "Montserrat", Sans-serif;
@@ -1462,65 +1453,6 @@ body {
   font-weight: 400;
 }
 
-.exclusive-section {
-  padding: 80px 0;
-  background: #f8f8f8;
-  text-align: center;
-}
-
-.exclusive-content {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.exclusive-badge {
-  background: linear-gradient(139deg, #000059 0%, #223E70 100%);
-  padding: 40px 60px;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); 
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  max-width: 400px;
-  width: 100%;
-}
-
-.exclusive-badge::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-  z-index: 1;
-}
-
-.exclusive-title {
-  font-family: "Montserrat", Sans-serif;
-  font-size: 32px;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 10px;
-  line-height: 1.2;
-  position: relative;
-  z-index: 2;
-}
-
-.exclusive-tag {
-  font-family: "Montserrat", Sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 8px 20px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  position: relative;
-  z-index: 2;
-}
 
 /* Divisor Visual entre seções */
 .section-divider {
@@ -2338,9 +2270,6 @@ body {
     font-size: 42px;
   }
 
-  .section-title2 {
-    font-size: 42px;
-  }
 
   .about-content {
     grid-template-columns: 1fr;
@@ -2473,11 +2402,6 @@ body {
     margin-bottom: 30px;
   }
 
-  .section-title2 {
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 30px;
-  }
 
   .quality-section .section-title {
     font-size: 22px;
@@ -2687,10 +2611,6 @@ body {
     margin-bottom: 25px;
   }
 
-  .section-title2 {
-    font-size: 28px;
-    margin-bottom: 25px;
-  }
 
   .quality-section .section-title {
     font-size: 18px;
@@ -2834,9 +2754,6 @@ body {
     font-size: 24px;
   }
 
-  .section-title2 {
-    font-size: 24px;
-  }
 
   .quality-section .section-title {
     font-size: 16px;
